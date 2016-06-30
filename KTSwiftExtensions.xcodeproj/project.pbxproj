@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		684B16261D2531F800ED4253 /* KTCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684B16251D2531F800ED4253 /* KTCameraViewController.swift */; };
+		684B16291D25324900ED4253 /* KTCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684B16281D25324900ED4253 /* KTCameraView.swift */; };
 		68A6AF1F1D24EAA600E550B8 /* BuildConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6E0E1D24E2F7004F3930 /* BuildConfig.swift */; };
 		68A6AF201D24EAA600E550B8 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6DE41D24DFCE004F3930 /* ArrayExtensions.swift */; };
 		68A6AF211D24EAA600E550B8 /* CLLocationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6DE51D24DFCE004F3930 /* CLLocationExtensions.swift */; };
@@ -63,6 +65,8 @@
 		680A6E0B1D24E005004F3930 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Functions.swift; path = helpers/Functions.swift; sourceTree = "<group>"; };
 		680A6E0E1D24E2F7004F3930 /* BuildConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BuildConfig.swift; path = enums/BuildConfig.swift; sourceTree = "<group>"; };
 		680A6E101D24E3C0004F3930 /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Regex.swift; path = helpers/Regex.swift; sourceTree = "<group>"; };
+		684B16251D2531F800ED4253 /* KTCameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTCameraViewController.swift; path = controllers/KTCameraViewController.swift; sourceTree = "<group>"; };
+		684B16281D25324900ED4253 /* KTCameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTCameraView.swift; path = views/KTCameraView.swift; sourceTree = "<group>"; };
 		D9FEF4B41CCEBC0D0013FBDD /* KTSwiftExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KTSwiftExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9FEF4B91CCEBC0D0013FBDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9FEF4BE1CCEBC0F0013FBDD /* KTSwiftExtensionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KTSwiftExtensionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +134,22 @@
 			name = enums;
 			sourceTree = "<group>";
 		};
+		684B16241D2531EA00ED4253 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				684B16251D2531F800ED4253 /* KTCameraViewController.swift */,
+			);
+			name = controllers;
+			sourceTree = "<group>";
+		};
+		684B16271D25323A00ED4253 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				684B16281D25324900ED4253 /* KTCameraView.swift */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
 		D9E0667E1CCECAFF00E0D7CB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +179,8 @@
 		D9FEF4B61CCEBC0D0013FBDD /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				684B16241D2531EA00ED4253 /* controllers */,
+				684B16271D25323A00ED4253 /* views */,
 				680A6E0D1D24E2E8004F3930 /* enums */,
 				680A6DE31D24DF96004F3930 /* extensions */,
 				680A6E0A1D24DFF6004F3930 /* helpers */,
@@ -292,6 +314,7 @@
 				68A6AF251D24EAA600E550B8 /* NSDateExtensions.swift in Sources */,
 				68A6AF2F1D24EAA600E550B8 /* UITableViewExtensions.swift in Sources */,
 				68A6AF281D24EAA600E550B8 /* NSNotificationCenterExtensions.swift in Sources */,
+				684B16261D2531F800ED4253 /* KTCameraViewController.swift in Sources */,
 				68A6AF211D24EAA600E550B8 /* CLLocationExtensions.swift in Sources */,
 				68A6AF311D24EAA600E550B8 /* UIViewExtensions.swift in Sources */,
 				68A6AF271D24EAA600E550B8 /* NSDictionaryExtensions.swift in Sources */,
@@ -302,6 +325,7 @@
 				68A6AF331D24EAA600E550B8 /* Regex.swift in Sources */,
 				68A6AF261D24EAA600E550B8 /* NSDateFormatterExtensions.swift in Sources */,
 				68A6AF221D24EAA600E550B8 /* DictionaryExtensions.swift in Sources */,
+				684B16291D25324900ED4253 /* KTCameraView.swift in Sources */,
 				68A6AF231D24EAA600E550B8 /* MKMapViewExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,6 +442,7 @@
 		D9FEF4C91CCEBC100013FBDD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -436,6 +461,7 @@
 		D9FEF4CA1CCEBC100013FBDD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
