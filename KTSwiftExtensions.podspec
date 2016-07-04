@@ -10,5 +10,7 @@ Pod::Spec.new do |s|
   s.source_files = 'Source/**/*.swift'
 
   s.ios.deployment_target = '9.3'
+  s.ios.dependency 'Alamofire'
+  s.ios.dependency 'AlamofireObjectMapper'
   s.ios.dependency 'MBProgressHUD'
 end

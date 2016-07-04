@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		680C22031D2AB0F800D1A778 /* KTS3Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680C22021D2AB0F800D1A778 /* KTS3Service.swift */; };
+		680C22061D2AB87300D1A778 /* KTPresignedS3Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680C22051D2AB87300D1A778 /* KTPresignedS3Request.swift */; };
 		684B16261D2531F800ED4253 /* KTCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684B16251D2531F800ED4253 /* KTCameraViewController.swift */; };
 		684B16291D25324900ED4253 /* KTCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684B16281D25324900ED4253 /* KTCameraView.swift */; };
 		68A6AF1F1D24EAA600E550B8 /* BuildConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6E0E1D24E2F7004F3930 /* BuildConfig.swift */; };
@@ -65,6 +67,8 @@
 		680A6E0B1D24E005004F3930 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Functions.swift; path = helpers/Functions.swift; sourceTree = "<group>"; };
 		680A6E0E1D24E2F7004F3930 /* BuildConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BuildConfig.swift; path = enums/BuildConfig.swift; sourceTree = "<group>"; };
 		680A6E101D24E3C0004F3930 /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Regex.swift; path = helpers/Regex.swift; sourceTree = "<group>"; };
+		680C22021D2AB0F800D1A778 /* KTS3Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTS3Service.swift; path = services/KTS3Service.swift; sourceTree = "<group>"; };
+		680C22051D2AB87300D1A778 /* KTPresignedS3Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTPresignedS3Request.swift; path = models/KTPresignedS3Request.swift; sourceTree = "<group>"; };
 		684B16251D2531F800ED4253 /* KTCameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTCameraViewController.swift; path = controllers/KTCameraViewController.swift; sourceTree = "<group>"; };
 		684B16281D25324900ED4253 /* KTCameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTCameraView.swift; path = views/KTCameraView.swift; sourceTree = "<group>"; };
 		D9FEF4B41CCEBC0D0013FBDD /* KTSwiftExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KTSwiftExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +138,22 @@
 			name = enums;
 			sourceTree = "<group>";
 		};
+		680C22011D2AB0D000D1A778 /* services */ = {
+			isa = PBXGroup;
+			children = (
+				680C22021D2AB0F800D1A778 /* KTS3Service.swift */,
+			);
+			name = services;
+			sourceTree = "<group>";
+		};
+		680C22041D2AB1DC00D1A778 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				680C22051D2AB87300D1A778 /* KTPresignedS3Request.swift */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
 		684B16241D2531EA00ED4253 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +201,8 @@
 			children = (
 				684B16241D2531EA00ED4253 /* controllers */,
 				684B16271D25323A00ED4253 /* views */,
+				680C22041D2AB1DC00D1A778 /* models */,
+				680C22011D2AB0D000D1A778 /* services */,
 				680A6E0D1D24E2E8004F3930 /* enums */,
 				680A6DE31D24DF96004F3930 /* extensions */,
 				680A6E0A1D24DFF6004F3930 /* helpers */,
@@ -306,6 +328,7 @@
 			files = (
 				68A6AF2A1D24EAA600E550B8 /* StringExtensions.swift in Sources */,
 				68A6AF291D24EAA600E550B8 /* NSURLExtensions.swift in Sources */,
+				680C22031D2AB0F800D1A778 /* KTS3Service.swift in Sources */,
 				68A6AF2B1D24EAA600E550B8 /* UIColorExtensions.swift in Sources */,
 				68A6AF321D24EAA600E550B8 /* Functions.swift in Sources */,
 				68A6AF2D1D24EAA600E550B8 /* UIStoryboardExtensions.swift in Sources */,
@@ -326,6 +349,7 @@
 				68A6AF261D24EAA600E550B8 /* NSDateFormatterExtensions.swift in Sources */,
 				68A6AF221D24EAA600E550B8 /* DictionaryExtensions.swift in Sources */,
 				684B16291D25324900ED4253 /* KTCameraView.swift in Sources */,
+				680C22061D2AB87300D1A778 /* KTPresignedS3Request.swift in Sources */,
 				68A6AF231D24EAA600E550B8 /* MKMapViewExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
