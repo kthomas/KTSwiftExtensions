@@ -15,16 +15,32 @@ public class KTS3Service: NSObject {
                              filename: String,
                              metadata: [String : String],
                              headers: [String : String],
-                             completionHandler: Response<KTPresignedS3Request, NSError> -> Void) {
+                             successHandler: KTApiSuccessHandler?,
+                             failureHandler: KTApiFailureHandler?) {
         let request = Alamofire.request(.GET, url, parameters: ["filename": filename, "metadata": metadata.toJSONString()], headers: headers)
-        request.responseObject(completionHandler: completionHandler)
+        KTApiService.sharedService().execute(request,
+            successHandler: { object in
+                successHandler?(object)
+            },
+            failureHandler: { response, object, error in
+                failureHandler?(response, object, error)
+            }
+        )
     }
 
     public class func upload(presignedS3Request: KTPresignedS3Request,
                       data: NSData,
                       withMimeType mimeType: String,
-                      completionHandler: Response<NSData, NSError> -> Void) {
+                      successHandler: KTApiSuccessHandler?,
+                      failureHandler: KTApiFailureHandler?) {
         let request = Alamofire.upload(.PUT, NSURL(presignedS3Request.url), headers: presignedS3Request.signedHeaders, data: data)
-        request.responseData(completionHandler: completionHandler)
+        KTApiService.sharedService().execute(request,
+            successHandler: { object in
+                successHandler?(object)
+            },
+            failureHandler: { response, object, error in
+                failureHandler?(response, object, error)
+            }
+        )
     }
 }
