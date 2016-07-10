@@ -10,8 +10,8 @@ import ObjectMapper
 
 class KTError: KTModel {
 
-    var message: String!
-    var status: Int!
+    public var message: String!
+    public var status: Int!
 
     public required init?(_ map: Map){
         super.init(map)
