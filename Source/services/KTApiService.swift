@@ -31,7 +31,7 @@ public class KTApiService: NSObject {
         dispatchQueue = dispatch_queue_create("api.dispatchQueue", DISPATCH_QUEUE_CONCURRENT)
     }
 
-    private class func objectClassForPath(path: String) -> AnyClass? {
+    public func objectClassForPath(path: String) -> AnyClass? {
         var path = path
         let parts = path.characters.split("/").map { String($0) }
         if parts.count > 5 {
@@ -60,7 +60,7 @@ public class KTApiService: NSObject {
                 log("Network request successful [status: \(statusCode); request duration: \(response.timeline.requestDuration * 1000.0)ms; total duration: \(response.timeline.totalDuration * 1000.0)]:\n\(request)")
 
                 if let value = response.result.value {
-                    if let clazz = KTApiService.objectClassForPath(request.request?.URL?.path ?? "") as? KTModel.Type {
+                    if let clazz = self.objectClassForPath(request.request?.URL?.path ?? "") as? KTModel.Type {
                         var obj: AnyObject?
 
                         if statusCode < 300 {
