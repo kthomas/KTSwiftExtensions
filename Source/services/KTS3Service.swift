@@ -18,14 +18,7 @@ public class KTS3Service: NSObject {
                              successHandler: KTApiSuccessHandler?,
                              failureHandler: KTApiFailureHandler?) {
         let request = Alamofire.request(.GET, url, parameters: ["filename": filename, "metadata": metadata.toJSONString()], headers: headers)
-        KTApiService.sharedService().execute(request,
-            successHandler: { object in
-                successHandler?(object)
-            },
-            failureHandler: { response, object, error in
-                failureHandler?(response, object, error)
-            }
-        )
+        KTApiService.sharedService().execute(request, successHandler: successHandler, failureHandler: failureHandler)
     }
 
     public class func upload(presignedS3Request: KTPresignedS3Request,
@@ -34,13 +27,6 @@ public class KTS3Service: NSObject {
                       successHandler: KTApiSuccessHandler?,
                       failureHandler: KTApiFailureHandler?) {
         let request = Alamofire.upload(.PUT, NSURL(presignedS3Request.url), headers: presignedS3Request.signedHeaders, data: data)
-        KTApiService.sharedService().execute(request,
-            successHandler: { object in
-                successHandler?(object)
-            },
-            failureHandler: { response, object, error in
-                failureHandler?(response, object, error)
-            }
-        )
+        KTApiService.sharedService().execute(request, successHandler: successHandler, failureHandler: failureHandler)
     }
 }
