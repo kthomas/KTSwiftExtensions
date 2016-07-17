@@ -71,6 +71,10 @@ public class KTApiService: NSObject {
                                               context: nil)
                                 obj = clazz.init()
                                 (obj as! KTModel).mapping(map)
+
+                                if let obj = obj {
+                                    log("Parsed response value:\n\((obj as! KTModel).toJSON())")
+                                }
                             } else if let val = value as? [[String : AnyObject]] {
                                 var objects = [KTModel]()
                                 for v in val {
@@ -83,10 +87,10 @@ public class KTApiService: NSObject {
                                     objects.append(objInstance)
                                 }
                                 obj = objects
-                            }
 
-                            if let obj = obj {
-                                log("Parsed response value:\n\((obj as! KTModel).toJSON())")
+                                if let obj = obj {
+                                    log("Parsed response value:\n\((obj as! [KTModel]).toJSON())")
+                                }
                             }
 
                             dispatch_async_main_queue {
