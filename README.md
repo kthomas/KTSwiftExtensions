@@ -6,8 +6,6 @@
 [![Platform](https://img.shields.io/cocoapods/p/KTSwiftExtensions.svg?style=flat)](http://cocoadocs.org/docsets/KTSwiftExtensions)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
-<a href="placehold.it/400?text=Screen+shot"><img width=200 height=200 src="placehold.it/400?text=Screen+shot" alt="Screenshot" /></a>
-
 
 ## Example
 

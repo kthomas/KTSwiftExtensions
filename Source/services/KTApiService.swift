@@ -86,7 +86,7 @@ public class KTApiService: NSObject {
                             }
 
                             if let obj = obj {
-                                log("Parsed response value:\n\((obj as! KTModel).toJSON())")
+                                log("Parsed response value:\n\(obj)")
                             }
 
                             dispatch_async_main_queue {
