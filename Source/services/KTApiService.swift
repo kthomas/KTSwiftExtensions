@@ -57,7 +57,8 @@ public class KTApiService: NSObject {
 
             if error == nil {
                 let statusCode = response.response!.statusCode
-                log("Network request successful [status: \(statusCode); request duration: \(response.timeline.requestDuration * 1000.0)ms; total duration: \(response.timeline.totalDuration * 1000.0)]:\n\(request)")
+                let requestDurationMillis = response.timeline.requestDuration * 1000.0
+                logInfo("Network request successful [status: \(statusCode); request duration: \(requestDurationMillis)ms; total duration: \(requestDurationMillis)]:\n\(request)")
 
                 if let value = response.result.value {
                     if let clazz = self.objectClassForPath(request.request?.URL?.path ?? "") as? KTModel.Type {
@@ -85,15 +86,11 @@ public class KTApiService: NSObject {
                                 obj = objects
                             }
 
-                            if let obj = obj {
-                                log("Parsed response value:\n\(obj)")
-                            }
-
                             dispatch_async_main_queue {
                                 successHandler?(obj)
                             }
                         } else {
-                            log("Parsed response with \(statusCode) status code")
+                            logWarn("Parsed response with \(statusCode) status code")
 
                             switch statusCode {
                             case 401:
@@ -125,7 +122,7 @@ public class KTApiService: NSObject {
                                     successHandler?(dataResponse.result.value)
                                 }
                             } else {
-                                log("Parsed data response with \(statusCode) status code")
+                                logWarn("Parsed data response with \(statusCode) status code")
                                 dispatch_async_main_queue {
                                     failureHandler?(dataResponse.response, nil, nil)
                                 }
@@ -143,17 +140,17 @@ public class KTApiService: NSObject {
                                 successHandler?(dataResponse.result.value)
                             }
                         } else {
-                            log("Parsed data response with \(statusCode) status code")
+                            logWarn("Parsed data response with \(statusCode) status code")
                             dispatch_async_main_queue {
                                 failureHandler?(dataResponse.response, nil, nil)
                             }
                         }
                     }
                 } else {
-                    log("Error with network request:\n\(request); \(error); retrying...")
-                    KTApiService.sharedService().execute(Alamofire.request(request.request!.URLRequest),
-                                                         successHandler: successHandler,
-                                                         failureHandler: failureHandler)
+                    logWarn("Error with network request:\n\(request); \(error); retrying...")
+                    self.execute(Alamofire.request(request.request!.URLRequest),
+                                 successHandler: successHandler,
+                                 failureHandler: failureHandler)
                 }
             }
         }
