@@ -35,6 +35,7 @@
 		68A6AF311D24EAA600E550B8 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6DF61D24DFCE004F3930 /* UIViewExtensions.swift */; };
 		68A6AF321D24EAA600E550B8 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6E0B1D24E005004F3930 /* Functions.swift */; };
 		68A6AF331D24EAA600E550B8 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6E101D24E3C0004F3930 /* Regex.swift */; };
+		68AD311F1D3C2F64003EA29B /* KTDraggableViewGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AD311E1D3C2F64003EA29B /* KTDraggableViewGestureRecognizer.swift */; };
 		D9FEF4BF1CCEBC0F0013FBDD /* KTSwiftExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9FEF4B41CCEBC0D0013FBDD /* KTSwiftExtensions.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,7 @@
 		680C22151D3189F800D1A778 /* KTError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTError.swift; path = models/KTError.swift; sourceTree = "<group>"; };
 		684B16251D2531F800ED4253 /* KTCameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTCameraViewController.swift; path = controllers/KTCameraViewController.swift; sourceTree = "<group>"; };
 		684B16281D25324900ED4253 /* KTCameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTCameraView.swift; path = views/KTCameraView.swift; sourceTree = "<group>"; };
+		68AD311E1D3C2F64003EA29B /* KTDraggableViewGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTDraggableViewGestureRecognizer.swift; path = gestures/KTDraggableViewGestureRecognizer.swift; sourceTree = "<group>"; };
 		D9FEF4B41CCEBC0D0013FBDD /* KTSwiftExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KTSwiftExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9FEF4B91CCEBC0D0013FBDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9FEF4BE1CCEBC0F0013FBDD /* KTSwiftExtensionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KTSwiftExtensionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,6 +181,14 @@
 			name = views;
 			sourceTree = "<group>";
 		};
+		68AD311D1D3C2F42003EA29B /* gestures */ = {
+			isa = PBXGroup;
+			children = (
+				68AD311E1D3C2F64003EA29B /* KTDraggableViewGestureRecognizer.swift */,
+			);
+			name = gestures;
+			sourceTree = "<group>";
+		};
 		D9E0667E1CCECAFF00E0D7CB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +222,7 @@
 				684B16271D25323A00ED4253 /* views */,
 				680C22041D2AB1DC00D1A778 /* models */,
 				680C22011D2AB0D000D1A778 /* services */,
+				68AD311D1D3C2F42003EA29B /* gestures */,
 				680A6E0D1D24E2E8004F3930 /* enums */,
 				680A6DE31D24DF96004F3930 /* extensions */,
 				680A6E0A1D24DFF6004F3930 /* helpers */,
@@ -351,6 +362,7 @@
 				68A6AF311D24EAA600E550B8 /* UIViewExtensions.swift in Sources */,
 				68A6AF271D24EAA600E550B8 /* NSDictionaryExtensions.swift in Sources */,
 				68A6AF241D24EAA600E550B8 /* MKPolygonExtensions.swift in Sources */,
+				68AD311F1D3C2F64003EA29B /* KTDraggableViewGestureRecognizer.swift in Sources */,
 				680C22141D31885400D1A778 /* KTModel.swift in Sources */,
 				680C22161D3189F800D1A778 /* KTError.swift in Sources */,
 				68A6AF2C1D24EAA600E550B8 /* UIImageExtensions.swift in Sources */,
