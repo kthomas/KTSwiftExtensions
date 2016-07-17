@@ -158,18 +158,6 @@ public class KTDraggableViewGestureRecognizer: UIGestureRecognizer {
         var newFrame = CGRect(origin: view.frame.origin, size: view.frame.size)
         newFrame.origin.x += xOffset
         newFrame.origin.y += yOffset
-        
-        let x = newFrame.origin.x
-        let y = newFrame.origin.y
-        
-        if x < 0.0 {
-            newFrame.origin.x = 0.0
-        }
-        
-        if y < 0.0 {
-            newFrame.origin.y = 0.0
-        }
-        
         view.frame = newFrame
     }
 }
