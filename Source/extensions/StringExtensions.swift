@@ -9,7 +9,7 @@
 import Foundation
 
 infix operator =~ { associativity right precedence 90 }
-func =~ (input: String, pattern: String) -> Bool {
+public func =~ (input: String, pattern: String) -> Bool {
     return Regex(pattern).test(input)
 }
 
