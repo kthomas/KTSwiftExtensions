@@ -8,7 +8,7 @@
 
 import MapKit
 
-extension MKPolygon {
+public extension MKPolygon {
 
     class func areaWithPoints(points: [CGPoint]) -> CGFloat {
         if points.count < 3 {

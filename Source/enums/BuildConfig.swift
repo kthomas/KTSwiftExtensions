@@ -16,6 +16,6 @@ let CurrentBuildConfig = BuildConfig.AppStore
 let CurrentBuildConfig = BuildConfig.Debug
 #endif
 
-enum BuildConfig {
+public enum BuildConfig {
     case Debug, AppStore
 }

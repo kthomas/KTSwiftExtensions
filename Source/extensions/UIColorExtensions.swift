@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIColor {
+public extension UIColor {
 
     convenience init(_ hexString: String) {
         var rgb: UInt32 = 0

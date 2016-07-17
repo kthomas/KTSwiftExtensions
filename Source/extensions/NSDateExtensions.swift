@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension NSDate {
+public extension NSDate {
 
     override public var debugDescription: String {
         return NSDateFormatter(dateFormat: "yyyy-MM-dd HH:mm:ss a").stringFromDate(self)

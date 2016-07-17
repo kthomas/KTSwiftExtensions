@@ -14,14 +14,6 @@ public class KTPresignedS3Request: KTModel {
     public var signedHeaders = [String : String]()
     public var url: String!
 
-    public required init?(_ map: Map){
-        super.init(map)
-    }
-
-    public override required init() {
-        super.init()
-    }
-
     public override func mapping(map: Map) {
         metadata <- map["metadata"]
         signedHeaders <- map["signed_headers"]

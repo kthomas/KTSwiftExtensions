@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension NSNotificationCenter {
+public extension NSNotificationCenter {
 
     func postNotificationName(aName: String) {
         postNotificationName(aName, object: nil)

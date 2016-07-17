@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension NSDateFormatter {
+public extension NSDateFormatter {
 
     convenience init(dateFormat: String) {
         self.init()

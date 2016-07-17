@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Array {
+public extension Array {
 
     func each(block: (Element) -> Void) {
         for object in self {

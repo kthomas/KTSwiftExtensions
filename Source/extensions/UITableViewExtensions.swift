@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UITableView {
+public extension UITableView {
 
     subscript(reuseIdentifier: String) -> UITableViewCell {
         return dequeueReusableCellWithIdentifier(reuseIdentifier)!

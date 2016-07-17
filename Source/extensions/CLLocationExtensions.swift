@@ -13,7 +13,7 @@ let horizontalAccuracyThreshold: Double = 10.0
 let verticalAccuracyThreshold: Double = 10.0
 let earthRadiusInMiles = 3964.037911746
 
-extension CLLocation {
+public extension CLLocation {
 
     var isAccurate: Bool {
         return realTime && horizontallyAccurate && verticallyAccurate && validSpeed

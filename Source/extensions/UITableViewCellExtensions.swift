@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UITableViewCell {
+public extension UITableViewCell {
 
     func enableEdgeToEdgeDividers() {
         layoutMargins = UIEdgeInsetsZero

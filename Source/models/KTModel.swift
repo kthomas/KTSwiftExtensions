@@ -32,7 +32,7 @@ public class KTModel: NSObject, Mappable {
     }
 
     public required init?(_ map: Map){
-
+        super.init()
     }
 
     public func mapping(map: Map) {

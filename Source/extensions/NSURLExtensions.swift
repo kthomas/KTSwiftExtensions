@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension NSURL {
+public extension NSURL {
 
     convenience init!(_ urlString: String) {
         self.init(string: urlString)

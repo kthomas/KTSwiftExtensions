@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension NSDictionary {
+public extension NSDictionary {
 
     func toJSON() -> String! {
         let jsonData = encodeJSON(self)

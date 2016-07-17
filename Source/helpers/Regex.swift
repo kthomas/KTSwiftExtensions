@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Regex {
+public class Regex {
 
     class func match(pattern: String, input: String) -> [NSTextCheckingResult] {
         return Regex(pattern).match(input)
@@ -17,7 +17,7 @@ class Regex {
     let internalExpression: NSRegularExpression!
     let pattern: String
 
-    init(_ pattern: String) {
+    public init(_ pattern: String) {
         self.pattern = pattern
 
         do {
@@ -28,7 +28,7 @@ class Regex {
         }
     }
 
-    func match(input: String) -> [NSTextCheckingResult] {
+    public func match(input: String) -> [NSTextCheckingResult] {
         var matches = [NSTextCheckingResult]()
         if let internalExpression = internalExpression {
             matches = internalExpression.matchesInString(input, options: .Anchored, range: NSMakeRange(0, input.startIndex.distanceTo(input.endIndex)))
@@ -36,7 +36,7 @@ class Regex {
         return matches
     }
 
-    func test(input: String) -> Bool {
+    public func test(input: String) -> Bool {
         return match(input).count > 0
     }
 }

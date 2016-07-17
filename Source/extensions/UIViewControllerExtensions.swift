@@ -9,7 +9,7 @@
 import UIKit
 import MBProgressHUD
 
-extension UIViewController {
+public extension UIViewController {
 
     // MARK: Child view controller presentation
 

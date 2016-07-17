@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIStoryboard {
+public extension UIStoryboard {
 
     convenience init(_ name: String) {
         self.init(name: name, bundle: nil)

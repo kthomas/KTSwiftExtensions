@@ -13,7 +13,7 @@ func =~ (input: String, pattern: String) -> Bool {
     return Regex(pattern).test(input)
 }
 
-extension String {
+public extension String {
 
     var length: Int {
         return lengthOfBytesUsingEncoding(NSUTF8StringEncoding)

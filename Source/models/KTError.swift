@@ -8,18 +8,10 @@
 
 import ObjectMapper
 
-class KTError: KTModel {
+public class KTError: KTModel {
 
     public var message: String!
     public var status: Int!
-
-    public required init?(_ map: Map){
-        super.init(map)
-    }
-
-    public override required init() {
-        super.init()
-    }
 
     public override func mapping(map: Map) {
         message <- map["message"]

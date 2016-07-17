@@ -11,7 +11,7 @@ import MapKit
 let mercatorOffset = Double(268435456)
 let mercatorRadius = Double(85445659.44705395)
 
-extension MKMapView {
+public extension MKMapView {
 
     // MARK: Map conversion methods
 
