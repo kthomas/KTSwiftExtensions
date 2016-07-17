@@ -12,5 +12,5 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '9.3'
   s.ios.dependency 'Alamofire'
   s.ios.dependency 'AlamofireObjectMapper'
-  s.ios.dependency 'MBProgressHUD'
+  s.ios.dependency 'MBProgressHUD', '~> 0.9.1'
 end
