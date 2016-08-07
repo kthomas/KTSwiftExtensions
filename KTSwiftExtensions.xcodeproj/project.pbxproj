@@ -36,6 +36,7 @@
 		68A6AF321D24EAA600E550B8 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6E0B1D24E005004F3930 /* Functions.swift */; };
 		68A6AF331D24EAA600E550B8 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6E101D24E3C0004F3930 /* Regex.swift */; };
 		68AD311F1D3C2F64003EA29B /* KTDraggableViewGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AD311E1D3C2F64003EA29B /* KTDraggableViewGestureRecognizer.swift */; };
+		68C0E6571D56ECEB00157123 /* KTJwtService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C0E6561D56ECEB00157123 /* KTJwtService.swift */; };
 		D9FEF4BF1CCEBC0F0013FBDD /* KTSwiftExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9FEF4B41CCEBC0D0013FBDD /* KTSwiftExtensions.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		684B16251D2531F800ED4253 /* KTCameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTCameraViewController.swift; path = controllers/KTCameraViewController.swift; sourceTree = "<group>"; };
 		684B16281D25324900ED4253 /* KTCameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTCameraView.swift; path = views/KTCameraView.swift; sourceTree = "<group>"; };
 		68AD311E1D3C2F64003EA29B /* KTDraggableViewGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTDraggableViewGestureRecognizer.swift; path = gestures/KTDraggableViewGestureRecognizer.swift; sourceTree = "<group>"; };
+		68C0E6561D56ECEB00157123 /* KTJwtService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTJwtService.swift; path = services/KTJwtService.swift; sourceTree = "<group>"; };
 		D9FEF4B41CCEBC0D0013FBDD /* KTSwiftExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KTSwiftExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9FEF4B91CCEBC0D0013FBDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9FEF4BE1CCEBC0F0013FBDD /* KTSwiftExtensionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KTSwiftExtensionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				680C220F1D31867800D1A778 /* KTApiService.swift */,
+				68C0E6561D56ECEB00157123 /* KTJwtService.swift */,
 				680C22021D2AB0F800D1A778 /* KTS3Service.swift */,
 			);
 			name = services;
@@ -350,6 +353,7 @@
 				68A6AF291D24EAA600E550B8 /* NSURLExtensions.swift in Sources */,
 				680C22031D2AB0F800D1A778 /* KTS3Service.swift in Sources */,
 				68A6AF2B1D24EAA600E550B8 /* UIColorExtensions.swift in Sources */,
+				68C0E6571D56ECEB00157123 /* KTJwtService.swift in Sources */,
 				68A6AF321D24EAA600E550B8 /* Functions.swift in Sources */,
 				68A6AF2D1D24EAA600E550B8 /* UIStoryboardExtensions.swift in Sources */,
 				68A6AF301D24EAA600E550B8 /* UIViewControllerExtensions.swift in Sources */,
