@@ -10,7 +10,7 @@ import Foundation
 
 infix operator =~ { associativity right precedence 90 }
 public func =~ (input: String, pattern: String) -> Bool {
-    return Regex(pattern).test(input)
+    return KTRegex(pattern).test(input)
 }
 
 public extension String {

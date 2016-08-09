@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		680006D71D596F94007E74D2 /* KTVersionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680006D61D596F94007E74D2 /* KTVersionHelper.swift */; };
 		680C22031D2AB0F800D1A778 /* KTS3Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680C22021D2AB0F800D1A778 /* KTS3Service.swift */; };
 		680C22061D2AB87300D1A778 /* KTPresignedS3Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680C22051D2AB87300D1A778 /* KTPresignedS3Request.swift */; };
 		680C22101D31867800D1A778 /* KTApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680C220F1D31867800D1A778 /* KTApiService.swift */; };
@@ -33,8 +34,8 @@
 		68A6AF2F1D24EAA600E550B8 /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6DF41D24DFCE004F3930 /* UITableViewExtensions.swift */; };
 		68A6AF301D24EAA600E550B8 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6DF51D24DFCE004F3930 /* UIViewControllerExtensions.swift */; };
 		68A6AF311D24EAA600E550B8 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6DF61D24DFCE004F3930 /* UIViewExtensions.swift */; };
-		68A6AF321D24EAA600E550B8 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6E0B1D24E005004F3930 /* Functions.swift */; };
-		68A6AF331D24EAA600E550B8 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6E101D24E3C0004F3930 /* Regex.swift */; };
+		68A6AF321D24EAA600E550B8 /* KTFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6E0B1D24E005004F3930 /* KTFunctions.swift */; };
+		68A6AF331D24EAA600E550B8 /* KTRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6E101D24E3C0004F3930 /* KTRegex.swift */; };
 		68AD311F1D3C2F64003EA29B /* KTDraggableViewGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AD311E1D3C2F64003EA29B /* KTDraggableViewGestureRecognizer.swift */; };
 		68C0E6571D56ECEB00157123 /* KTJwtService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C0E6561D56ECEB00157123 /* KTJwtService.swift */; };
 		D9FEF4BF1CCEBC0F0013FBDD /* KTSwiftExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9FEF4B41CCEBC0D0013FBDD /* KTSwiftExtensions.framework */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		680006D61D596F94007E74D2 /* KTVersionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTVersionHelper.swift; path = helpers/KTVersionHelper.swift; sourceTree = "<group>"; };
 		680A6DE41D24DFCE004F3930 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArrayExtensions.swift; path = extensions/ArrayExtensions.swift; sourceTree = "<group>"; };
 		680A6DE51D24DFCE004F3930 /* CLLocationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CLLocationExtensions.swift; path = extensions/CLLocationExtensions.swift; sourceTree = "<group>"; };
 		680A6DE61D24DFCE004F3930 /* DictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DictionaryExtensions.swift; path = extensions/DictionaryExtensions.swift; sourceTree = "<group>"; };
@@ -69,9 +71,9 @@
 		680A6DF41D24DFCE004F3930 /* UITableViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITableViewExtensions.swift; path = extensions/UITableViewExtensions.swift; sourceTree = "<group>"; };
 		680A6DF51D24DFCE004F3930 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtensions.swift; path = extensions/UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		680A6DF61D24DFCE004F3930 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = extensions/UIViewExtensions.swift; sourceTree = "<group>"; };
-		680A6E0B1D24E005004F3930 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Functions.swift; path = helpers/Functions.swift; sourceTree = "<group>"; };
+		680A6E0B1D24E005004F3930 /* KTFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTFunctions.swift; path = helpers/KTFunctions.swift; sourceTree = "<group>"; };
 		680A6E0E1D24E2F7004F3930 /* BuildConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BuildConfig.swift; path = enums/BuildConfig.swift; sourceTree = "<group>"; };
-		680A6E101D24E3C0004F3930 /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Regex.swift; path = helpers/Regex.swift; sourceTree = "<group>"; };
+		680A6E101D24E3C0004F3930 /* KTRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTRegex.swift; path = helpers/KTRegex.swift; sourceTree = "<group>"; };
 		680C22021D2AB0F800D1A778 /* KTS3Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTS3Service.swift; path = services/KTS3Service.swift; sourceTree = "<group>"; };
 		680C22051D2AB87300D1A778 /* KTPresignedS3Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTPresignedS3Request.swift; path = models/KTPresignedS3Request.swift; sourceTree = "<group>"; };
 		680C220F1D31867800D1A778 /* KTApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTApiService.swift; path = services/KTApiService.swift; sourceTree = "<group>"; };
@@ -134,8 +136,9 @@
 		680A6E0A1D24DFF6004F3930 /* helpers */ = {
 			isa = PBXGroup;
 			children = (
-				680A6E0B1D24E005004F3930 /* Functions.swift */,
-				680A6E101D24E3C0004F3930 /* Regex.swift */,
+				680A6E0B1D24E005004F3930 /* KTFunctions.swift */,
+				680A6E101D24E3C0004F3930 /* KTRegex.swift */,
+				680006D61D596F94007E74D2 /* KTVersionHelper.swift */,
 			);
 			name = helpers;
 			sourceTree = "<group>";
@@ -354,9 +357,10 @@
 				680C22031D2AB0F800D1A778 /* KTS3Service.swift in Sources */,
 				68A6AF2B1D24EAA600E550B8 /* UIColorExtensions.swift in Sources */,
 				68C0E6571D56ECEB00157123 /* KTJwtService.swift in Sources */,
-				68A6AF321D24EAA600E550B8 /* Functions.swift in Sources */,
+				68A6AF321D24EAA600E550B8 /* KTFunctions.swift in Sources */,
 				68A6AF2D1D24EAA600E550B8 /* UIStoryboardExtensions.swift in Sources */,
 				68A6AF301D24EAA600E550B8 /* UIViewControllerExtensions.swift in Sources */,
+				680006D71D596F94007E74D2 /* KTVersionHelper.swift in Sources */,
 				68A6AF1F1D24EAA600E550B8 /* BuildConfig.swift in Sources */,
 				68A6AF251D24EAA600E550B8 /* NSDateExtensions.swift in Sources */,
 				68A6AF2F1D24EAA600E550B8 /* UITableViewExtensions.swift in Sources */,
@@ -372,7 +376,7 @@
 				68A6AF2C1D24EAA600E550B8 /* UIImageExtensions.swift in Sources */,
 				68A6AF2E1D24EAA600E550B8 /* UITableViewCellExtensions.swift in Sources */,
 				68A6AF201D24EAA600E550B8 /* ArrayExtensions.swift in Sources */,
-				68A6AF331D24EAA600E550B8 /* Regex.swift in Sources */,
+				68A6AF331D24EAA600E550B8 /* KTRegex.swift in Sources */,
 				68A6AF261D24EAA600E550B8 /* NSDateFormatterExtensions.swift in Sources */,
 				68A6AF221D24EAA600E550B8 /* DictionaryExtensions.swift in Sources */,
 				684B16291D25324900ED4253 /* KTCameraView.swift in Sources */,

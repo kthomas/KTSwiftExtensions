@@ -1,5 +1,5 @@
 //
-//  Regex.swift
+//  KTRegex.swift
 //  KTSwiftExtensions
 //
 //  Created by Kyle Thomas on 6/27/16.
@@ -8,10 +8,10 @@
 
 import Foundation
 
-public class Regex {
+public class KTRegex {
 
-    class func match(pattern: String, input: String) -> [NSTextCheckingResult] {
-        return Regex(pattern).match(input)
+    public class func match(pattern: String, input: String) -> [NSTextCheckingResult] {
+        return KTRegex(pattern).match(input)
     }
 
     let internalExpression: NSRegularExpression!

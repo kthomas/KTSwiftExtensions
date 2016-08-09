@@ -72,6 +72,10 @@ private func envVarRawValue(envVarName: String) -> String? {
     return NSProcessInfo.processInfo().environment[envVarName]
 }
 
+public func infoDictionaryValueFor(key: String) -> String {
+    return (NSBundle.mainBundle().infoDictionary![key] ?? "") as! String
+}
+
 public func isRunningUnitTests() -> Bool {
     if let injectBundle = ENV("XCInjectBundle") {
         return NSString(string: injectBundle).lastPathComponent.hasSuffix("Tests.xctest")
