@@ -61,6 +61,13 @@ public class KTApiService: NSObject {
                 logInfo("Network request successful [status: \(statusCode); request duration: \(requestDurationMillis)ms; total duration: \(requestDurationMillis)]:\n\(request)")
 
                 if let value = response.result.value {
+                    if statusCode == 204 {
+                        dispatch_async_main_queue {
+                            successHandler?(nil)
+                        }
+                        return
+                    }
+
                     if let clazz = self.objectClassForPath(request.request?.URL?.path ?? "") as? KTModel.Type {
                         var obj: AnyObject?
 
