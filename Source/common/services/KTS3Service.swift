@@ -26,7 +26,8 @@ public class KTS3Service: NSObject {
                       withMimeType mimeType: String,
                       successHandler: KTApiSuccessHandler?,
                       failureHandler: KTApiFailureHandler?) {
-        let request = Alamofire.upload(.PUT, NSURL(presignedS3Request.url), headers: presignedS3Request.signedHeaders, data: data)
+        let method = presignedS3Request.fields != nil ? Method.POST : Method.PUT
+        let request = Alamofire.upload(method, NSURL(presignedS3Request.url), headers: presignedS3Request.signedHeaders, data: data)
         KTApiService.sharedService().execute(request, successHandler: successHandler, failureHandler: failureHandler)
     }
 }
