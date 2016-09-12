@@ -15,6 +15,38 @@
 		680C22161D3189F800D1A778 /* KTError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680C22151D3189F800D1A778 /* KTError.swift */; };
 		684B16261D2531F800ED4253 /* KTCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684B16251D2531F800ED4253 /* KTCameraViewController.swift */; };
 		684B16291D25324900ED4253 /* KTCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684B16281D25324900ED4253 /* KTCameraView.swift */; };
+		689836811D86803D00CA1F5B /* BuildConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836461D86803D00CA1F5B /* BuildConfig.swift */; };
+		689836821D86803D00CA1F5B /* KTFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836481D86803D00CA1F5B /* KTFunctions.swift */; };
+		689836831D86803D00CA1F5B /* KTRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836491D86803D00CA1F5B /* KTRegex.swift */; };
+		689836841D86803D00CA1F5B /* KTVersionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6898364A1D86803D00CA1F5B /* KTVersionHelper.swift */; };
+		689836851D86803D00CA1F5B /* KTError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6898364C1D86803D00CA1F5B /* KTError.swift */; };
+		689836861D86803D00CA1F5B /* KTModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6898364D1D86803D00CA1F5B /* KTModel.swift */; };
+		689836871D86803D00CA1F5B /* KTPresignedS3Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6898364E1D86803D00CA1F5B /* KTPresignedS3Request.swift */; };
+		689836881D86803D00CA1F5B /* KTApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836501D86803D00CA1F5B /* KTApiService.swift */; };
+		689836891D86803D00CA1F5B /* KTJwtService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836511D86803D00CA1F5B /* KTJwtService.swift */; };
+		6898368A1D86803D00CA1F5B /* KTS3Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836521D86803D00CA1F5B /* KTS3Service.swift */; };
+		6898368B1D86803D00CA1F5B /* KTCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836551D86803D00CA1F5B /* KTCameraViewController.swift */; };
+		689836971D86803D00CA1F5B /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836621D86803D00CA1F5B /* UIColorExtensions.swift */; };
+		689836981D86803D00CA1F5B /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836631D86803D00CA1F5B /* UIImageExtensions.swift */; };
+		689836991D86803D00CA1F5B /* UIStoryboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836641D86803D00CA1F5B /* UIStoryboardExtensions.swift */; };
+		6898369A1D86803D00CA1F5B /* UITableViewCellExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836651D86803D00CA1F5B /* UITableViewCellExtensions.swift */; };
+		6898369B1D86803D00CA1F5B /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836661D86803D00CA1F5B /* UITableViewExtensions.swift */; };
+		6898369C1D86803D00CA1F5B /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836671D86803D00CA1F5B /* UIViewControllerExtensions.swift */; };
+		6898369D1D86803D00CA1F5B /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836681D86803D00CA1F5B /* UIViewExtensions.swift */; };
+		6898369E1D86803D00CA1F5B /* KTDraggableViewGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6898366A1D86803D00CA1F5B /* KTDraggableViewGestureRecognizer.swift */; };
+		6898369F1D86803D00CA1F5B /* KTCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6898366C1D86803D00CA1F5B /* KTCameraView.swift */; };
+		689836BF1D86814000CA1F5B /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836B41D86814000CA1F5B /* ArrayExtensions.swift */; };
+		689836C01D86814000CA1F5B /* CLLocationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836B51D86814000CA1F5B /* CLLocationExtensions.swift */; };
+		689836C11D86814000CA1F5B /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836B61D86814000CA1F5B /* DictionaryExtensions.swift */; };
+		689836C21D86814000CA1F5B /* MKMapViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836B71D86814000CA1F5B /* MKMapViewExtensions.swift */; };
+		689836C31D86814000CA1F5B /* MKPolygonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836B81D86814000CA1F5B /* MKPolygonExtensions.swift */; };
+		689836C41D86814000CA1F5B /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836B91D86814000CA1F5B /* NSDateExtensions.swift */; };
+		689836C51D86814000CA1F5B /* NSDateFormatterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836BA1D86814000CA1F5B /* NSDateFormatterExtensions.swift */; };
+		689836C61D86814000CA1F5B /* NSDictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836BB1D86814000CA1F5B /* NSDictionaryExtensions.swift */; };
+		689836C71D86814000CA1F5B /* NSNotificationCenterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836BC1D86814000CA1F5B /* NSNotificationCenterExtensions.swift */; };
+		689836C81D86814000CA1F5B /* NSURLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836BD1D86814000CA1F5B /* NSURLExtensions.swift */; };
+		689836C91D86814000CA1F5B /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836BE1D86814000CA1F5B /* StringExtensions.swift */; };
+		689836CC1D8681C200CA1F5B /* KTFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836CB1D8681C200CA1F5B /* KTFunctions.swift */; };
 		68A6AF1F1D24EAA600E550B8 /* BuildConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6E0E1D24E2F7004F3930 /* BuildConfig.swift */; };
 		68A6AF201D24EAA600E550B8 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6DE41D24DFCE004F3930 /* ArrayExtensions.swift */; };
 		68A6AF211D24EAA600E550B8 /* CLLocationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6DE51D24DFCE004F3930 /* CLLocationExtensions.swift */; };
@@ -81,6 +113,38 @@
 		680C22151D3189F800D1A778 /* KTError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTError.swift; path = models/KTError.swift; sourceTree = "<group>"; };
 		684B16251D2531F800ED4253 /* KTCameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTCameraViewController.swift; path = controllers/KTCameraViewController.swift; sourceTree = "<group>"; };
 		684B16281D25324900ED4253 /* KTCameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTCameraView.swift; path = views/KTCameraView.swift; sourceTree = "<group>"; };
+		689836461D86803D00CA1F5B /* BuildConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildConfig.swift; sourceTree = "<group>"; };
+		689836481D86803D00CA1F5B /* KTFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTFunctions.swift; sourceTree = "<group>"; };
+		689836491D86803D00CA1F5B /* KTRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTRegex.swift; sourceTree = "<group>"; };
+		6898364A1D86803D00CA1F5B /* KTVersionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTVersionHelper.swift; sourceTree = "<group>"; };
+		6898364C1D86803D00CA1F5B /* KTError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTError.swift; sourceTree = "<group>"; };
+		6898364D1D86803D00CA1F5B /* KTModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTModel.swift; sourceTree = "<group>"; };
+		6898364E1D86803D00CA1F5B /* KTPresignedS3Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTPresignedS3Request.swift; sourceTree = "<group>"; };
+		689836501D86803D00CA1F5B /* KTApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTApiService.swift; sourceTree = "<group>"; };
+		689836511D86803D00CA1F5B /* KTJwtService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTJwtService.swift; sourceTree = "<group>"; };
+		689836521D86803D00CA1F5B /* KTS3Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTS3Service.swift; sourceTree = "<group>"; };
+		689836551D86803D00CA1F5B /* KTCameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTCameraViewController.swift; sourceTree = "<group>"; };
+		689836621D86803D00CA1F5B /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		689836631D86803D00CA1F5B /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
+		689836641D86803D00CA1F5B /* UIStoryboardExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtensions.swift; sourceTree = "<group>"; };
+		689836651D86803D00CA1F5B /* UITableViewCellExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtensions.swift; sourceTree = "<group>"; };
+		689836661D86803D00CA1F5B /* UITableViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
+		689836671D86803D00CA1F5B /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		689836681D86803D00CA1F5B /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		6898366A1D86803D00CA1F5B /* KTDraggableViewGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTDraggableViewGestureRecognizer.swift; sourceTree = "<group>"; };
+		6898366C1D86803D00CA1F5B /* KTCameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTCameraView.swift; sourceTree = "<group>"; };
+		689836B41D86814000CA1F5B /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
+		689836B51D86814000CA1F5B /* CLLocationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationExtensions.swift; sourceTree = "<group>"; };
+		689836B61D86814000CA1F5B /* DictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtensions.swift; sourceTree = "<group>"; };
+		689836B71D86814000CA1F5B /* MKMapViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapViewExtensions.swift; sourceTree = "<group>"; };
+		689836B81D86814000CA1F5B /* MKPolygonExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKPolygonExtensions.swift; sourceTree = "<group>"; };
+		689836B91D86814000CA1F5B /* NSDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensions.swift; sourceTree = "<group>"; };
+		689836BA1D86814000CA1F5B /* NSDateFormatterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateFormatterExtensions.swift; sourceTree = "<group>"; };
+		689836BB1D86814000CA1F5B /* NSDictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDictionaryExtensions.swift; sourceTree = "<group>"; };
+		689836BC1D86814000CA1F5B /* NSNotificationCenterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNotificationCenterExtensions.swift; sourceTree = "<group>"; };
+		689836BD1D86814000CA1F5B /* NSURLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLExtensions.swift; sourceTree = "<group>"; };
+		689836BE1D86814000CA1F5B /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		689836CB1D8681C200CA1F5B /* KTFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTFunctions.swift; sourceTree = "<group>"; };
 		68AD311E1D3C2F64003EA29B /* KTDraggableViewGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTDraggableViewGestureRecognizer.swift; path = gestures/KTDraggableViewGestureRecognizer.swift; sourceTree = "<group>"; };
 		68C0E6561D56ECEB00157123 /* KTJwtService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTJwtService.swift; path = services/KTJwtService.swift; sourceTree = "<group>"; };
 		D9FEF4B41CCEBC0D0013FBDD /* KTSwiftExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KTSwiftExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -187,6 +251,139 @@
 			name = views;
 			sourceTree = "<group>";
 		};
+		689836441D86803D00CA1F5B /* common */ = {
+			isa = PBXGroup;
+			children = (
+				689836B31D8680B600CA1F5B /* extensions */,
+				689836451D86803D00CA1F5B /* enums */,
+				689836471D86803D00CA1F5B /* helpers */,
+				6898364B1D86803D00CA1F5B /* models */,
+				6898364F1D86803D00CA1F5B /* services */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		689836451D86803D00CA1F5B /* enums */ = {
+			isa = PBXGroup;
+			children = (
+				689836461D86803D00CA1F5B /* BuildConfig.swift */,
+			);
+			path = enums;
+			sourceTree = "<group>";
+		};
+		689836471D86803D00CA1F5B /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				689836481D86803D00CA1F5B /* KTFunctions.swift */,
+				689836491D86803D00CA1F5B /* KTRegex.swift */,
+				6898364A1D86803D00CA1F5B /* KTVersionHelper.swift */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
+		6898364B1D86803D00CA1F5B /* models */ = {
+			isa = PBXGroup;
+			children = (
+				6898364C1D86803D00CA1F5B /* KTError.swift */,
+				6898364D1D86803D00CA1F5B /* KTModel.swift */,
+				6898364E1D86803D00CA1F5B /* KTPresignedS3Request.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		6898364F1D86803D00CA1F5B /* services */ = {
+			isa = PBXGroup;
+			children = (
+				689836501D86803D00CA1F5B /* KTApiService.swift */,
+				689836511D86803D00CA1F5B /* KTJwtService.swift */,
+				689836521D86803D00CA1F5B /* KTS3Service.swift */,
+			);
+			path = services;
+			sourceTree = "<group>";
+		};
+		689836531D86803D00CA1F5B /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				689836541D86803D00CA1F5B /* controllers */,
+				689836561D86803D00CA1F5B /* extensions */,
+				689836691D86803D00CA1F5B /* gestures */,
+				689836CA1D8681C200CA1F5B /* helpers */,
+				6898366B1D86803D00CA1F5B /* views */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
+		689836541D86803D00CA1F5B /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				689836551D86803D00CA1F5B /* KTCameraViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		689836561D86803D00CA1F5B /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				689836621D86803D00CA1F5B /* UIColorExtensions.swift */,
+				689836631D86803D00CA1F5B /* UIImageExtensions.swift */,
+				689836641D86803D00CA1F5B /* UIStoryboardExtensions.swift */,
+				689836651D86803D00CA1F5B /* UITableViewCellExtensions.swift */,
+				689836661D86803D00CA1F5B /* UITableViewExtensions.swift */,
+				689836671D86803D00CA1F5B /* UIViewControllerExtensions.swift */,
+				689836681D86803D00CA1F5B /* UIViewExtensions.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		689836691D86803D00CA1F5B /* gestures */ = {
+			isa = PBXGroup;
+			children = (
+				6898366A1D86803D00CA1F5B /* KTDraggableViewGestureRecognizer.swift */,
+			);
+			path = gestures;
+			sourceTree = "<group>";
+		};
+		6898366B1D86803D00CA1F5B /* views */ = {
+			isa = PBXGroup;
+			children = (
+				6898366C1D86803D00CA1F5B /* KTCameraView.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		6898366D1D86803D00CA1F5B /* osx */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = osx;
+			sourceTree = "<group>";
+		};
+		689836B31D8680B600CA1F5B /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				689836B41D86814000CA1F5B /* ArrayExtensions.swift */,
+				689836B51D86814000CA1F5B /* CLLocationExtensions.swift */,
+				689836B61D86814000CA1F5B /* DictionaryExtensions.swift */,
+				689836B71D86814000CA1F5B /* MKMapViewExtensions.swift */,
+				689836B81D86814000CA1F5B /* MKPolygonExtensions.swift */,
+				689836B91D86814000CA1F5B /* NSDateExtensions.swift */,
+				689836BA1D86814000CA1F5B /* NSDateFormatterExtensions.swift */,
+				689836BB1D86814000CA1F5B /* NSDictionaryExtensions.swift */,
+				689836BC1D86814000CA1F5B /* NSNotificationCenterExtensions.swift */,
+				689836BD1D86814000CA1F5B /* NSURLExtensions.swift */,
+				689836BE1D86814000CA1F5B /* StringExtensions.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		689836CA1D8681C200CA1F5B /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				689836CB1D8681C200CA1F5B /* KTFunctions.swift */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
 		68AD311D1D3C2F42003EA29B /* gestures */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +421,9 @@
 		D9FEF4B61CCEBC0D0013FBDD /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				689836441D86803D00CA1F5B /* common */,
+				689836531D86803D00CA1F5B /* ios */,
+				6898366D1D86803D00CA1F5B /* osx */,
 				684B16241D2531EA00ED4253 /* controllers */,
 				684B16271D25323A00ED4253 /* views */,
 				680C22041D2AB1DC00D1A778 /* models */,
@@ -356,31 +556,63 @@
 				68A6AF291D24EAA600E550B8 /* NSURLExtensions.swift in Sources */,
 				680C22031D2AB0F800D1A778 /* KTS3Service.swift in Sources */,
 				68A6AF2B1D24EAA600E550B8 /* UIColorExtensions.swift in Sources */,
+				689836841D86803D00CA1F5B /* KTVersionHelper.swift in Sources */,
+				6898369C1D86803D00CA1F5B /* UIViewControllerExtensions.swift in Sources */,
 				68C0E6571D56ECEB00157123 /* KTJwtService.swift in Sources */,
 				68A6AF321D24EAA600E550B8 /* KTFunctions.swift in Sources */,
 				68A6AF2D1D24EAA600E550B8 /* UIStoryboardExtensions.swift in Sources */,
 				68A6AF301D24EAA600E550B8 /* UIViewControllerExtensions.swift in Sources */,
 				680006D71D596F94007E74D2 /* KTVersionHelper.swift in Sources */,
+				689836981D86803D00CA1F5B /* UIImageExtensions.swift in Sources */,
 				68A6AF1F1D24EAA600E550B8 /* BuildConfig.swift in Sources */,
 				68A6AF251D24EAA600E550B8 /* NSDateExtensions.swift in Sources */,
+				689836C61D86814000CA1F5B /* NSDictionaryExtensions.swift in Sources */,
+				689836881D86803D00CA1F5B /* KTApiService.swift in Sources */,
 				68A6AF2F1D24EAA600E550B8 /* UITableViewExtensions.swift in Sources */,
 				68A6AF281D24EAA600E550B8 /* NSNotificationCenterExtensions.swift in Sources */,
 				684B16261D2531F800ED4253 /* KTCameraViewController.swift in Sources */,
 				68A6AF211D24EAA600E550B8 /* CLLocationExtensions.swift in Sources */,
+				6898368A1D86803D00CA1F5B /* KTS3Service.swift in Sources */,
 				68A6AF311D24EAA600E550B8 /* UIViewExtensions.swift in Sources */,
 				68A6AF271D24EAA600E550B8 /* NSDictionaryExtensions.swift in Sources */,
 				68A6AF241D24EAA600E550B8 /* MKPolygonExtensions.swift in Sources */,
+				689836861D86803D00CA1F5B /* KTModel.swift in Sources */,
+				689836971D86803D00CA1F5B /* UIColorExtensions.swift in Sources */,
+				6898369B1D86803D00CA1F5B /* UITableViewExtensions.swift in Sources */,
+				689836811D86803D00CA1F5B /* BuildConfig.swift in Sources */,
 				68AD311F1D3C2F64003EA29B /* KTDraggableViewGestureRecognizer.swift in Sources */,
+				689836871D86803D00CA1F5B /* KTPresignedS3Request.swift in Sources */,
+				689836C41D86814000CA1F5B /* NSDateExtensions.swift in Sources */,
+				689836C11D86814000CA1F5B /* DictionaryExtensions.swift in Sources */,
+				689836851D86803D00CA1F5B /* KTError.swift in Sources */,
 				680C22141D31885400D1A778 /* KTModel.swift in Sources */,
+				6898369E1D86803D00CA1F5B /* KTDraggableViewGestureRecognizer.swift in Sources */,
 				680C22161D3189F800D1A778 /* KTError.swift in Sources */,
+				689836C21D86814000CA1F5B /* MKMapViewExtensions.swift in Sources */,
 				68A6AF2C1D24EAA600E550B8 /* UIImageExtensions.swift in Sources */,
+				689836CC1D8681C200CA1F5B /* KTFunctions.swift in Sources */,
 				68A6AF2E1D24EAA600E550B8 /* UITableViewCellExtensions.swift in Sources */,
 				68A6AF201D24EAA600E550B8 /* ArrayExtensions.swift in Sources */,
 				68A6AF331D24EAA600E550B8 /* KTRegex.swift in Sources */,
 				68A6AF261D24EAA600E550B8 /* NSDateFormatterExtensions.swift in Sources */,
 				68A6AF221D24EAA600E550B8 /* DictionaryExtensions.swift in Sources */,
+				689836BF1D86814000CA1F5B /* ArrayExtensions.swift in Sources */,
+				689836C01D86814000CA1F5B /* CLLocationExtensions.swift in Sources */,
+				6898369D1D86803D00CA1F5B /* UIViewExtensions.swift in Sources */,
+				689836C31D86814000CA1F5B /* MKPolygonExtensions.swift in Sources */,
+				689836991D86803D00CA1F5B /* UIStoryboardExtensions.swift in Sources */,
 				684B16291D25324900ED4253 /* KTCameraView.swift in Sources */,
+				689836891D86803D00CA1F5B /* KTJwtService.swift in Sources */,
+				6898369A1D86803D00CA1F5B /* UITableViewCellExtensions.swift in Sources */,
+				689836C81D86814000CA1F5B /* NSURLExtensions.swift in Sources */,
+				6898368B1D86803D00CA1F5B /* KTCameraViewController.swift in Sources */,
+				689836C71D86814000CA1F5B /* NSNotificationCenterExtensions.swift in Sources */,
+				689836C91D86814000CA1F5B /* StringExtensions.swift in Sources */,
+				689836C51D86814000CA1F5B /* NSDateFormatterExtensions.swift in Sources */,
+				6898369F1D86803D00CA1F5B /* KTCameraView.swift in Sources */,
 				680C22061D2AB87300D1A778 /* KTPresignedS3Request.swift in Sources */,
+				689836831D86803D00CA1F5B /* KTRegex.swift in Sources */,
+				689836821D86803D00CA1F5B /* KTFunctions.swift in Sources */,
 				68A6AF231D24EAA600E550B8 /* MKMapViewExtensions.swift in Sources */,
 				680C22101D31867800D1A778 /* KTApiService.swift in Sources */,
 			);

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'KTSwiftExtensions'
-  s.version = '0.12.0'
+  s.version = '0.13.0'
   s.license = { :type => 'MIT', :file => 'LICENSE' }
   s.summary = 'Swift extensions'
 
@@ -12,7 +12,12 @@ Pod::Spec.new do |s|
   s.dependency 'Alamofire'
   s.dependency 'AlamofireObjectMapper'
   s.dependency 'JWTDecode', '~> 1.0'
+  s.source_files = 'Source/common/**/*.swift'
 
   s.ios.deployment_target = '9.3'
+  s.ios.source_files = 'Source/common/ios/**/*.swift'
   s.ios.dependency 'MBProgressHUD', '~> 0.9.1'
+
+  s.osx.deployment_target = '10.11'
+  s.osx.source_files = 'Source/common/osx/**/*.swift'
 end

@@ -6,7 +6,7 @@
 //  Copyright © 2016 Kyle Thomas. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 public typealias VoidBlock = () -> Void
 
@@ -81,21 +81,6 @@ public func isRunningUnitTests() -> Bool {
         return NSString(string: injectBundle).lastPathComponent.hasSuffix("Tests.xctest")
     }
     return false
-}
-
-public func isIPad() -> Bool {
-    return UI_USER_INTERFACE_IDIOM() == .Pad
-}
-
-public func isIPhone() -> Bool {
-    return UI_USER_INTERFACE_IDIOM() == .Phone
-}
-
-public func isIPhone6Plus() -> Bool {
-    if !isIPhone() {
-        return false
-    }
-    return UIScreen.mainScreen().scale > 2.9
 }
 
 public func isSimulator() -> Bool {
@@ -175,8 +160,4 @@ public func swizzleMethodSelector(origSelector: String, withSelector: String, fo
 
 public func totalDeviceMemoryInGigabytes() -> CGFloat {
     return CGFloat(NSProcessInfo.processInfo().physicalMemory) / 1073741824.0
-}
-
-public func windowBounds() -> CGRect {
-    return UIApplication.sharedApplication().keyWindow!.bounds
 }
