@@ -38,7 +38,7 @@
 		689836C71D86814000CA1F5B /* NSNotificationCenterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836BC1D86814000CA1F5B /* NSNotificationCenterExtensions.swift */; };
 		689836C81D86814000CA1F5B /* NSURLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836BD1D86814000CA1F5B /* NSURLExtensions.swift */; };
 		689836C91D86814000CA1F5B /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836BE1D86814000CA1F5B /* StringExtensions.swift */; };
-		689836CC1D8681C200CA1F5B /* KTFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836CB1D8681C200CA1F5B /* KTFunctions.swift */; };
+		689836CC1D8681C200CA1F5B /* KTUIKitFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836CB1D8681C200CA1F5B /* KTUIKitFunctions.swift */; };
 		D9FEF4BF1CCEBC0F0013FBDD /* KTSwiftExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9FEF4B41CCEBC0D0013FBDD /* KTSwiftExtensions.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,7 +84,7 @@
 		689836BC1D86814000CA1F5B /* NSNotificationCenterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNotificationCenterExtensions.swift; sourceTree = "<group>"; };
 		689836BD1D86814000CA1F5B /* NSURLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLExtensions.swift; sourceTree = "<group>"; };
 		689836BE1D86814000CA1F5B /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
-		689836CB1D8681C200CA1F5B /* KTFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTFunctions.swift; sourceTree = "<group>"; };
+		689836CB1D8681C200CA1F5B /* KTUIKitFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTUIKitFunctions.swift; sourceTree = "<group>"; };
 		D9FEF4B41CCEBC0D0013FBDD /* KTSwiftExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KTSwiftExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9FEF4B91CCEBC0D0013FBDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9FEF4BE1CCEBC0F0013FBDD /* KTSwiftExtensionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KTSwiftExtensionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -238,7 +238,7 @@
 		689836CA1D8681C200CA1F5B /* helpers */ = {
 			isa = PBXGroup;
 			children = (
-				689836CB1D8681C200CA1F5B /* KTFunctions.swift */,
+				689836CB1D8681C200CA1F5B /* KTUIKitFunctions.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -411,7 +411,7 @@
 				689836851D86803D00CA1F5B /* KTError.swift in Sources */,
 				6898369E1D86803D00CA1F5B /* KTDraggableViewGestureRecognizer.swift in Sources */,
 				689836C21D86814000CA1F5B /* MKMapViewExtensions.swift in Sources */,
-				689836CC1D8681C200CA1F5B /* KTFunctions.swift in Sources */,
+				689836CC1D8681C200CA1F5B /* KTUIKitFunctions.swift in Sources */,
 				689836BF1D86814000CA1F5B /* ArrayExtensions.swift in Sources */,
 				689836C01D86814000CA1F5B /* CLLocationExtensions.swift in Sources */,
 				6898369D1D86803D00CA1F5B /* UIViewExtensions.swift in Sources */,

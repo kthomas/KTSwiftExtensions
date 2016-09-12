@@ -1,5 +1,5 @@
 //
-//  KTFunctions.swift
+//  KTUIKitFunctions.swift
 //  KTSwiftExtensions
 //
 //  Created by Kyle Thomas on 6/27/16.
