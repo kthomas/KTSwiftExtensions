@@ -7,14 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		680006D71D596F94007E74D2 /* KTVersionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680006D61D596F94007E74D2 /* KTVersionHelper.swift */; };
-		680C22031D2AB0F800D1A778 /* KTS3Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680C22021D2AB0F800D1A778 /* KTS3Service.swift */; };
-		680C22061D2AB87300D1A778 /* KTPresignedS3Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680C22051D2AB87300D1A778 /* KTPresignedS3Request.swift */; };
-		680C22101D31867800D1A778 /* KTApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680C220F1D31867800D1A778 /* KTApiService.swift */; };
-		680C22141D31885400D1A778 /* KTModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680C22131D31885400D1A778 /* KTModel.swift */; };
-		680C22161D3189F800D1A778 /* KTError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680C22151D3189F800D1A778 /* KTError.swift */; };
-		684B16261D2531F800ED4253 /* KTCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684B16251D2531F800ED4253 /* KTCameraViewController.swift */; };
-		684B16291D25324900ED4253 /* KTCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684B16281D25324900ED4253 /* KTCameraView.swift */; };
 		689836811D86803D00CA1F5B /* BuildConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836461D86803D00CA1F5B /* BuildConfig.swift */; };
 		689836821D86803D00CA1F5B /* KTFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836481D86803D00CA1F5B /* KTFunctions.swift */; };
 		689836831D86803D00CA1F5B /* KTRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836491D86803D00CA1F5B /* KTRegex.swift */; };
@@ -47,29 +39,6 @@
 		689836C81D86814000CA1F5B /* NSURLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836BD1D86814000CA1F5B /* NSURLExtensions.swift */; };
 		689836C91D86814000CA1F5B /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836BE1D86814000CA1F5B /* StringExtensions.swift */; };
 		689836CC1D8681C200CA1F5B /* KTFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836CB1D8681C200CA1F5B /* KTFunctions.swift */; };
-		68A6AF1F1D24EAA600E550B8 /* BuildConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6E0E1D24E2F7004F3930 /* BuildConfig.swift */; };
-		68A6AF201D24EAA600E550B8 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6DE41D24DFCE004F3930 /* ArrayExtensions.swift */; };
-		68A6AF211D24EAA600E550B8 /* CLLocationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6DE51D24DFCE004F3930 /* CLLocationExtensions.swift */; };
-		68A6AF221D24EAA600E550B8 /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6DE61D24DFCE004F3930 /* DictionaryExtensions.swift */; };
-		68A6AF231D24EAA600E550B8 /* MKMapViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6DE71D24DFCE004F3930 /* MKMapViewExtensions.swift */; };
-		68A6AF241D24EAA600E550B8 /* MKPolygonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6DE81D24DFCE004F3930 /* MKPolygonExtensions.swift */; };
-		68A6AF251D24EAA600E550B8 /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6DE91D24DFCE004F3930 /* NSDateExtensions.swift */; };
-		68A6AF261D24EAA600E550B8 /* NSDateFormatterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6DEA1D24DFCE004F3930 /* NSDateFormatterExtensions.swift */; };
-		68A6AF271D24EAA600E550B8 /* NSDictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6DEB1D24DFCE004F3930 /* NSDictionaryExtensions.swift */; };
-		68A6AF281D24EAA600E550B8 /* NSNotificationCenterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6DEC1D24DFCE004F3930 /* NSNotificationCenterExtensions.swift */; };
-		68A6AF291D24EAA600E550B8 /* NSURLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6DED1D24DFCE004F3930 /* NSURLExtensions.swift */; };
-		68A6AF2A1D24EAA600E550B8 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6DEE1D24DFCE004F3930 /* StringExtensions.swift */; };
-		68A6AF2B1D24EAA600E550B8 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6DF01D24DFCE004F3930 /* UIColorExtensions.swift */; };
-		68A6AF2C1D24EAA600E550B8 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6DF11D24DFCE004F3930 /* UIImageExtensions.swift */; };
-		68A6AF2D1D24EAA600E550B8 /* UIStoryboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6DF21D24DFCE004F3930 /* UIStoryboardExtensions.swift */; };
-		68A6AF2E1D24EAA600E550B8 /* UITableViewCellExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6DF31D24DFCE004F3930 /* UITableViewCellExtensions.swift */; };
-		68A6AF2F1D24EAA600E550B8 /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6DF41D24DFCE004F3930 /* UITableViewExtensions.swift */; };
-		68A6AF301D24EAA600E550B8 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6DF51D24DFCE004F3930 /* UIViewControllerExtensions.swift */; };
-		68A6AF311D24EAA600E550B8 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6DF61D24DFCE004F3930 /* UIViewExtensions.swift */; };
-		68A6AF321D24EAA600E550B8 /* KTFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6E0B1D24E005004F3930 /* KTFunctions.swift */; };
-		68A6AF331D24EAA600E550B8 /* KTRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A6E101D24E3C0004F3930 /* KTRegex.swift */; };
-		68AD311F1D3C2F64003EA29B /* KTDraggableViewGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AD311E1D3C2F64003EA29B /* KTDraggableViewGestureRecognizer.swift */; };
-		68C0E6571D56ECEB00157123 /* KTJwtService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C0E6561D56ECEB00157123 /* KTJwtService.swift */; };
 		D9FEF4BF1CCEBC0F0013FBDD /* KTSwiftExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9FEF4B41CCEBC0D0013FBDD /* KTSwiftExtensions.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,35 +53,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		680006D61D596F94007E74D2 /* KTVersionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTVersionHelper.swift; path = helpers/KTVersionHelper.swift; sourceTree = "<group>"; };
-		680A6DE41D24DFCE004F3930 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArrayExtensions.swift; path = extensions/ArrayExtensions.swift; sourceTree = "<group>"; };
-		680A6DE51D24DFCE004F3930 /* CLLocationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CLLocationExtensions.swift; path = extensions/CLLocationExtensions.swift; sourceTree = "<group>"; };
-		680A6DE61D24DFCE004F3930 /* DictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DictionaryExtensions.swift; path = extensions/DictionaryExtensions.swift; sourceTree = "<group>"; };
-		680A6DE71D24DFCE004F3930 /* MKMapViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MKMapViewExtensions.swift; path = extensions/MKMapViewExtensions.swift; sourceTree = "<group>"; };
-		680A6DE81D24DFCE004F3930 /* MKPolygonExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MKPolygonExtensions.swift; path = extensions/MKPolygonExtensions.swift; sourceTree = "<group>"; };
-		680A6DE91D24DFCE004F3930 /* NSDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateExtensions.swift; path = extensions/NSDateExtensions.swift; sourceTree = "<group>"; };
-		680A6DEA1D24DFCE004F3930 /* NSDateFormatterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateFormatterExtensions.swift; path = extensions/NSDateFormatterExtensions.swift; sourceTree = "<group>"; };
-		680A6DEB1D24DFCE004F3930 /* NSDictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDictionaryExtensions.swift; path = extensions/NSDictionaryExtensions.swift; sourceTree = "<group>"; };
-		680A6DEC1D24DFCE004F3930 /* NSNotificationCenterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSNotificationCenterExtensions.swift; path = extensions/NSNotificationCenterExtensions.swift; sourceTree = "<group>"; };
-		680A6DED1D24DFCE004F3930 /* NSURLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSURLExtensions.swift; path = extensions/NSURLExtensions.swift; sourceTree = "<group>"; };
-		680A6DEE1D24DFCE004F3930 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtensions.swift; path = extensions/StringExtensions.swift; sourceTree = "<group>"; };
-		680A6DF01D24DFCE004F3930 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtensions.swift; path = extensions/UIColorExtensions.swift; sourceTree = "<group>"; };
-		680A6DF11D24DFCE004F3930 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageExtensions.swift; path = extensions/UIImageExtensions.swift; sourceTree = "<group>"; };
-		680A6DF21D24DFCE004F3930 /* UIStoryboardExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIStoryboardExtensions.swift; path = extensions/UIStoryboardExtensions.swift; sourceTree = "<group>"; };
-		680A6DF31D24DFCE004F3930 /* UITableViewCellExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITableViewCellExtensions.swift; path = extensions/UITableViewCellExtensions.swift; sourceTree = "<group>"; };
-		680A6DF41D24DFCE004F3930 /* UITableViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITableViewExtensions.swift; path = extensions/UITableViewExtensions.swift; sourceTree = "<group>"; };
-		680A6DF51D24DFCE004F3930 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtensions.swift; path = extensions/UIViewControllerExtensions.swift; sourceTree = "<group>"; };
-		680A6DF61D24DFCE004F3930 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = extensions/UIViewExtensions.swift; sourceTree = "<group>"; };
-		680A6E0B1D24E005004F3930 /* KTFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTFunctions.swift; path = helpers/KTFunctions.swift; sourceTree = "<group>"; };
-		680A6E0E1D24E2F7004F3930 /* BuildConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BuildConfig.swift; path = enums/BuildConfig.swift; sourceTree = "<group>"; };
-		680A6E101D24E3C0004F3930 /* KTRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTRegex.swift; path = helpers/KTRegex.swift; sourceTree = "<group>"; };
-		680C22021D2AB0F800D1A778 /* KTS3Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTS3Service.swift; path = services/KTS3Service.swift; sourceTree = "<group>"; };
-		680C22051D2AB87300D1A778 /* KTPresignedS3Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTPresignedS3Request.swift; path = models/KTPresignedS3Request.swift; sourceTree = "<group>"; };
-		680C220F1D31867800D1A778 /* KTApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTApiService.swift; path = services/KTApiService.swift; sourceTree = "<group>"; };
-		680C22131D31885400D1A778 /* KTModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTModel.swift; path = models/KTModel.swift; sourceTree = "<group>"; };
-		680C22151D3189F800D1A778 /* KTError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTError.swift; path = models/KTError.swift; sourceTree = "<group>"; };
-		684B16251D2531F800ED4253 /* KTCameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTCameraViewController.swift; path = controllers/KTCameraViewController.swift; sourceTree = "<group>"; };
-		684B16281D25324900ED4253 /* KTCameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTCameraView.swift; path = views/KTCameraView.swift; sourceTree = "<group>"; };
 		689836461D86803D00CA1F5B /* BuildConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildConfig.swift; sourceTree = "<group>"; };
 		689836481D86803D00CA1F5B /* KTFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTFunctions.swift; sourceTree = "<group>"; };
 		689836491D86803D00CA1F5B /* KTRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTRegex.swift; sourceTree = "<group>"; };
@@ -145,8 +85,6 @@
 		689836BD1D86814000CA1F5B /* NSURLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLExtensions.swift; sourceTree = "<group>"; };
 		689836BE1D86814000CA1F5B /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		689836CB1D8681C200CA1F5B /* KTFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTFunctions.swift; sourceTree = "<group>"; };
-		68AD311E1D3C2F64003EA29B /* KTDraggableViewGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTDraggableViewGestureRecognizer.swift; path = gestures/KTDraggableViewGestureRecognizer.swift; sourceTree = "<group>"; };
-		68C0E6561D56ECEB00157123 /* KTJwtService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTJwtService.swift; path = services/KTJwtService.swift; sourceTree = "<group>"; };
 		D9FEF4B41CCEBC0D0013FBDD /* KTSwiftExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KTSwiftExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9FEF4B91CCEBC0D0013FBDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9FEF4BE1CCEBC0F0013FBDD /* KTSwiftExtensionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KTSwiftExtensionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,85 +110,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		680A6DE31D24DF96004F3930 /* extensions */ = {
-			isa = PBXGroup;
-			children = (
-				680A6DE41D24DFCE004F3930 /* ArrayExtensions.swift */,
-				680A6DE51D24DFCE004F3930 /* CLLocationExtensions.swift */,
-				680A6DE61D24DFCE004F3930 /* DictionaryExtensions.swift */,
-				680A6DE71D24DFCE004F3930 /* MKMapViewExtensions.swift */,
-				680A6DE81D24DFCE004F3930 /* MKPolygonExtensions.swift */,
-				680A6DE91D24DFCE004F3930 /* NSDateExtensions.swift */,
-				680A6DEA1D24DFCE004F3930 /* NSDateFormatterExtensions.swift */,
-				680A6DEB1D24DFCE004F3930 /* NSDictionaryExtensions.swift */,
-				680A6DEC1D24DFCE004F3930 /* NSNotificationCenterExtensions.swift */,
-				680A6DED1D24DFCE004F3930 /* NSURLExtensions.swift */,
-				680A6DEE1D24DFCE004F3930 /* StringExtensions.swift */,
-				680A6DF01D24DFCE004F3930 /* UIColorExtensions.swift */,
-				680A6DF11D24DFCE004F3930 /* UIImageExtensions.swift */,
-				680A6DF21D24DFCE004F3930 /* UIStoryboardExtensions.swift */,
-				680A6DF31D24DFCE004F3930 /* UITableViewCellExtensions.swift */,
-				680A6DF41D24DFCE004F3930 /* UITableViewExtensions.swift */,
-				680A6DF51D24DFCE004F3930 /* UIViewControllerExtensions.swift */,
-				680A6DF61D24DFCE004F3930 /* UIViewExtensions.swift */,
-			);
-			name = extensions;
-			sourceTree = "<group>";
-		};
-		680A6E0A1D24DFF6004F3930 /* helpers */ = {
-			isa = PBXGroup;
-			children = (
-				680A6E0B1D24E005004F3930 /* KTFunctions.swift */,
-				680A6E101D24E3C0004F3930 /* KTRegex.swift */,
-				680006D61D596F94007E74D2 /* KTVersionHelper.swift */,
-			);
-			name = helpers;
-			sourceTree = "<group>";
-		};
-		680A6E0D1D24E2E8004F3930 /* enums */ = {
-			isa = PBXGroup;
-			children = (
-				680A6E0E1D24E2F7004F3930 /* BuildConfig.swift */,
-			);
-			name = enums;
-			sourceTree = "<group>";
-		};
-		680C22011D2AB0D000D1A778 /* services */ = {
-			isa = PBXGroup;
-			children = (
-				680C220F1D31867800D1A778 /* KTApiService.swift */,
-				68C0E6561D56ECEB00157123 /* KTJwtService.swift */,
-				680C22021D2AB0F800D1A778 /* KTS3Service.swift */,
-			);
-			name = services;
-			sourceTree = "<group>";
-		};
-		680C22041D2AB1DC00D1A778 /* models */ = {
-			isa = PBXGroup;
-			children = (
-				680C22151D3189F800D1A778 /* KTError.swift */,
-				680C22131D31885400D1A778 /* KTModel.swift */,
-				680C22051D2AB87300D1A778 /* KTPresignedS3Request.swift */,
-			);
-			name = models;
-			sourceTree = "<group>";
-		};
-		684B16241D2531EA00ED4253 /* controllers */ = {
-			isa = PBXGroup;
-			children = (
-				684B16251D2531F800ED4253 /* KTCameraViewController.swift */,
-			);
-			name = controllers;
-			sourceTree = "<group>";
-		};
-		684B16271D25323A00ED4253 /* views */ = {
-			isa = PBXGroup;
-			children = (
-				684B16281D25324900ED4253 /* KTCameraView.swift */,
-			);
-			name = views;
-			sourceTree = "<group>";
-		};
 		689836441D86803D00CA1F5B /* common */ = {
 			isa = PBXGroup;
 			children = (
@@ -384,14 +243,6 @@
 			path = helpers;
 			sourceTree = "<group>";
 		};
-		68AD311D1D3C2F42003EA29B /* gestures */ = {
-			isa = PBXGroup;
-			children = (
-				68AD311E1D3C2F64003EA29B /* KTDraggableViewGestureRecognizer.swift */,
-			);
-			name = gestures;
-			sourceTree = "<group>";
-		};
 		D9E0667E1CCECAFF00E0D7CB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -424,14 +275,6 @@
 				689836441D86803D00CA1F5B /* common */,
 				689836531D86803D00CA1F5B /* ios */,
 				6898366D1D86803D00CA1F5B /* osx */,
-				684B16241D2531EA00ED4253 /* controllers */,
-				684B16271D25323A00ED4253 /* views */,
-				680C22041D2AB1DC00D1A778 /* models */,
-				680C22011D2AB0D000D1A778 /* services */,
-				68AD311D1D3C2F42003EA29B /* gestures */,
-				680A6E0D1D24E2E8004F3930 /* enums */,
-				680A6DE31D24DF96004F3930 /* extensions */,
-				680A6E0A1D24DFF6004F3930 /* helpers */,
 				D9FEF4B91CCEBC0D0013FBDD /* Info.plist */,
 			);
 			path = Source;
@@ -552,56 +395,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68A6AF2A1D24EAA600E550B8 /* StringExtensions.swift in Sources */,
-				68A6AF291D24EAA600E550B8 /* NSURLExtensions.swift in Sources */,
-				680C22031D2AB0F800D1A778 /* KTS3Service.swift in Sources */,
-				68A6AF2B1D24EAA600E550B8 /* UIColorExtensions.swift in Sources */,
 				689836841D86803D00CA1F5B /* KTVersionHelper.swift in Sources */,
 				6898369C1D86803D00CA1F5B /* UIViewControllerExtensions.swift in Sources */,
-				68C0E6571D56ECEB00157123 /* KTJwtService.swift in Sources */,
-				68A6AF321D24EAA600E550B8 /* KTFunctions.swift in Sources */,
-				68A6AF2D1D24EAA600E550B8 /* UIStoryboardExtensions.swift in Sources */,
-				68A6AF301D24EAA600E550B8 /* UIViewControllerExtensions.swift in Sources */,
-				680006D71D596F94007E74D2 /* KTVersionHelper.swift in Sources */,
 				689836981D86803D00CA1F5B /* UIImageExtensions.swift in Sources */,
-				68A6AF1F1D24EAA600E550B8 /* BuildConfig.swift in Sources */,
-				68A6AF251D24EAA600E550B8 /* NSDateExtensions.swift in Sources */,
 				689836C61D86814000CA1F5B /* NSDictionaryExtensions.swift in Sources */,
 				689836881D86803D00CA1F5B /* KTApiService.swift in Sources */,
-				68A6AF2F1D24EAA600E550B8 /* UITableViewExtensions.swift in Sources */,
-				68A6AF281D24EAA600E550B8 /* NSNotificationCenterExtensions.swift in Sources */,
-				684B16261D2531F800ED4253 /* KTCameraViewController.swift in Sources */,
-				68A6AF211D24EAA600E550B8 /* CLLocationExtensions.swift in Sources */,
 				6898368A1D86803D00CA1F5B /* KTS3Service.swift in Sources */,
-				68A6AF311D24EAA600E550B8 /* UIViewExtensions.swift in Sources */,
-				68A6AF271D24EAA600E550B8 /* NSDictionaryExtensions.swift in Sources */,
-				68A6AF241D24EAA600E550B8 /* MKPolygonExtensions.swift in Sources */,
 				689836861D86803D00CA1F5B /* KTModel.swift in Sources */,
 				689836971D86803D00CA1F5B /* UIColorExtensions.swift in Sources */,
 				6898369B1D86803D00CA1F5B /* UITableViewExtensions.swift in Sources */,
 				689836811D86803D00CA1F5B /* BuildConfig.swift in Sources */,
-				68AD311F1D3C2F64003EA29B /* KTDraggableViewGestureRecognizer.swift in Sources */,
 				689836871D86803D00CA1F5B /* KTPresignedS3Request.swift in Sources */,
 				689836C41D86814000CA1F5B /* NSDateExtensions.swift in Sources */,
 				689836C11D86814000CA1F5B /* DictionaryExtensions.swift in Sources */,
 				689836851D86803D00CA1F5B /* KTError.swift in Sources */,
-				680C22141D31885400D1A778 /* KTModel.swift in Sources */,
 				6898369E1D86803D00CA1F5B /* KTDraggableViewGestureRecognizer.swift in Sources */,
-				680C22161D3189F800D1A778 /* KTError.swift in Sources */,
 				689836C21D86814000CA1F5B /* MKMapViewExtensions.swift in Sources */,
-				68A6AF2C1D24EAA600E550B8 /* UIImageExtensions.swift in Sources */,
 				689836CC1D8681C200CA1F5B /* KTFunctions.swift in Sources */,
-				68A6AF2E1D24EAA600E550B8 /* UITableViewCellExtensions.swift in Sources */,
-				68A6AF201D24EAA600E550B8 /* ArrayExtensions.swift in Sources */,
-				68A6AF331D24EAA600E550B8 /* KTRegex.swift in Sources */,
-				68A6AF261D24EAA600E550B8 /* NSDateFormatterExtensions.swift in Sources */,
-				68A6AF221D24EAA600E550B8 /* DictionaryExtensions.swift in Sources */,
 				689836BF1D86814000CA1F5B /* ArrayExtensions.swift in Sources */,
 				689836C01D86814000CA1F5B /* CLLocationExtensions.swift in Sources */,
 				6898369D1D86803D00CA1F5B /* UIViewExtensions.swift in Sources */,
 				689836C31D86814000CA1F5B /* MKPolygonExtensions.swift in Sources */,
 				689836991D86803D00CA1F5B /* UIStoryboardExtensions.swift in Sources */,
-				684B16291D25324900ED4253 /* KTCameraView.swift in Sources */,
 				689836891D86803D00CA1F5B /* KTJwtService.swift in Sources */,
 				6898369A1D86803D00CA1F5B /* UITableViewCellExtensions.swift in Sources */,
 				689836C81D86814000CA1F5B /* NSURLExtensions.swift in Sources */,
@@ -610,11 +425,8 @@
 				689836C91D86814000CA1F5B /* StringExtensions.swift in Sources */,
 				689836C51D86814000CA1F5B /* NSDateFormatterExtensions.swift in Sources */,
 				6898369F1D86803D00CA1F5B /* KTCameraView.swift in Sources */,
-				680C22061D2AB87300D1A778 /* KTPresignedS3Request.swift in Sources */,
 				689836831D86803D00CA1F5B /* KTRegex.swift in Sources */,
 				689836821D86803D00CA1F5B /* KTFunctions.swift in Sources */,
-				68A6AF231D24EAA600E550B8 /* MKMapViewExtensions.swift in Sources */,
-				680C22101D31867800D1A778 /* KTApiService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,9 +15,9 @@ Pod::Spec.new do |s|
   s.source_files = 'Source/common/**/*.swift'
 
   s.ios.deployment_target = '9.3'
-  s.ios.source_files = 'Source/common/ios/**/*.swift'
+  s.ios.source_files = 'Source/ios/**/*.swift'
   s.ios.dependency 'MBProgressHUD', '~> 0.9.1'
 
   s.osx.deployment_target = '10.11'
-  s.osx.source_files = 'Source/common/osx/**/*.swift'
+  s.osx.source_files = 'Source/osx/**/*.swift'
 end
