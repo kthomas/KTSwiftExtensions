@@ -17,7 +17,7 @@ public extension UIViewController {
         presentViewController(viewControllerToPresent, animated: animated, completion: nil)
     }
 
-    func dismissViewController(animated animated: Bool, completion: VoidBlock? = nil) {
+    func dismissViewController(animated: Bool, completion: VoidBlock? = nil) {
         dismissViewControllerAnimated(animated, completion: completion)
     }
 
