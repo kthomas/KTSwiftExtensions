@@ -349,7 +349,7 @@ public class KTCameraView: UIView,
                 window.layer.renderInContext(UIGraphicsGetCurrentContext()!)
                 let image = UIGraphicsGetImageFromCurrentImageContext()
                 UIGraphicsEndImageContext()
-                delegate?.cameraView(self, didCaptureStillImage: image)
+                delegate?.cameraView(self, didCaptureStillImage: image!)
             }
             return
         }

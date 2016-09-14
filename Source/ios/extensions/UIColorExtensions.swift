@@ -27,6 +27,6 @@ public extension UIColor {
         patternImage.drawInRect(rect)
         let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return UIColor(patternImage: resizedImage)
+        return UIColor(patternImage: resizedImage!)
     }
 }

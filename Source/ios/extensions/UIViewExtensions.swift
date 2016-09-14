@@ -77,20 +77,23 @@ public extension UIView {
         var viewBounds = bounds
         if viewBounds.size == CGSizeZero {
             if layer.isKindOfClass(CAShapeLayer) {
-                let path = (layer as! CAShapeLayer).path
-                viewBounds = CGPathGetPathBoundingBox(path)
+                if let path = (layer as! CAShapeLayer).path {
+                    viewBounds = CGPathGetPathBoundingBox(path)
+                }
             } else {
                 if let sublayers = layer.sublayers {
                     for sublayer in sublayers {
                         if sublayer.isKindOfClass(CAShapeLayer) {
-                            let path = (sublayer as! CAShapeLayer).path
-                            viewBounds = CGPathGetPathBoundingBox(path)
-                            break
+                            if let path = (sublayer as! CAShapeLayer).path {
+                                viewBounds = CGPathGetPathBoundingBox(path)
+                                break
+                            }
                         }
                     }
                 }
             }
         }
+
         UIGraphicsBeginImageContextWithOptions(viewBounds.size, false, 0.0)
         if let context = UIGraphicsGetCurrentContext() {
             layer.renderInContext(context)
