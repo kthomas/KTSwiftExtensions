@@ -85,7 +85,7 @@ public extension UIViewController {
         presentViewController(alertController, animated: true)
 
         dispatch_after_delay(delay) {
-            self.dismissViewController(animated: true)
+            self.dismissViewController(true)
         }
     }
 }
