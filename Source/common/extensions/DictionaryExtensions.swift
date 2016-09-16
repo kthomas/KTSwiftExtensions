@@ -3,7 +3,7 @@
 //  KTSwiftExtensions
 //
 //  Created by Kyle Thomas on 6/27/16.
-//  Copyright (c) 2016 Kyle Thomas. All rights reserved.
+//  Copyright © 2016 Kyle Thomas. All rights reserved.
 //
 
 import Foundation
@@ -11,8 +11,8 @@ import Foundation
 public extension Dictionary {
 
     func toJSONString() -> String {
-        let jsonData = encodeJSON(self as! AnyObject)
-        return NSString(bytes: jsonData.bytes, length: jsonData.length, encoding: NSUTF8StringEncoding) as! String
+        let jsonData = encodeJSON(self as AnyObject)
+        return NSString(bytes: (jsonData as NSData).bytes, length: jsonData.count, encoding: String.Encoding.utf8.rawValue) as! String
     }
 
     func toQueryString() -> String {

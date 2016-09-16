@@ -8,9 +8,9 @@
 
 import Foundation
 
-public class KTRegex {
+open class KTRegex {
 
-    public class func match(pattern: String, input: String) -> [NSTextCheckingResult] {
+    open class func match(_ pattern: String, input: String) -> [NSTextCheckingResult] {
         return KTRegex(pattern).match(input)
     }
 
@@ -21,22 +21,22 @@ public class KTRegex {
         self.pattern = pattern
 
         do {
-            internalExpression = try NSRegularExpression(pattern: pattern, options: .CaseInsensitive)
+            internalExpression = try NSRegularExpression(pattern: pattern, options: .caseInsensitive)
         } catch let error as NSError {
             internalExpression = nil
             logWarn(error.localizedDescription)
         }
     }
 
-    public func match(input: String) -> [NSTextCheckingResult] {
+    open func match(_ input: String) -> [NSTextCheckingResult] {
         var matches = [NSTextCheckingResult]()
         if let internalExpression = internalExpression {
-            matches = internalExpression.matchesInString(input, options: .Anchored, range: NSMakeRange(0, input.startIndex.distanceTo(input.endIndex)))
+            matches = internalExpression.matches(in: input, options: .anchored, range: NSMakeRange(0, input.characters.distance(from: input.startIndex, to: input.endIndex)))
         }
         return matches
     }
 
-    public func test(input: String) -> Bool {
+    open func test(_ input: String) -> Bool {
         return match(input).count > 0
     }
 }

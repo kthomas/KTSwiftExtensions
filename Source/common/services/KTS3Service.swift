@@ -9,42 +9,45 @@
 import Alamofire
 import AlamofireObjectMapper
 
-public class KTS3Service: NSObject {
+open class KTS3Service: NSObject {
 
-    public class func presign(url: NSURL,
+    open class func presign(_ url: URL,
                              filename: String,
                              metadata: [String : String],
                              headers: [String : String],
                              successHandler: KTApiSuccessHandler?,
                              failureHandler: KTApiFailureHandler?) {
-        let request = Alamofire.request(.GET, url, parameters: ["filename": filename, "metadata": metadata.toJSONString()], headers: headers)
+        let request: DataRequest = Alamofire.request(url, method: .get, parameters: ["filename": filename, "metadata": metadata.toJSONString()], headers: headers)
         KTApiService.sharedService().execute(request, successHandler: successHandler, failureHandler: failureHandler)
     }
 
-    public class func upload(presignedS3Request: KTPresignedS3Request,
-                      data: NSData,
-                      withMimeType mimeType: String,
-                      successHandler: KTApiSuccessHandler?,
-                      failureHandler: KTApiFailureHandler?) {
+    open class func upload(_ presignedS3Request: KTPresignedS3Request,
+                           data: Data,
+                           withMimeType mimeType: String,
+                           successHandler: KTApiSuccessHandler?,
+                           failureHandler: KTApiFailureHandler?) {
         if presignedS3Request.fields != nil {
-            Alamofire.upload(.POST, NSURL(presignedS3Request.url).absoluteString!, headers: presignedS3Request.signedHeaders,
+            let request: DataRequest = Alamofire.request(presignedS3Request.url, method: .get, headers: presignedS3Request.signedHeaders)
+            Alamofire.upload(
                 multipartFormData: { multipartFormData in
                     for (name, value) in presignedS3Request.fields {
-                        multipartFormData.appendBodyPart(data: value.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name: name)
+                        let data = value.data(using: .utf8, allowLossyConversion: false)!
+                        multipartFormData.append(data as Data, withName: name)
                     }
-                    multipartFormData.appendBodyPart(data: data, name: "file", fileName: "filename", mimeType: mimeType)
+                    multipartFormData.append(data, withName: "file", fileName: "filename", mimeType: mimeType)
                 },
+                with: request.request!,
                 encodingCompletion: { encodingResult in
                     switch encodingResult {
-                    case .Success(let request, _, _):
-                        KTApiService.sharedService().execute(request, successHandler: successHandler, failureHandler: failureHandler)
-                    case .Failure(let encodingError):
+                    case .success(let request, _, _):
+                        KTApiService.sharedService().execute(request as DataRequest, successHandler: successHandler, failureHandler: failureHandler)
+                    case .failure(let encodingError):
                         logWarn("Multipart upload not attempted due to encoding error; \(encodingError)")
                     }
                 }
             )
         } else {
-            let request = Alamofire.upload(.PUT, NSURL(presignedS3Request.url), headers: presignedS3Request.signedHeaders, data: data)
+            let request: DataRequest = Alamofire.upload(data, to: presignedS3Request.url, method: .put, headers: presignedS3Request.signedHeaders)
             KTApiService.sharedService().execute(request, successHandler: successHandler, failureHandler: failureHandler)
         }
     }

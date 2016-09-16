@@ -1,9 +1,9 @@
 //
-//  NSURLExtensions.swift
+//  URLExtensions.swift
 //  KTSwiftExtensions
 //
-//  Created by Kyle Thomas on 6/27/16.
-//  Copyright (c) 2016 Kyle Thomas. All rights reserved.
+//  Created by Kyle Thomas on 9/16/16.
+//  Copyright © 2016 PROJECT_OWNER. All rights reserved.
 //
 
 import Foundation

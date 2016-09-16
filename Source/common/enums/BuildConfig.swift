@@ -9,13 +9,13 @@
 import Foundation
 
 #if DEBUG
-let CurrentBuildConfig = BuildConfig.Debug
+let CurrentBuildConfig = BuildConfig.debug
 #elseif APP_STORE
-let CurrentBuildConfig = BuildConfig.AppStore
+let CurrentBuildConfig = BuildConfig.appStore
 #elseif true
-let CurrentBuildConfig = BuildConfig.Debug
+let CurrentBuildConfig = BuildConfig.debug
 #endif
 
 public enum BuildConfig {
-    case Debug, AppStore
+    case debug, appStore
 }

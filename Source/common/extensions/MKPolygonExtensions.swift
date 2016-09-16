@@ -3,14 +3,14 @@
 //  KTSwiftExtensions
 //
 //  Created by Kyle Thomas on 6/27/16.
-//  Copyright (c) 2016 Kyle Thomas. All rights reserved.
+//  Copyright © 2016 Kyle Thomas. All rights reserved.
 //
 
 import MapKit
 
 public extension MKPolygon {
 
-    class func areaWithPoints(points: [CGPoint]) -> CGFloat {
+    class func areaWithPoints(_ points: [CGPoint]) -> CGFloat {
         if points.count < 3 {
             return 0.0
         }

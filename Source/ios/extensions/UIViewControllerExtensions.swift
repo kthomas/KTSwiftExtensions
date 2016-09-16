@@ -3,7 +3,7 @@
 //  KTSwiftExtensions
 //
 //  Created by Kyle Thomas on 6/27/16.
-//  Copyright (c) 2016 Kyle Thomas. All rights reserved.
+//  Copyright © 2016 Kyle Thomas. All rights reserved.
 //
 
 import UIKit
@@ -13,12 +13,12 @@ public extension UIViewController {
 
     // MARK: Child view controller presentation
 
-    func presentViewController(viewControllerToPresent: UIViewController, animated: Bool) {
-        presentViewController(viewControllerToPresent, animated: animated, completion: nil)
+    func presentViewController(_ viewControllerToPresent: UIViewController, animated: Bool) {
+        present(viewControllerToPresent, animated: animated, completion: nil)
     }
 
-    func dismissViewController(animated: Bool, completion: VoidBlock? = nil) {
-        dismissViewControllerAnimated(animated, completion: completion)
+    func dismissViewController(_ animated: Bool, completion: VoidBlock? = nil) {
+        dismiss(animated: animated, completion: completion)
     }
 
     // MARK: MBProgressHUD
@@ -30,25 +30,25 @@ public extension UIViewController {
     }
 
     func showHUD(inView view: UIView) {
-        var hud: MBProgressHUD! = MBProgressHUD(forView: view)
+        var hud: MBProgressHUD! = MBProgressHUD(for: view)
 
         if hud == nil {
-            hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
+            hud = MBProgressHUD.showAdded(to: view, animated: true)
         } else {
-            hud.show(true)
+            hud.show(animated: true)
         }
     }
 
-    func showHUDWithText(text: String) {
-        var hud: MBProgressHUD! = MBProgressHUD(forView: view)
+    func showHUDWithText(_ text: String) {
+        var hud: MBProgressHUD! = MBProgressHUD(for: view)
 
         if hud == nil {
-            hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
+            hud = MBProgressHUD.showAdded(to: view, animated: true)
         } else {
-            hud.show(true)
+            hud.show(animated: true)
         }
 
-        hud.labelText = text
+        hud.label.text = text
     }
 
     func hideHUD() {
@@ -58,30 +58,31 @@ public extension UIViewController {
     }
 
     func hideHUD(inView view: UIView!) {
-        if let hud = MBProgressHUD(forView: view) {
-            hud.hide(true)
+        if let hud = MBProgressHUD(for: view) {
+            hud.hide(animated: true)
         }
     }
 
-    func hideHUDWithText(text: String, completion: VoidBlock? = nil) {
-        let hud = MBProgressHUD(forView: view)
-        hud.mode = .Text
-        hud.labelText = text
+    func hideHUDWithText(_ text: String, completion: VoidBlock? = nil) {
+        if let hud = MBProgressHUD(for: view) {
+            hud.mode = .text
+            hud.label.text = text
 
-        if let completionBlock = completion {
-            dispatch_after_delay(1.5) {
-                hud.hide(true)
-                completionBlock()
+            if let completionBlock = completion {
+                dispatch_after_delay(1.5) {
+                    hud.hide(animated: true)
+                    completionBlock()
+                }
+            } else {
+                hud.hide(animated: true, afterDelay: 1.5)
             }
-        } else {
-            hud.hide(true, afterDelay: 1.5)
         }
     }
 
     // MARK: UIAlertController
 
-    func showToast(title: String, dismissAfter delay: NSTimeInterval = 1.5) {
-        let alertController = UIAlertController(title: title, message: nil, preferredStyle: .Alert)
+    func showToast(_ title: String, dismissAfter delay: TimeInterval = 1.5) {
+        let alertController = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         presentViewController(alertController, animated: true)
 
         dispatch_after_delay(delay) {

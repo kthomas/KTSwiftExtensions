@@ -8,12 +8,12 @@
 
 import ObjectMapper
 
-public class KTError: KTModel {
+open class KTError: KTModel {
 
-    public var message: String!
-    public var status: Int!
+    open var message: String!
+    open var status: Int!
 
-    public override func mapping(map: Map) {
+    open override func mapping(map: Map) {
         message <- map["message"]
         status <- map["status"]
     }

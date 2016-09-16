@@ -3,7 +3,7 @@
 //  KTSwiftExtensions
 //
 //  Created by Kyle Thomas on 6/27/16.
-//  Copyright (c) 2016 Kyle Thomas. All rights reserved.
+//  Copyright © 2016 Kyle Thomas. All rights reserved.
 //
 
 import MapKit
@@ -15,31 +15,31 @@ public extension MKMapView {
 
     // MARK: Map conversion methods
 
-    func degToRad(deg: Double) -> Double {
+    func degToRad(_ deg: Double) -> Double {
         return deg * M_PI / 180.0
     }
 
-    func longitudeToPixelSpaceX(longitude: Double) -> Double {
+    func longitudeToPixelSpaceX(_ longitude: Double) -> Double {
         return round(mercatorOffset + mercatorRadius * longitude * M_PI / 180.0)
     }
 
-    func latitudeToPixelSpaceY(latitude: Double) -> Double {
+    func latitudeToPixelSpaceY(_ latitude: Double) -> Double {
         let radLat = degToRad(latitude)
         let sinRadLat = sin(radLat)
         return round(mercatorOffset - mercatorRadius * log((1 + sinRadLat) / (1 - sinRadLat)) / 2.0)
     }
 
-    func pixelSpaceXToLongitude(x: Double) -> Double {
+    func pixelSpaceXToLongitude(_ x: Double) -> Double {
         return ((round(x) - mercatorOffset) / mercatorRadius) * 180.0 / M_PI
     }
 
-    func pixelSpaceYToLatitude(y: Double) -> Double {
+    func pixelSpaceYToLatitude(_ y: Double) -> Double {
         return (M_PI / 2.0 - 2.0 * atan(exp((round(y) - mercatorOffset) / mercatorRadius))) * 180.0 / M_PI
     }
 
     // MARK: Helper methods
 
-    func coordinateSpan(centerCoordinate: CLLocationCoordinate2D, zoomLevel: Double) -> MKCoordinateSpan {
+    func coordinateSpan(_ centerCoordinate: CLLocationCoordinate2D, zoomLevel: Double) -> MKCoordinateSpan {
         let centerX = longitudeToPixelSpaceX(centerCoordinate.longitude)
         let centerY = latitudeToPixelSpaceY(centerCoordinate.latitude)
 
@@ -66,7 +66,7 @@ public extension MKMapView {
 
     // MARK: Set center coordinate and zoom
 
-    func setCenterCoordinate(centerCoordinate: CLLocationCoordinate2D, zoomLevel: UInt, animated: Bool) {
+    func setCenterCoordinate(_ centerCoordinate: CLLocationCoordinate2D, zoomLevel: UInt, animated: Bool) {
         let zoomLevel = min(zoomLevel, 28)
 
         let span = coordinateSpan(centerCoordinate, zoomLevel: Double(zoomLevel))
@@ -76,7 +76,7 @@ public extension MKMapView {
     }
 
     func setCenterCoordinate(
-        centerCoordinate: CLLocationCoordinate2D,
+        _ centerCoordinate: CLLocationCoordinate2D,
         fromEyeCoordinate: CLLocationCoordinate2D,
         eyeAltitude: CLLocationDistance = 0,
         pitch: CGFloat = 0,
@@ -89,7 +89,7 @@ public extension MKMapView {
         }
 
         let camera = MKMapCamera(
-            lookingAtCenterCoordinate: centerCoordinate,
+            lookingAtCenter: centerCoordinate,
             fromEyeCoordinate: fromEyeCoordinate,
             eyeAltitude: eyeAltitude)
 
@@ -104,15 +104,15 @@ public extension MKMapView {
 
     // MARK: Set heading
 
-    func setHeading(heading: CLHeading) {
+    func setHeading(_ heading: CLHeading) {
         camera.heading = heading.trueHeading
     }
 
     // MARK: User interaction
 
-    func setUserInteraction(enabled enabled: Bool) {
-        scrollEnabled = enabled
-        zoomEnabled = enabled
+    func setUserInteraction(enabled: Bool) {
+        isScrollEnabled = enabled
+        isZoomEnabled = enabled
     }
 
     func disableUserInteraction() {

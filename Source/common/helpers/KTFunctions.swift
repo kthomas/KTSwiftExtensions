@@ -10,45 +10,45 @@ import Foundation
 
 public typealias VoidBlock = () -> Void
 
-let logTimestampDateFormatter = NSDateFormatter(dateFormat: "HH:mm:ss.SSS")
+let logTimestampDateFormatter = DateFormatter("HH:mm:ss.SSS")
 
-public func classNameForObject(object: AnyObject) -> String {
-    let objectName = NSStringFromClass(object.dynamicType)
+public func classNameForObject(_ object: AnyObject) -> String {
+    let objectName = NSStringFromClass(type(of: object))
 
     if let injectBundle = ENV("XCInjectBundle") {
-        let testBundleName = NSString(string: NSString(string: injectBundle).lastPathComponent).stringByDeletingPathExtension
+        let testBundleName = NSString(string: NSString(string: injectBundle).lastPathComponent).deletingPathExtension
         return objectName.replaceString("\(testBundleName).", withString: "")
     } else {
-        return objectName.componentsSeparatedByString(".").last!
+        return objectName.components(separatedBy: ".").last!
     }
 }
 
-public func decodeJSON(data: NSData) -> [String: AnyObject] {
+public func decodeJSON(_ data: Data) -> [String: AnyObject] {
     do {
-        return try NSJSONSerialization.JSONObjectWithData(data, options: []) as! [String : AnyObject]
+        return try JSONSerialization.jsonObject(with: data, options: []) as! [String : AnyObject]
     } catch {
         log("\(error)")
         fatalError()
     }
 }
 
-public func dispatch_after_delay(seconds: Double, block: dispatch_block_t) {
-    let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(seconds * Double(NSEC_PER_SEC)))
-    dispatch_after(delay, dispatch_get_main_queue(), block)
+public func dispatch_after_delay(_ seconds: Double, block: @escaping ()->()) {
+    let delay = DispatchTime.now() + Double(Int64(seconds * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+    DispatchQueue.main.asyncAfter(deadline: delay, execute: block)
 }
 
-public func dispatch_async_main_queue(block: dispatch_block_t) {
-    dispatch_async(dispatch_get_main_queue(), block)
+public func dispatch_async_main_queue(_ block: @escaping ()->()) {
+    DispatchQueue.main.async(execute: block)
 }
 
-public func dispatch_async_global_queue(priority: Int, block: dispatch_block_t) {
-    dispatch_async(dispatch_get_global_queue(priority, 0), block)
+public func dispatch_async_global_queue(_ qos: DispatchQoS.QoSClass = .default, block: @escaping ()->()) {
+    DispatchQueue.global(qos: qos).async(execute: block)
 }
 
-public func encodeJSON(input: AnyObject, options: NSJSONWritingOptions = []) -> NSData {
-    let data: NSData?
+public func encodeJSON(_ input: AnyObject, options: JSONSerialization.WritingOptions = []) -> Data {
+    let data: Data?
     do {
-        data = try NSJSONSerialization.dataWithJSONObject(input, options: options)
+        data = try JSONSerialization.data(withJSONObject: input, options: options)
     } catch let error as NSError {
         logError(error)
         data = nil
@@ -56,7 +56,7 @@ public func encodeJSON(input: AnyObject, options: NSJSONWritingOptions = []) -> 
     return data!
 }
 
-public func ENV(envVarName: String) -> String? {
+public func ENV(_ envVarName: String) -> String? {
     if var envVarValue = envVarRawValue(envVarName) {
         if envVarValue.hasPrefix("~") {
             let userHomeDir = envVarRawValue("SIMULATOR_HOST_HOME")!
@@ -68,12 +68,12 @@ public func ENV(envVarName: String) -> String? {
     }
 }
 
-private func envVarRawValue(envVarName: String) -> String? {
-    return NSProcessInfo.processInfo().environment[envVarName]
+private func envVarRawValue(_ envVarName: String) -> String? {
+    return ProcessInfo.processInfo.environment[envVarName]
 }
 
-public func infoDictionaryValueFor(key: String) -> String {
-    return (NSBundle.mainBundle().infoDictionary![key] ?? "") as! String
+public func infoDictionaryValueFor(_ key: String) -> String {
+    return (Bundle.main.infoDictionary![key] ?? "") as! String
 }
 
 public func isRunningUnitTests() -> Bool {
@@ -91,47 +91,47 @@ public func isSimulator() -> Bool {
     #endif
 }
 
-public func log(message: String, _ fileName: String = #file, _ functionName: String = #function, _ lineNumber: Int = #line) {
-    if CurrentBuildConfig == .Debug {
-        let timestamp = logTimestampDateFormatter.stringFromDate(NSDate())
-        var fileAndMethod = "[\(timestamp)] [\(NSString(string: NSString(string: fileName).lastPathComponent).stringByDeletingPathExtension):\(lineNumber)] "
+public func log(_ message: String, _ fileName: String = #file, _ functionName: String = #function, _ lineNumber: Int = #line) {
+    if CurrentBuildConfig == .debug {
+        let timestamp = logTimestampDateFormatter.string(from: Date())
+        var fileAndMethod = "[\(timestamp)] [\(NSString(string: NSString(string: fileName).lastPathComponent).deletingPathExtension):\(lineNumber)] "
         fileAndMethod = fileAndMethod.replaceString("ViewController", withString: "VC")
-        fileAndMethod = fileAndMethod.stringByPaddingToLength(38, withString: "-", startingAtIndex: 0)
+        fileAndMethod = fileAndMethod.padding(toLength: 38, withPad: "-", startingAt: 0)
         let logStatement = "\(fileAndMethod)--> \(message)"
         print(logStatement)
     }
 }
 
-public func logError(error: NSError, fileName: String = #file, functionName: String = #function, lineNumber: Int = #line) {
+public func logError(_ error: NSError, fileName: String = #file, functionName: String = #function, lineNumber: Int = #line) {
     log("❌ NSError: \(error.localizedDescription)", fileName, functionName, lineNumber)
     fatalError("Encountered: NSError: \(error)")
 }
 
-public func logError(errorMessage: String, fileName: String = #file, functionName: String = #function, lineNumber: Int = #line) {
+public func logError(_ errorMessage: String, fileName: String = #file, functionName: String = #function, lineNumber: Int = #line) {
     log("‼️ ERROR: \(errorMessage)", fileName, functionName, lineNumber)
 }
 
-public func logWarn(errorMessage: String, fileName: String = #file, functionName: String = #function, lineNumber: Int = #line) {
+public func logWarn(_ errorMessage: String, fileName: String = #file, functionName: String = #function, lineNumber: Int = #line) {
     log("⚠️ WARNING: \(errorMessage)", fileName, functionName, lineNumber)
 }
 
-public func logInfo(infoMessage: String, fileName: String = #file, functionName: String = #function, lineNumber: Int = #line) {
+public func logInfo(_ infoMessage: String, fileName: String = #file, functionName: String = #function, lineNumber: Int = #line) {
     log("🔵 INFO: \(infoMessage)", fileName, functionName, lineNumber)
 }
 
-public func why(message: String, fileName: String = #file, functionName: String = #function, lineNumber: Int = #line) {
+public func why(_ message: String, fileName: String = #file, functionName: String = #function, lineNumber: Int = #line) {
     log("❓ WHY: \(message)", fileName, functionName, lineNumber)
 }
 
-public func stringFromFile(fileName: String, bundlePath: String? = nil, bundle: NSBundle = NSBundle.mainBundle()) -> String {
-    let resourceName = NSString(string: fileName).stringByDeletingPathExtension
+public func stringFromFile(_ fileName: String, bundlePath: String? = nil, bundle: Bundle = Bundle.main) -> String {
+    let resourceName = NSString(string: fileName).deletingPathExtension
     let type = NSString(string: fileName).pathExtension
-    let filePath = bundle.pathForResource(resourceName, ofType: type, inDirectory:bundlePath)
+    let filePath = bundle.path(forResource: resourceName, ofType: type, inDirectory:bundlePath)
     assert(filePath != nil, "File not found: \(resourceName).\(type)")
 
     let fileAsString: NSString?
     do {
-        fileAsString = try NSString(contentsOfFile: filePath!, encoding: NSUTF8StringEncoding)
+        fileAsString = try NSString(contentsOfFile: filePath!, encoding: String.Encoding.utf8.rawValue)
     } catch let error as NSError {
         logError(error.localizedDescription)
         fileAsString = nil
@@ -142,22 +142,22 @@ public func stringFromFile(fileName: String, bundlePath: String? = nil, bundle: 
     return fileAsString as! String
 }
 
-public func prettyPrintedJson(uglyJsonStr: String?) -> String {
+public func prettyPrintedJson(_ uglyJsonStr: String?) -> String {
     if let uglyJsonString = uglyJsonStr {
-        let uglyJson: AnyObject = try! NSJSONSerialization.JSONObjectWithData(uglyJsonString.dataUsingEncoding(NSUTF8StringEncoding)!, options: [])
-        let prettyPrintedJson = encodeJSON(uglyJson, options: .PrettyPrinted)
-        return NSString(data: prettyPrintedJson, encoding: NSUTF8StringEncoding) as! String
+        let uglyJson: AnyObject = try! JSONSerialization.jsonObject(with: uglyJsonString.data(using: String.Encoding.utf8)!, options: []) as AnyObject
+        let prettyPrintedJson = encodeJSON(uglyJson, options: .prettyPrinted)
+        return NSString(data: prettyPrintedJson, encoding: String.Encoding.utf8.rawValue) as! String
     }
 
     return ""
 }
 
-public func swizzleMethodSelector(origSelector: String, withSelector: String, forClass: AnyClass) {
+public func swizzleMethodSelector(_ origSelector: String, withSelector: String, forClass: AnyClass) {
     let originalMethod = class_getInstanceMethod(forClass, Selector(origSelector))
     let swizzledMethod = class_getInstanceMethod(forClass, Selector(withSelector))
     method_exchangeImplementations(originalMethod, swizzledMethod)
 }
 
 public func totalDeviceMemoryInGigabytes() -> CGFloat {
-    return CGFloat(NSProcessInfo.processInfo().physicalMemory) / 1073741824.0
+    return CGFloat(ProcessInfo.processInfo.physicalMemory) / 1073741824.0
 }

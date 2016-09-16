@@ -11,21 +11,21 @@ import UIKit.UIGestureRecognizerSubclass
 
 @objc
 public protocol KTDraggableViewGestureRecognizerDelegate {
-    optional func draggableViewGestureRecognizer(gestureRecognizer: KTDraggableViewGestureRecognizer, shouldResetView view: UIView) -> Bool
-    optional func draggableViewGestureRecognizer(gestureRecognizer: KTDraggableViewGestureRecognizer, shouldAnimateResetView view: UIView) -> Bool
+    @objc optional func draggableViewGestureRecognizer(_ gestureRecognizer: KTDraggableViewGestureRecognizer, shouldResetView view: UIView) -> Bool
+    @objc optional func draggableViewGestureRecognizer(_ gestureRecognizer: KTDraggableViewGestureRecognizer, shouldAnimateResetView view: UIView) -> Bool
 }
 
-public class KTDraggableViewGestureRecognizer: UIGestureRecognizer {
+open class KTDraggableViewGestureRecognizer: UIGestureRecognizer {
 
-    public var draggableViewGestureRecognizerDelegate: KTDraggableViewGestureRecognizerDelegate!
+    open var draggableViewGestureRecognizerDelegate: KTDraggableViewGestureRecognizerDelegate!
 
-    internal var touchesBeganTimestamp: NSDate!
+    internal var touchesBeganTimestamp: Date!
     internal var initialView: UIView!
     internal var initialSuperview: UIView!
     internal var initialFrame: CGRect!
     internal var initialAlpha: CGFloat!
 
-    private var superviewChanged: Bool {
+    fileprivate var superviewChanged: Bool {
         if let initialView = initialView {
             if let initialSuperview = initialSuperview {
                 return initialView.superview != initialSuperview
@@ -34,28 +34,28 @@ public class KTDraggableViewGestureRecognizer: UIGestureRecognizer {
         return false
     }
 
-    private var gestureInProgress: Bool {
+    fileprivate var gestureInProgress: Bool {
         return touchesBeganTimestamp != nil
     }
 
-    private func cleanup() {
+    fileprivate func cleanup() {
         initialView = nil
         initialSuperview = nil
         initialFrame = nil
         initialAlpha = nil
     }
 
-    public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent) {
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent) {
         let view = touches.first!.view!
         if let superview = view.superview {
             initialSuperview = superview
-            if superview.isKindOfClass(UICollectionViewCell) {
-                while !initialSuperview.isKindOfClass(UICollectionView) {
+            if superview.isKind(of: UICollectionViewCell.self) {
+                while !initialSuperview.isKind(of: UICollectionView.self) {
                     initialSuperview = initialSuperview.superview!
                 }
                 initialView = superview
-            } else if superview.superview!.isKindOfClass(UICollectionViewCell) {
-                while !initialSuperview.isKindOfClass(UICollectionView) {
+            } else if superview.superview!.isKind(of: UICollectionViewCell.self) {
+                while !initialSuperview.isKind(of: UICollectionView.self) {
                     initialSuperview = initialSuperview.superview!
                 }
                 initialView = superview.superview!
@@ -68,18 +68,18 @@ public class KTDraggableViewGestureRecognizer: UIGestureRecognizer {
         initialFrame = initialView.frame
         initialAlpha = initialView.alpha
 
-        super.touchesBegan(touches, withEvent: event)
+        super.touchesBegan(touches, with: event)
 
-        state = .Began
+        state = .began
 
-        touchesBeganTimestamp = NSDate()
+        touchesBeganTimestamp = Date()
         applyTouches(touches)
     }
 
-    public override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent) {
-        super.touchesEnded(touches, withEvent: event)
+    open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent) {
+        super.touchesEnded(touches, with: event)
 
-        state = .Ended
+        state = .ended
 
         applyTouches(touches)
         touchesBeganTimestamp = nil
@@ -94,20 +94,20 @@ public class KTDraggableViewGestureRecognizer: UIGestureRecognizer {
                         delay = 0.0
                     }
                 }
-                UIView.animateWithDuration(duration, delay: delay, options: .CurveEaseOut,
+                UIView.animate(withDuration: duration, delay: delay, options: .curveEaseOut,
                     animations: {
                         self.initialView.frame = self.initialFrame
                         self.initialView.alpha = self.initialAlpha
                     },
                     completion: { complete in
                         if self.superviewChanged {
-                            let window = UIApplication.sharedApplication().keyWindow!
+                            let window = UIApplication.shared.keyWindow!
                             self.initialView.removeFromSuperview()
 
-                            self.initialView.frame = window.convertRect(self.initialView.frame, toView: self.initialSuperview)
+                            self.initialView.frame = window.convert(self.initialView.frame, to: self.initialSuperview)
                             self.initialView.alpha = self.initialAlpha
                             self.initialSuperview.addSubview(self.initialView)
-                            self.initialSuperview.bringSubviewToFront(self.initialView)
+                            self.initialSuperview.bringSubview(toFront: self.initialView)
                         }
 
                         self.cleanup()
@@ -121,40 +121,40 @@ public class KTDraggableViewGestureRecognizer: UIGestureRecognizer {
         }
     }
 
-    public override func touchesCancelled(touches: Set<UITouch>, withEvent event: UIEvent) {
-        super.touchesCancelled(touches, withEvent: event)
+    open override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent) {
+        super.touchesCancelled(touches, with: event)
 
-        state = .Cancelled
+        state = .cancelled
 
         touchesBeganTimestamp = nil
 
         cleanup()
     }
 
-    public override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent) {
-        super.touchesMoved(touches, withEvent: event)
+    open override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent) {
+        super.touchesMoved(touches, with: event)
         applyTouches(touches)
     }
 
-    private func applyTouches(touches: Set<UITouch>) {
+    fileprivate func applyTouches(_ touches: Set<UITouch>) {
         var xOffset: CGFloat = 0
         var yOffset: CGFloat = 0
 
         for touch in touches {
-            xOffset += touch.locationInView(nil).x - touch.previousLocationInView(nil).x
-            yOffset += touch.locationInView(nil).y - touch.previousLocationInView(nil).y
+            xOffset += touch.location(in: nil).x - touch.previousLocation(in: nil).x
+            yOffset += touch.location(in: nil).y - touch.previousLocation(in: nil).y
 
             drag(xOffset, yOffset: yOffset)
         }
     }
 
-    internal func drag(xOffset: CGFloat, yOffset: CGFloat) {
+    internal func drag(_ xOffset: CGFloat, yOffset: CGFloat) {
         if let view = view {
             drag(view, xOffset: xOffset, yOffset: yOffset)
         }
     }
     
-    internal func drag(view: UIView, xOffset: CGFloat, yOffset: CGFloat) {
+    internal func drag(_ view: UIView, xOffset: CGFloat, yOffset: CGFloat) {
         var newFrame = CGRect(origin: view.frame.origin, size: view.frame.size)
         newFrame.origin.x += xOffset
         newFrame.origin.y += yOffset

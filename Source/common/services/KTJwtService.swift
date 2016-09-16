@@ -8,11 +8,11 @@
 
 import JWTDecode
 
-public class KTJwtService: NSObject {
+open class KTJwtService: NSObject {
 
-    public class func decode(token: String) -> JWT? {
+    open class func decode(_ token: String) -> JWT? {
         do {
-            let jwt = try JWTDecode.decode(token)
+            let jwt = try JWTDecode.decode(jwt: token)
             return jwt
         } catch let error as NSError {
             logWarn("JWT decoding failed: \(error.localizedDescription)")

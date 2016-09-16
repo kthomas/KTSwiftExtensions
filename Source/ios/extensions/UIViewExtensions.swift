@@ -3,43 +3,43 @@
 //  KTSwiftExtensions
 //
 //  Created by Kyle Thomas on 6/27/16.
-//  Copyright (c) 2016 Kyle Thomas. All rights reserved.
+//  Copyright © 2016 Kyle Thomas. All rights reserved.
 //
 
 import UIKit
 
 public extension UIView {
 
-    func addBorder(width: CGFloat, color: UIColor) {
-        layer.borderColor = color.CGColor
+    func addBorder(_ width: CGFloat, color: UIColor) {
+        layer.borderColor = color.cgColor
         layer.borderWidth = width
     }
 
     func addDropShadow() {
-        layer.shadowColor = UIColor.blackColor().CGColor
+        layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.75
         layer.shadowRadius = 2.0
-        layer.shadowOffset = CGSizeMake(1.0, 2.0)
+        layer.shadowOffset = CGSize(width: 1.0, height: 2.0)
     }
 
-    func addDropShadow(size: CGSize, radius: CGFloat, opacity: CGFloat) {
-        layer.shadowColor = UIColor.blackColor().CGColor
+    func addDropShadow(_ size: CGSize, radius: CGFloat, opacity: CGFloat) {
+        layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = Float(opacity)
         layer.shadowRadius = radius
         layer.shadowOffset = size
     }
 
-    func addGradient(startColor: UIColor, endColor: UIColor, horizontal: Bool = false) {
+    func addGradient(_ startColor: UIColor, endColor: UIColor, horizontal: Bool = false) {
         let gradient = CAGradientLayer()
         gradient.frame = bounds
-        gradient.colors = [startColor.CGColor, endColor.CGColor]
+        gradient.colors = [startColor.cgColor, endColor.cgColor]
 
         if horizontal {
-            gradient.startPoint = CGPointMake(0.0, 0.5)
-            gradient.endPoint = CGPointMake(1.0, 0.5)
+            gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
+            gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
         }
 
-        layer.insertSublayer(gradient, atIndex: 0)
+        layer.insertSublayer(gradient, at: 0)
     }
 
     func disableTapToDismissKeyboard() {
@@ -68,24 +68,24 @@ public extension UIView {
         }
     }
 
-    func roundCorners(radius: CGFloat) {
+    func roundCorners(_ radius: CGFloat) {
         layer.cornerRadius = radius
     }
 
     func toImage() -> UIImage! {
         var image: UIImage!
         var viewBounds = bounds
-        if viewBounds.size == CGSizeZero {
-            if layer.isKindOfClass(CAShapeLayer) {
+        if viewBounds.size == CGSize.zero {
+            if layer.isKind(of: CAShapeLayer.self) {
                 if let path = (layer as! CAShapeLayer).path {
-                    viewBounds = CGPathGetPathBoundingBox(path)
+                    viewBounds = path.boundingBoxOfPath
                 }
             } else {
                 if let sublayers = layer.sublayers {
                     for sublayer in sublayers {
-                        if sublayer.isKindOfClass(CAShapeLayer) {
+                        if sublayer.isKind(of: CAShapeLayer.self) {
                             if let path = (sublayer as! CAShapeLayer).path {
-                                viewBounds = CGPathGetPathBoundingBox(path)
+                                viewBounds = path.boundingBoxOfPath
                                 break
                             }
                         }
@@ -96,14 +96,14 @@ public extension UIView {
 
         UIGraphicsBeginImageContextWithOptions(viewBounds.size, false, 0.0)
         if let context = UIGraphicsGetCurrentContext() {
-            layer.renderInContext(context)
+            layer.render(in: context)
             image = UIGraphicsGetImageFromCurrentImageContext()
         }
         UIGraphicsEndImageContext()
         return image
     }
 
-    class func transitionWithView(view: UIView, duration: NSTimeInterval = 0.3, options: UIViewAnimationOptions = .TransitionCrossDissolve, animations: VoidBlock) {
-        transitionWithView(view, duration: duration, options: options, animations: animations, completion: nil)
+    class func transitionWithView(_ view: UIView, duration: TimeInterval = 0.3, options: UIViewAnimationOptions = .transitionCrossDissolve, animations: @escaping VoidBlock) {
+        transition(with: view, duration: duration, options: options, animations: animations, completion: nil)
     }
 }

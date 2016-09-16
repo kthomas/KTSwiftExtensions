@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		686131E11D8BC66300C91A90 /* NSURLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686131E01D8BC66300C91A90 /* NSURLExtensions.swift */; };
 		689836811D86803D00CA1F5B /* BuildConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836461D86803D00CA1F5B /* BuildConfig.swift */; };
 		689836821D86803D00CA1F5B /* KTFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836481D86803D00CA1F5B /* KTFunctions.swift */; };
 		689836831D86803D00CA1F5B /* KTRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836491D86803D00CA1F5B /* KTRegex.swift */; };
@@ -32,11 +33,10 @@
 		689836C11D86814000CA1F5B /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836B61D86814000CA1F5B /* DictionaryExtensions.swift */; };
 		689836C21D86814000CA1F5B /* MKMapViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836B71D86814000CA1F5B /* MKMapViewExtensions.swift */; };
 		689836C31D86814000CA1F5B /* MKPolygonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836B81D86814000CA1F5B /* MKPolygonExtensions.swift */; };
-		689836C41D86814000CA1F5B /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836B91D86814000CA1F5B /* NSDateExtensions.swift */; };
-		689836C51D86814000CA1F5B /* NSDateFormatterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836BA1D86814000CA1F5B /* NSDateFormatterExtensions.swift */; };
+		689836C41D86814000CA1F5B /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836B91D86814000CA1F5B /* DateExtensions.swift */; };
+		689836C51D86814000CA1F5B /* DateFormatterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836BA1D86814000CA1F5B /* DateFormatterExtensions.swift */; };
 		689836C61D86814000CA1F5B /* NSDictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836BB1D86814000CA1F5B /* NSDictionaryExtensions.swift */; };
-		689836C71D86814000CA1F5B /* NSNotificationCenterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836BC1D86814000CA1F5B /* NSNotificationCenterExtensions.swift */; };
-		689836C81D86814000CA1F5B /* NSURLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836BD1D86814000CA1F5B /* NSURLExtensions.swift */; };
+		689836C71D86814000CA1F5B /* NotificationCenterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836BC1D86814000CA1F5B /* NotificationCenterExtensions.swift */; };
 		689836C91D86814000CA1F5B /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836BE1D86814000CA1F5B /* StringExtensions.swift */; };
 		689836CC1D8681C200CA1F5B /* KTUIKitFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689836CB1D8681C200CA1F5B /* KTUIKitFunctions.swift */; };
 		D9FEF4BF1CCEBC0F0013FBDD /* KTSwiftExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9FEF4B41CCEBC0D0013FBDD /* KTSwiftExtensions.framework */; };
@@ -53,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		686131E01D8BC66300C91A90 /* NSURLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLExtensions.swift; sourceTree = "<group>"; };
 		689836461D86803D00CA1F5B /* BuildConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildConfig.swift; sourceTree = "<group>"; };
 		689836481D86803D00CA1F5B /* KTFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTFunctions.swift; sourceTree = "<group>"; };
 		689836491D86803D00CA1F5B /* KTRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTRegex.swift; sourceTree = "<group>"; };
@@ -78,11 +79,10 @@
 		689836B61D86814000CA1F5B /* DictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtensions.swift; sourceTree = "<group>"; };
 		689836B71D86814000CA1F5B /* MKMapViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapViewExtensions.swift; sourceTree = "<group>"; };
 		689836B81D86814000CA1F5B /* MKPolygonExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKPolygonExtensions.swift; sourceTree = "<group>"; };
-		689836B91D86814000CA1F5B /* NSDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensions.swift; sourceTree = "<group>"; };
-		689836BA1D86814000CA1F5B /* NSDateFormatterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateFormatterExtensions.swift; sourceTree = "<group>"; };
+		689836B91D86814000CA1F5B /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		689836BA1D86814000CA1F5B /* DateFormatterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatterExtensions.swift; sourceTree = "<group>"; };
 		689836BB1D86814000CA1F5B /* NSDictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDictionaryExtensions.swift; sourceTree = "<group>"; };
-		689836BC1D86814000CA1F5B /* NSNotificationCenterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNotificationCenterExtensions.swift; sourceTree = "<group>"; };
-		689836BD1D86814000CA1F5B /* NSURLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLExtensions.swift; sourceTree = "<group>"; };
+		689836BC1D86814000CA1F5B /* NotificationCenterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterExtensions.swift; sourceTree = "<group>"; };
 		689836BE1D86814000CA1F5B /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		689836CB1D8681C200CA1F5B /* KTUIKitFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTUIKitFunctions.swift; sourceTree = "<group>"; };
 		D9FEF4B41CCEBC0D0013FBDD /* KTSwiftExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KTSwiftExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,14 +222,14 @@
 			children = (
 				689836B41D86814000CA1F5B /* ArrayExtensions.swift */,
 				689836B51D86814000CA1F5B /* CLLocationExtensions.swift */,
+				689836B91D86814000CA1F5B /* DateExtensions.swift */,
+				689836BA1D86814000CA1F5B /* DateFormatterExtensions.swift */,
 				689836B61D86814000CA1F5B /* DictionaryExtensions.swift */,
 				689836B71D86814000CA1F5B /* MKMapViewExtensions.swift */,
 				689836B81D86814000CA1F5B /* MKPolygonExtensions.swift */,
-				689836B91D86814000CA1F5B /* NSDateExtensions.swift */,
-				689836BA1D86814000CA1F5B /* NSDateFormatterExtensions.swift */,
+				689836BC1D86814000CA1F5B /* NotificationCenterExtensions.swift */,
 				689836BB1D86814000CA1F5B /* NSDictionaryExtensions.swift */,
-				689836BC1D86814000CA1F5B /* NSNotificationCenterExtensions.swift */,
-				689836BD1D86814000CA1F5B /* NSURLExtensions.swift */,
+				686131E01D8BC66300C91A90 /* NSURLExtensions.swift */,
 				689836BE1D86814000CA1F5B /* StringExtensions.swift */,
 			);
 			path = extensions;
@@ -349,6 +349,7 @@
 				TargetAttributes = {
 					D9FEF4B31CCEBC0D0013FBDD = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 					};
 					D9FEF4BD1CCEBC0F0013FBDD = {
 						CreatedOnToolsVersion = 7.3;
@@ -406,12 +407,13 @@
 				6898369B1D86803D00CA1F5B /* UITableViewExtensions.swift in Sources */,
 				689836811D86803D00CA1F5B /* BuildConfig.swift in Sources */,
 				689836871D86803D00CA1F5B /* KTPresignedS3Request.swift in Sources */,
-				689836C41D86814000CA1F5B /* NSDateExtensions.swift in Sources */,
+				689836C41D86814000CA1F5B /* DateExtensions.swift in Sources */,
 				689836C11D86814000CA1F5B /* DictionaryExtensions.swift in Sources */,
 				689836851D86803D00CA1F5B /* KTError.swift in Sources */,
 				6898369E1D86803D00CA1F5B /* KTDraggableViewGestureRecognizer.swift in Sources */,
 				689836C21D86814000CA1F5B /* MKMapViewExtensions.swift in Sources */,
 				689836CC1D8681C200CA1F5B /* KTUIKitFunctions.swift in Sources */,
+				686131E11D8BC66300C91A90 /* NSURLExtensions.swift in Sources */,
 				689836BF1D86814000CA1F5B /* ArrayExtensions.swift in Sources */,
 				689836C01D86814000CA1F5B /* CLLocationExtensions.swift in Sources */,
 				6898369D1D86803D00CA1F5B /* UIViewExtensions.swift in Sources */,
@@ -419,11 +421,10 @@
 				689836991D86803D00CA1F5B /* UIStoryboardExtensions.swift in Sources */,
 				689836891D86803D00CA1F5B /* KTJwtService.swift in Sources */,
 				6898369A1D86803D00CA1F5B /* UITableViewCellExtensions.swift in Sources */,
-				689836C81D86814000CA1F5B /* NSURLExtensions.swift in Sources */,
 				6898368B1D86803D00CA1F5B /* KTCameraViewController.swift in Sources */,
-				689836C71D86814000CA1F5B /* NSNotificationCenterExtensions.swift in Sources */,
+				689836C71D86814000CA1F5B /* NotificationCenterExtensions.swift in Sources */,
 				689836C91D86814000CA1F5B /* StringExtensions.swift in Sources */,
-				689836C51D86814000CA1F5B /* NSDateFormatterExtensions.swift in Sources */,
+				689836C51D86814000CA1F5B /* DateFormatterExtensions.swift in Sources */,
 				6898369F1D86803D00CA1F5B /* KTCameraView.swift in Sources */,
 				689836831D86803D00CA1F5B /* KTRegex.swift in Sources */,
 				689836821D86803D00CA1F5B /* KTFunctions.swift in Sources */,
@@ -563,6 +564,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -582,6 +584,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kylethomas.swift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

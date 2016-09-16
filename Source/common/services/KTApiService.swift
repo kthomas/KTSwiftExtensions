@@ -13,45 +13,45 @@ import AlamofireObjectMapper
 import ObjectMapper
 
 public typealias KTApiSuccessHandler = (AnyObject?) -> Void
-public typealias KTApiFailureHandler = (NSHTTPURLResponse?, AnyObject?, NSError?) -> Void
+public typealias KTApiFailureHandler = (HTTPURLResponse?, AnyObject?, NSError?) -> Void
 
-public class KTApiService: NSObject {
+open class KTApiService: NSObject {
 
-    private static let instance = KTApiService()
+    fileprivate static let instance = KTApiService()
 
-    private var dispatchQueue: dispatch_queue_t!
+    fileprivate var dispatchQueue: DispatchQueue!
 
-    public class func sharedService() -> KTApiService {
+    open class func sharedService() -> KTApiService {
         return instance
     }
 
     public required override init() {
         super.init()
 
-        dispatchQueue = dispatch_queue_create("api.dispatchQueue", DISPATCH_QUEUE_CONCURRENT)
+        dispatchQueue = DispatchQueue(label: "api.dispatchQueue", attributes: DispatchQueue.Attributes.concurrent)
     }
 
-    public func objectClassForPath(path: String) -> AnyClass? {
+    open func objectClassForPath(_ path: String) -> AnyClass? {
         var path = path
-        let parts = path.characters.split("/").map { String($0) }
+        let parts = path.characters.split(separator: "/").map { String($0) }
         if parts.count > 5 {
-            path = [parts[3], parts[5]].joinWithSeparator("/")
-            path = path.componentsSeparatedByString("/").last!
+            path = [parts[3], parts[5]].joined(separator: "/")
+            path = path.components(separatedBy: "/").last!
         } else if parts.count > 3 {
-            path = [parts[1], parts[3]].joinWithSeparator("/")
-            path = path.componentsSeparatedByString("/").last!
+            path = [parts[1], parts[3]].joined(separator: "/")
+            path = path.components(separatedBy: "/").last!
         } else {
             path = parts[1]
         }
         if path =~ "^(.*)s$" {
-            path = path.substringToIndex(path.endIndex.predecessor())
+            path = path.substring(to: path.characters.index(before: path.endIndex))
         }
 
-        let targetName = NSBundle.mainBundle().infoDictionary?["CFBundleName"] ?? ""
-        return NSClassFromString("\(targetName!).\(path.capitalizedString)")
+        let targetName = Bundle.main.infoDictionary?["CFBundleName"] ?? ""
+        return NSClassFromString("\(targetName).\(path.capitalized)")
     }
 
-    public func execute(request: Request, successHandler: KTApiSuccessHandler?, failureHandler: KTApiFailureHandler?) {
+    open func execute(_ request: DataRequest, successHandler: KTApiSuccessHandler?, failureHandler: KTApiFailureHandler?) {
         request.responseJSON(queue: dispatchQueue) { response in
             let error = response.result.error
 
@@ -68,29 +68,29 @@ public class KTApiService: NSObject {
                         return
                     }
 
-                    if let clazz = self.objectClassForPath(request.request?.URL?.path ?? "") as? KTModel.Type {
+                    if let clazz = self.objectClassForPath(request.request?.url?.path ?? "") as? KTModel.Type {
                         var obj: AnyObject?
 
                         if statusCode < 300 {
                             if let val = value as? [String : AnyObject] {
-                                let map = Map(mappingType: .FromJSON,
-                                              JSONDictionary: val,
+                                let map = Map(mappingType: .fromJSON,
+                                              JSON: val,
                                               toObject: true,
                                               context: nil)
                                 obj = clazz.init()
-                                (obj as! KTModel).mapping(map)
+                                (obj as! KTModel).mapping(map: map)
                             } else if let val = value as? [[String : AnyObject]] {
                                 var objects = [KTModel]()
                                 for v in val {
-                                    let map = Map(mappingType: .FromJSON,
-                                                  JSONDictionary: v,
+                                    let map = Map(mappingType: .fromJSON,
+                                                  JSON: v,
                                                   toObject: true,
                                                   context: nil)
                                     let objInstance = clazz.init()
-                                    objInstance.mapping(map)
+                                    objInstance.mapping(map: map)
                                     objects.append(objInstance)
                                 }
-                                obj = objects
+                                obj = objects as AnyObject
                             }
 
                             dispatch_async_main_queue {
@@ -101,23 +101,23 @@ public class KTApiService: NSObject {
 
                             switch statusCode {
                             case 401:
-                                NSNotificationCenter.defaultCenter().postNotificationName("ApplicationUserShouldLogout")
+                                NotificationCenter.default.postNotificationName("ApplicationUserShouldLogout")
 
                             default:
                                 break
                             }
 
                             if let val = value as? [String : AnyObject] {
-                                let map = Map(mappingType: .FromJSON,
-                                              JSONDictionary: val,
+                                let map = Map(mappingType: .fromJSON,
+                                              JSON: val,
                                               toObject: true,
                                               context: nil)
                                 obj = KTError()
-                                (obj as! KTModel).mapping(map)
-                                
+                                (obj as! KTModel).mapping(map: map)
+
                                 log("\(statusCode) response included error payload:\n\((obj as! KTModel).toJSON())")
                             }
-                            
+
                             dispatch_async_main_queue {
                                 failureHandler?(response.response, obj, nil)
                             }
@@ -126,7 +126,7 @@ public class KTApiService: NSObject {
                         request.responseData { dataResponse in
                             if statusCode < 300 {
                                 dispatch_async_main_queue {
-                                    successHandler?(dataResponse.result.value)
+                                    successHandler?(dataResponse.result.value as AnyObject?)
                                 }
                             } else {
                                 logWarn("Parsed data response with \(statusCode) status code")
@@ -137,14 +137,14 @@ public class KTApiService: NSObject {
                         }
                     }
                 }
-            } else {
-                if error!.code == -6006 {
+            } else if let error = error as? NSError {
+                if error.code == -6006 {
                     request.responseData { dataResponse in
                         let statusCode = dataResponse.response!.statusCode
 
                         if statusCode < 300 {
                             dispatch_async_main_queue {
-                                successHandler?(dataResponse.result.value)
+                                successHandler?(dataResponse.result.value as AnyObject?)
                             }
                         } else {
                             logWarn("Parsed data response with \(statusCode) status code")
@@ -155,7 +155,7 @@ public class KTApiService: NSObject {
                     }
                 } else {
                     logWarn("Error with network request:\n\(request); \(error); retrying...")
-                    self.execute(Alamofire.request(request.request!.URLRequest),
+                    self.execute(Alamofire.request(request.request!),
                                  successHandler: successHandler,
                                  failureHandler: failureHandler)
                 }

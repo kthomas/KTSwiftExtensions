@@ -3,7 +3,7 @@
 //  KTSwiftExtensions
 //
 //  Created by Kyle Thomas on 6/27/16.
-//  Copyright (c) 2016 Kyle Thomas. All rights reserved.
+//  Copyright © 2016 Kyle Thomas. All rights reserved.
 //
 
 import UIKit
@@ -14,31 +14,31 @@ public extension UIImage {
         self.init(named: imageName)
     }
 
-    class func imageFromDataURL(dataURL: NSURL) -> UIImage! {
-        if let data = NSData(contentsOfURL: dataURL) {
+    class func imageFromDataURL(_ dataURL: URL) -> UIImage! {
+        if let data = try? Data(contentsOf: dataURL) {
             return UIImage(data: data)
         }
         return nil
     }
 
-    func crop(rect: CGRect) -> UIImage! {
-        if let cgImage = CGImage {
-            if let image = CGImageCreateWithImageInRect(cgImage, rect) {
-                return UIImage(CGImage: image)
+    func crop(_ rect: CGRect) -> UIImage! {
+        if let cgImage = cgImage {
+            if let image = cgImage.cropping(to: rect) {
+                return UIImage(cgImage: image)
             }
         }
         return nil
     }
     
-    func resize(rect: CGRect) -> UIImage! {
+    func resize(_ rect: CGRect) -> UIImage! {
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
-        drawInRect(rect)
+        draw(in: rect)
         let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return resizedImage
     }
 
-    func scaledToWidth(width: CGFloat) -> UIImage! {
+    func scaledToWidth(_ width: CGFloat) -> UIImage! {
         let originalWidth = self.size.width
         let scale = width / originalWidth
         let height = self.size.height * scale
@@ -48,7 +48,7 @@ public extension UIImage {
         let size = rect.size
 
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
-        drawInRect(rect)
+        draw(in: rect)
         let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return resizedImage

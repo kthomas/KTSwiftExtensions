@@ -3,12 +3,41 @@
 //  KTSwiftExtensions
 //
 //  Created by Kyle Thomas on 6/27/16.
-//  Copyright (c) 2016 Kyle Thomas. All rights reserved.
+//  Copyright © 2016 Kyle Thomas. All rights reserved.
 //
 
 import Foundation
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
 
-infix operator =~ { associativity right precedence 90 }
+fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l >= r
+  default:
+    return !(lhs < rhs)
+  }
+}
+
+fileprivate func <= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l <= r
+  default:
+    return !(rhs < lhs)
+  }
+}
+
+
+infix operator =~ : AssignmentPrecedence
 public func =~ (input: String, pattern: String) -> Bool {
     return KTRegex(pattern).test(input)
 }
@@ -16,26 +45,26 @@ public func =~ (input: String, pattern: String) -> Bool {
 public extension String {
 
     var length: Int {
-        return lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
+        return lengthOfBytes(using: String.Encoding.utf8)
     }
 
-    func replaceString(target: String, withString replacementString: String) -> String {
-        return stringByReplacingOccurrencesOfString(target, withString: replacementString)
+    func replaceString(_ target: String, withString replacementString: String) -> String {
+        return replacingOccurrences(of: target, with: replacementString)
     }
 
     var base64EncodedString: String {
-        return NSData(bytes: (self as NSString).UTF8String, length: length).base64EncodedStringWithOptions([])
+        return Data(bytes: [UInt8] (utf8)).base64EncodedString(options: [])
     }
 
     func urlEncodedString() -> String {
-        return replaceString(" ", withString: "+").stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+        return replaceString(" ", withString: "+").addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
     }
 
-    private func toJSONAnyObject() -> AnyObject! {
+    fileprivate func toJSONAnyObject() -> AnyObject! {
         do {
-            let data = dataUsingEncoding(NSUTF8StringEncoding)
-            let jsonObject: AnyObject? = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers)
-            return jsonObject
+            let data = self.data(using: String.Encoding.utf8)
+            let jsonObject = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
+            return jsonObject as AnyObject
         } catch let error as NSError {
             logWarn(error.localizedDescription)
             return nil
@@ -57,7 +86,7 @@ public extension String {
     }
 
     func snakeCaseToCamelCaseString() -> String {
-        let items: [String] = componentsSeparatedByString("_")
+        let items: [String] = components(separatedBy: "_")
         var camelCase = ""
         var isFirst = true
         for item: String in items {
@@ -65,7 +94,7 @@ public extension String {
                 isFirst = false
                 camelCase += item
             } else {
-                camelCase += item.capitalizedString
+                camelCase += item.capitalized
             }
         }
         return camelCase
@@ -73,33 +102,33 @@ public extension String {
 
     func snakeCaseString() -> String {
         let pattern = try! NSRegularExpression(pattern: "([a-z])([A-Z])", options: [])
-        return pattern.stringByReplacingMatchesInString(self, options: [], range: NSMakeRange(0, characters.count), withTemplate: "$1_$2").lowercaseString
+        return pattern.stringByReplacingMatches(in: self, options: [], range: NSMakeRange(0, characters.count), withTemplate: "$1_$2").lowercased()
     }
 
     var containsNonASCIICharacters: Bool {
-        return !canBeConvertedToEncoding(NSASCIIStringEncoding)
+        return !canBeConverted(to: String.Encoding.ascii)
     }
 
     // MARK: Validation Methods
 
-    func contains(searchString: String) -> Bool {
-        return rangeOfString(searchString) != nil
+    func contains(_ searchString: String) -> Bool {
+        return range(of: searchString) != nil
     }
 
-    func containsRegex(searchString: String) -> Bool {
-        return rangeOfString(searchString, options: .RegularExpressionSearch) != nil
+    func containsRegex(_ searchString: String) -> Bool {
+        return range(of: searchString, options: .regularExpression) != nil
     }
 
     func containsOneOrMoreNumbers() -> Bool {
-        return rangeOfCharacterFromSet(NSCharacterSet.decimalDigitCharacterSet()) != nil
+        return rangeOfCharacter(from: CharacterSet.decimalDigits) != nil
     }
 
     func containsOneOrMoreUppercaseLetters() -> Bool {
-        return rangeOfCharacterFromSet(NSCharacterSet.uppercaseLetterCharacterSet()) != nil
+        return rangeOfCharacter(from: CharacterSet.uppercaseLetters) != nil
     }
 
     func containsOneOrMoreLowercaseLetters() -> Bool {
-        return rangeOfCharacterFromSet(NSCharacterSet.lowercaseLetterCharacterSet()) != nil
+        return rangeOfCharacter(from: CharacterSet.lowercaseLetters) != nil
     }
 
     func isDigit() -> Bool {
@@ -110,16 +139,16 @@ public extension String {
     func isValidEmail() -> Bool {
         let regex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
         let test = NSPredicate(format:"SELF MATCHES %@", regex)
-        return test.evaluateWithObject(self)
+        return test.evaluate(with: self)
     }
 
     func stringByStrippingHTML() -> String {
         var range = NSMakeRange(0, 0)
         var str = NSString(string: self)
         while range.location != NSNotFound {
-            range = str.rangeOfString("<[^>]+>", options: NSStringCompareOptions.RegularExpressionSearch)
+            range = str.range(of: "<[^>]+>", options: NSString.CompareOptions.regularExpression)
             if range.location != NSNotFound {
-                str = str.stringByReplacingCharactersInRange(range, withString: "")
+                str = str.replacingCharacters(in: range, with: "") as NSString
             }
         }
         return str as String

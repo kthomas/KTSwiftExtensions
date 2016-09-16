@@ -8,34 +8,34 @@
 
 import ObjectMapper
 
-public class KTModel: NSObject, Mappable {
+open class KTModel: NSObject, Mappable {
 
     internal var ivars: [String] {
         var count: UInt32 = 0
-        let ivars: UnsafeMutablePointer<Ivar> = class_copyIvarList(self.dynamicType, &count)
+        let ivars: UnsafeMutablePointer<Ivar?> = class_copyIvarList(type(of: self), &count)
 
         var ivarStrings = [String]()
         for i in 0..<count {
-            let key = NSString(CString: ivar_getName(ivars[Int(i)]), encoding: NSUTF8StringEncoding) as! String
+            let key = NSString(cString: ivar_getName(ivars[Int(i)]), encoding: String.Encoding.utf8.rawValue) as! String
             ivarStrings.append(key)
         }
-        ivars.dealloc(Int(count))
+        ivars.deallocate(capacity: Int(count))
         return ivarStrings
     }
 
-    public override var description: String {
-        return "\(toJSONString(true))"
+    open override var description: String {
+        return "\(toJSONString(prettyPrint: true))"
     }
 
     public override required init() {
         super.init()
     }
 
-    public required init?(_ map: Map){
+    public required init?(map: Map){
         super.init()
     }
 
-    public func mapping(map: Map) {
+    open func mapping(map: Map) {
         // no-op by default
     }
 }
