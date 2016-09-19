@@ -19,9 +19,9 @@ open class KTDraggableViewGestureRecognizer: UIGestureRecognizer {
 
     open var draggableViewGestureRecognizerDelegate: KTDraggableViewGestureRecognizerDelegate!
 
+    open var initialFrame: CGRect!
     open var initialView: UIView!
     internal var initialSuperview: UIView!
-    internal var initialFrame: CGRect!
     internal var initialAlpha: CGFloat!
     internal var touchesBeganTimestamp: Date!
 

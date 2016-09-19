@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'KTSwiftExtensions'
-  s.version = '0.22.0'
+  s.version = '0.23.0'
   s.license = { :type => 'MIT', :file => 'LICENSE' }
   s.summary = 'Swift extensions'
 
