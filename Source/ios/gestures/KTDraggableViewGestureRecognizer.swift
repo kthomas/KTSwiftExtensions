@@ -19,11 +19,11 @@ open class KTDraggableViewGestureRecognizer: UIGestureRecognizer {
 
     open var draggableViewGestureRecognizerDelegate: KTDraggableViewGestureRecognizerDelegate!
 
-    internal var touchesBeganTimestamp: Date!
-    internal var initialView: UIView!
+    open var initialView: UIView!
     internal var initialSuperview: UIView!
     internal var initialFrame: CGRect!
     internal var initialAlpha: CGFloat!
+    internal var touchesBeganTimestamp: Date!
 
     fileprivate var superviewChanged: Bool {
         if let initialView = initialView {
