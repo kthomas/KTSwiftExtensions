@@ -148,7 +148,7 @@ open class KTDraggableViewGestureRecognizer: UIGestureRecognizer {
         }
     }
 
-    internal func drag(_ xOffset: CGFloat, yOffset: CGFloat) {
+    open func drag(_ xOffset: CGFloat, yOffset: CGFloat) {
         if let view = view {
             drag(view, xOffset: xOffset, yOffset: yOffset)
         }
