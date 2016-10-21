@@ -12,12 +12,26 @@ import AlamofireObjectMapper
 open class KTS3Service: NSObject {
 
     open class func presign(_ url: URL,
+                            filename: String,
+                            metadata: [String : String],
+                            headers: [String : String],
+                            successHandler: KTApiSuccessHandler?,
+                            failureHandler: KTApiFailureHandler?) {
+        presign(url, bucket: nil, filename: filename, metadata: metadata, headers: headers, successHandler: successHandler, failureHandler: failureHandler)
+    }
+
+    open class func presign(_ url: URL,
+                             bucket: String?,
                              filename: String,
                              metadata: [String : String],
                              headers: [String : String],
                              successHandler: KTApiSuccessHandler?,
                              failureHandler: KTApiFailureHandler?) {
-        let request: DataRequest = Alamofire.request(url, method: .get, parameters: ["filename": filename, "metadata": metadata.toJSONString()], headers: headers)
+        var params = ["filename": filename, "metadata": metadata.toJSONString()]
+        if let bucket = bucket {
+            params["bucket"] = bucket
+        }
+        let request: DataRequest = Alamofire.request(url, method: .get, parameters: params, headers: headers)
         KTApiService.sharedService().execute(request, successHandler: successHandler, failureHandler: failureHandler)
     }
 
