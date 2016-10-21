@@ -41,7 +41,7 @@ open class KTS3Service: NSObject {
                            successHandler: KTApiSuccessHandler?,
                            failureHandler: KTApiFailureHandler?) {
         if presignedS3Request.fields != nil {
-            let request: DataRequest = Alamofire.request(presignedS3Request.url, method: .get, headers: presignedS3Request.signedHeaders)
+            let request: DataRequest = Alamofire.request(presignedS3Request.url, method: .post, headers: presignedS3Request.signedHeaders)
             Alamofire.upload(
                 multipartFormData: { multipartFormData in
                     for (name, value) in presignedS3Request.fields {
