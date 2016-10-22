@@ -111,10 +111,6 @@ public extension String {
 
     // MARK: Validation Methods
 
-    func contains(_ searchString: String) -> Bool {
-        return range(of: searchString) != nil
-    }
-
     func containsRegex(_ searchString: String) -> Bool {
         return range(of: searchString, options: .regularExpression) != nil
     }
