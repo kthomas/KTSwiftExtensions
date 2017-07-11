@@ -1,6 +1,6 @@
 # KTSwiftExtensions
 
-[![CI Status](http://img.shields.io/travis/fulldecent/KTSwiftExtensions.svg?style=flat)](https://travis-ci.org/fulldecent/KTSwiftExtensions)
+[![CI Status](http://img.shields.io/travis/kthomas/KTSwiftExtensions.svg?style=flat)](https://travis-ci.org/fulldecent/KTSwiftExtensions)
 [![Version](https://img.shields.io/cocoapods/v/KTSwiftExtensions.svg?style=flat)](http://cocoadocs.org/docsets/KTSwiftExtensions)
 [![License](https://img.shields.io/cocoapods/l/KTSwiftExtensions.svg?style=flat)](http://cocoadocs.org/docsets/KTSwiftExtensions)
 [![Platform](https://img.shields.io/cocoapods/p/KTSwiftExtensions.svg?style=flat)](http://cocoadocs.org/docsets/KTSwiftExtensions)
@@ -56,7 +56,7 @@ $ brew install carthage
 To integrate KTSwiftExtensions into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "fulldecent/KTSwiftExtensions" ~> 0.1
+github "kthomas/KTSwiftExtensions" ~> 0.1
 ```
 
 Run `carthage update` to build the framework and drag the built `KTSwiftExtensions.framework` into your Xcode project.
