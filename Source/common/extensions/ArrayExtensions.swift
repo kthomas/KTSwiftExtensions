@@ -9,13 +9,6 @@
 import Foundation
 
 public extension Array {
-
-    func each(_ block: (Element) -> Void) {
-        for object in self {
-            block(object)
-        }
-    }
-
     func findFirst(_ conditionBlock: (Element) -> Bool) -> Element? {
         for object in self {
             if conditionBlock(object) {
