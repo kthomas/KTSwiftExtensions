@@ -11,12 +11,6 @@ import MBProgressHUD
 
 public extension UIViewController {
 
-    // MARK: Child view controller presentation
-
-    func presentViewController(_ viewControllerToPresent: UIViewController, animated: Bool) {
-        present(viewControllerToPresent, animated: animated, completion: nil)
-    }
-
     // MARK: MBProgressHUD
 
     func showHUD() {
@@ -79,7 +73,7 @@ public extension UIViewController {
 
     func showToast(_ title: String, dismissAfter delay: TimeInterval = 1.5) {
         let alertController = UIAlertController(title: title, message: nil, preferredStyle: .alert)
-        presentViewController(alertController, animated: true)
+        present(alertController, animated: true)
 
         dispatch_after_delay(delay) {
             self.dismiss(animated: true)
