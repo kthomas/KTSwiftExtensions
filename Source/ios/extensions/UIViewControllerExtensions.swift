@@ -17,10 +17,6 @@ public extension UIViewController {
         present(viewControllerToPresent, animated: animated, completion: nil)
     }
 
-    func dismissViewController(_ animated: Bool, completion: VoidBlock? = nil) {
-        dismiss(animated: animated, completion: completion)
-    }
-
     // MARK: MBProgressHUD
 
     func showHUD() {
@@ -86,7 +82,7 @@ public extension UIViewController {
         presentViewController(alertController, animated: true)
 
         dispatch_after_delay(delay) {
-            self.dismissViewController(true)
+            self.dismiss(animated: true)
         }
     }
 }
