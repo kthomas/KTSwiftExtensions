@@ -8,9 +8,9 @@
 
 import ObjectMapper
 
-open class KTModel: NSObject, Mappable {
+public class KTModel: NSObject, Mappable {
 
-    internal var ivars: [String] {
+    var ivars: [String] {
         var count: UInt32 = 0
         let ivars: UnsafeMutablePointer<Ivar?> = class_copyIvarList(type(of: self), &count)
 
@@ -23,7 +23,7 @@ open class KTModel: NSObject, Mappable {
         return ivarStrings
     }
 
-    open override var description: String {
+    public override var description: String {
         return "\(toJSONString(prettyPrint: true))"
     }
 
@@ -35,7 +35,7 @@ open class KTModel: NSObject, Mappable {
         super.init()
     }
 
-    open func mapping(map: Map) {
+    public func mapping(map: Map) {
         // no-op by default
     }
 }

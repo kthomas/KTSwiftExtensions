@@ -9,24 +9,24 @@
 import Alamofire
 import AlamofireObjectMapper
 
-open class KTS3Service: NSObject {
+public class KTS3Service: NSObject {
 
-    open class func presign(_ url: URL,
-                            filename: String,
-                            metadata: [String: String],
-                            headers: [String: String],
-                            successHandler: KTApiSuccessHandler?,
-                            failureHandler: KTApiFailureHandler?) {
+    public class func presign(_ url: URL,
+                              filename: String,
+                              metadata: [String: String],
+                              headers: [String: String],
+                              successHandler: KTApiSuccessHandler?,
+                              failureHandler: KTApiFailureHandler?) {
         presign(url, bucket: nil, filename: filename, metadata: metadata, headers: headers, successHandler: successHandler, failureHandler: failureHandler)
     }
 
-    open class func presign(_ url: URL,
-                            bucket: String?,
-                            filename: String,
-                            metadata: [String: String],
-                            headers: [String: String],
-                            successHandler: KTApiSuccessHandler?,
-                            failureHandler: KTApiFailureHandler?) {
+    public class func presign(_ url: URL,
+                              bucket: String?,
+                              filename: String,
+                              metadata: [String: String],
+                              headers: [String: String],
+                              successHandler: KTApiSuccessHandler?,
+                              failureHandler: KTApiFailureHandler?) {
         var params = ["filename": filename, "metadata": metadata.toJSONString()]
         if let bucket = bucket {
             params["bucket"] = bucket
@@ -35,11 +35,11 @@ open class KTS3Service: NSObject {
         KTApiService.sharedService().execute(request, successHandler: successHandler, failureHandler: failureHandler)
     }
 
-    open class func upload(_ presignedS3Request: KTPresignedS3Request,
-                           data: Data,
-                           withMimeType mimeType: String,
-                           successHandler: KTApiSuccessHandler?,
-                           failureHandler: KTApiFailureHandler?) {
+    public class func upload(_ presignedS3Request: KTPresignedS3Request,
+                             data: Data,
+                             withMimeType mimeType: String,
+                             successHandler: KTApiSuccessHandler?,
+                             failureHandler: KTApiFailureHandler?) {
         if presignedS3Request.fields != nil {
             let request: DataRequest = Alamofire.request(presignedS3Request.url, method: .post, headers: presignedS3Request.signedHeaders)
             Alamofire.upload(

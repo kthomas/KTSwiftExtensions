@@ -26,16 +26,16 @@ public protocol KTCameraViewControllerDelegate {
     func cameraViewController(_ viewController: KTCameraViewController, didRecognizeText text: String!)
 }
 
-open class KTCameraViewController: UIViewController, KTCameraViewDelegate {
+public class KTCameraViewController: UIViewController, KTCameraViewDelegate {
 
     var delegate: KTCameraViewControllerDelegate!
     var mode: ActiveDeviceCapturePosition = .back
     var outputMode: CameraOutputMode = .photo
 
-    @IBOutlet open weak var backCameraView: KTCameraView!
-    @IBOutlet open weak var frontCameraView: KTCameraView!
+    @IBOutlet public weak var backCameraView: KTCameraView!
+    @IBOutlet public weak var frontCameraView: KTCameraView!
 
-    @IBOutlet open weak var button: UIButton!
+    @IBOutlet public weak var button: UIButton!
 
     fileprivate var activeCameraView: KTCameraView! {
         switch mode {
@@ -62,7 +62,7 @@ open class KTCameraViewController: UIViewController, KTCameraViewDelegate {
         return false
     }
 
-    override open func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
 
         let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(KTCameraViewController.dismiss(_:)))
@@ -90,7 +90,7 @@ open class KTCameraViewController: UIViewController, KTCameraViewDelegate {
         }
     }
 
-    override open func viewWillAppear(_ animated: Bool) {
+    override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
 
         if !isRunning {
@@ -169,7 +169,7 @@ open class KTCameraViewController: UIViewController, KTCameraViewDelegate {
 
     }
 
-    override open func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    override public func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
 
         DispatchQueue.main.async {
@@ -188,50 +188,50 @@ open class KTCameraViewController: UIViewController, KTCameraViewDelegate {
         return outputMode
     }
 
-    open func cameraViewCaptureSessionFailedToInitializeWithError(_ error: NSError) {
+    public func cameraViewCaptureSessionFailedToInitializeWithError(_ error: NSError) {
         delegate?.cameraViewControllerCanceled(self)
     }
 
-    open func cameraViewBeganAsyncStillImageCapture(_ cameraView: KTCameraView) {
+    public func cameraViewBeganAsyncStillImageCapture(_ cameraView: KTCameraView) {
         delegate?.cameraViewControllerDidBeginAsyncStillImageCapture(self)
     }
 
-    open func cameraView(_ cameraView: KTCameraView, didCaptureStillImage image: UIImage) {
+    public func cameraView(_ cameraView: KTCameraView, didCaptureStillImage image: UIImage) {
         delegate?.cameraViewController(self, didCaptureStillImage: image)
     }
 
-    open func cameraView(_ cameraView: KTCameraView, didStartVideoCaptureAtURL fileURL: URL) {
+    public func cameraView(_ cameraView: KTCameraView, didStartVideoCaptureAtURL fileURL: URL) {
         delegate?.cameraViewController(self, didStartVideoCaptureAtURL: fileURL)
     }
 
-    open func cameraView(_ cameraView: KTCameraView, didFinishVideoCaptureAtURL fileURL: URL) {
+    public func cameraView(_ cameraView: KTCameraView, didFinishVideoCaptureAtURL fileURL: URL) {
         delegate?.cameraViewController(self, didFinishVideoCaptureAtURL: fileURL)
     }
 
-    open func cameraView(_ cameraView: KTCameraView, didMeasureAveragePower avgPower: Float, peakHold: Float, forAudioChannel channel: AVCaptureAudioChannel) {
+    public func cameraView(_ cameraView: KTCameraView, didMeasureAveragePower avgPower: Float, peakHold: Float, forAudioChannel channel: AVCaptureAudioChannel) {
 
     }
 
-    open func cameraView(_ cameraView: KTCameraView, didOutputMetadataFaceObject metadataFaceObject: AVMetadataFaceObject) {
+    public func cameraView(_ cameraView: KTCameraView, didOutputMetadataFaceObject metadataFaceObject: AVMetadataFaceObject) {
         delegate?.cameraViewControllerDidOutputFaceMetadata(self, metadataFaceObject: metadataFaceObject)
     }
 
-    open func cameraViewShouldEstablishAudioSession(_ cameraView: KTCameraView) -> Bool {
+    public func cameraViewShouldEstablishAudioSession(_ cameraView: KTCameraView) -> Bool {
         return false
     }
 
-    open func cameraViewShouldEstablishVideoSession(_ cameraView: KTCameraView) -> Bool {
+    public func cameraViewShouldEstablishVideoSession(_ cameraView: KTCameraView) -> Bool {
         return outputModeForCameraView(cameraView) == .videoSampleBuffer
     }
 
-    open func cameraViewShouldOutputFaceMetadata(_ cameraView: KTCameraView) -> Bool {
+    public func cameraViewShouldOutputFaceMetadata(_ cameraView: KTCameraView) -> Bool {
         if let outputFaceMetadata = delegate?.cameraViewControllerShouldOutputFaceMetadata(self) {
             return outputFaceMetadata
         }
         return false
     }
 
-    open func cameraViewShouldRenderFacialRecognition(_ cameraView: KTCameraView) -> Bool {
+    public func cameraViewShouldRenderFacialRecognition(_ cameraView: KTCameraView) -> Bool {
         if let renderFacialRecognition = delegate?.cameraViewControllerShouldRenderFacialRecognition(self) {
             return renderFacialRecognition
         }

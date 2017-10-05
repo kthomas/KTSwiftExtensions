@@ -8,25 +8,25 @@
 
 import Foundation
 
-open class KTVersionHelper {
+public class KTVersionHelper {
 
-    open class func buildNumber() -> String {
+    public class func buildNumber() -> String {
         return infoDictionaryValueFor("CFBundleVersion")
     }
 
-    open class func shortVersion() -> String {
+    public class func shortVersion() -> String {
         return infoDictionaryValueFor("CFBundleShortVersionString")
     }
 
-    open class func buildTime() -> String {
+    public class func buildTime() -> String {
         return infoDictionaryValueFor("xBuildShortTime")
     }
 
-    open class func gitSha() -> String {
+    public class func gitSha() -> String {
         return infoDictionaryValueFor("xGitShortSHA")
     }
 
-    open class func fullVersion() -> String {
+    public class func fullVersion() -> String {
         return "\(shortVersion()).\(buildNumber()) \(buildTime()) (\(gitSha()))"
     }
 }

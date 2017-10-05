@@ -8,9 +8,9 @@
 
 import Foundation
 
-open class KTRegex {
+public class KTRegex {
 
-    open class func match(_ pattern: String, input: String) -> [NSTextCheckingResult] {
+    public class func match(_ pattern: String, input: String) -> [NSTextCheckingResult] {
         return KTRegex(pattern).match(input)
     }
 
@@ -28,7 +28,7 @@ open class KTRegex {
         }
     }
 
-    open func match(_ input: String) -> [NSTextCheckingResult] {
+    public func match(_ input: String) -> [NSTextCheckingResult] {
         var matches = [NSTextCheckingResult]()
         if let internalExpression = internalExpression {
             matches = internalExpression.matches(in: input, options: .anchored, range: NSRange(location: 0, length: input.characters.distance(from: input.startIndex, to: input.endIndex)))
@@ -36,7 +36,7 @@ open class KTRegex {
         return matches
     }
 
-    open func test(_ input: String) -> Bool {
+    public func test(_ input: String) -> Bool {
         return match(input).count > 0
     }
 }

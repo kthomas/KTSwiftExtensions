@@ -15,13 +15,13 @@ import ObjectMapper
 public typealias KTApiSuccessHandler = (AnyObject?) -> Void
 public typealias KTApiFailureHandler = (HTTPURLResponse?, AnyObject?, NSError?) -> Void
 
-open class KTApiService: NSObject {
+public class KTApiService: NSObject {
 
     fileprivate static let instance = KTApiService()
 
     fileprivate var dispatchQueue: DispatchQueue!
 
-    open class func sharedService() -> KTApiService {
+    public class func sharedService() -> KTApiService {
         return instance
     }
 
@@ -31,7 +31,7 @@ open class KTApiService: NSObject {
         dispatchQueue = DispatchQueue(label: "api.dispatchQueue", attributes: DispatchQueue.Attributes.concurrent)
     }
 
-    open func objectClassForPath(_ path: String) -> AnyClass? {
+    public func objectClassForPath(_ path: String) -> AnyClass? {
         var path = path
         let parts = path.characters.split(separator: "/").map { String($0) }
         if parts.count > 5 {
@@ -51,7 +51,7 @@ open class KTApiService: NSObject {
         return NSClassFromString("\(targetName).\(path.capitalized)")
     }
 
-    open func execute(_ request: DataRequest, successHandler: KTApiSuccessHandler?, failureHandler: KTApiFailureHandler?) {
+    public func execute(_ request: DataRequest, successHandler: KTApiSuccessHandler?, failureHandler: KTApiFailureHandler?) {
         request.responseJSON(queue: dispatchQueue) { response in
             let error = response.result.error
 

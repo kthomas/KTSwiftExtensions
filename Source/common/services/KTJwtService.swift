@@ -8,9 +8,9 @@
 
 import JWTDecode
 
-open class KTJwtService: NSObject {
+public class KTJwtService: NSObject {
 
-    open class func decode(_ token: String) -> JWT? {
+    public class func decode(_ token: String) -> JWT? {
         do {
             let jwt = try JWTDecode.decode(jwt: token)
             return jwt

@@ -37,7 +37,7 @@ public protocol KTCameraViewDelegate {
     func cameraViewShouldRenderFacialRecognition(_ cameraView: KTCameraView) -> Bool
 }
 
-open class KTCameraView: UIView,
+public class KTCameraView: UIView,
                   AVCaptureVideoDataOutputSampleBufferDelegate,
                   AVCaptureFileOutputRecordingDelegate,
                   AVCaptureMetadataOutputObjectsDelegate {
@@ -118,7 +118,7 @@ open class KTCameraView: UIView,
         return false
     }
 
-    override open func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
 
         isOpaque = false
@@ -397,13 +397,13 @@ open class KTCameraView: UIView,
 
     // MARK: AVCaptureFileOutputRecordingDelegate
 
-    open func capture(_ captureOutput: AVCaptureFileOutput!, didStartRecordingToOutputFileAt fileURL: URL!, fromConnections connections: [Any]!) {
+    public func capture(_ captureOutput: AVCaptureFileOutput!, didStartRecordingToOutputFileAt fileURL: URL!, fromConnections connections: [Any]!) {
         recording = true
 
         delegate?.cameraView(self, didStartVideoCaptureAtURL: fileURL)
     }
 
-    open func capture(_ captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: URL!, fromConnections connections: [Any]!, error: Error!) {
+    public func capture(_ captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: URL!, fromConnections connections: [Any]!, error: Error!) {
         recording = false
 
         delegate?.cameraView(self, didFinishVideoCaptureAtURL: outputFileURL)
@@ -412,11 +412,11 @@ open class KTCameraView: UIView,
 
     // MARK: AVCaptureVideoDataOutputSampleBufferDelegate
 
-    open func captureOutput(_ captureOutput: AVCaptureOutput!, didDrop sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
+    public func captureOutput(_ captureOutput: AVCaptureOutput!, didDrop sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
         //println("dropped samples \(sampleBuffer)")
     }
 
-    open func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
+    public func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
 //        let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)!
 //        CVPixelBufferLockBaseAddress(imageBuffer, 0)
 //
@@ -437,7 +437,7 @@ open class KTCameraView: UIView,
 
     // MARK: AVCaptureMetadataOutputObjectsDelegate
 
-    open func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
+    public func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
         for object in metadataObjects {
             if let metadataFaceObject = object as? AVMetadataFaceObject {
                 let detectedFace = capturePreviewLayer.transformedMetadataObject(for: metadataFaceObject)
