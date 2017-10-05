@@ -455,7 +455,7 @@ open class KTCameraView: UIView,
         }
 
         if renderFacialRecognition {
-            dispatch_after_delay(0.0) {
+            DispatchQueue.main.async {
                 self.clearDetectedMetadataObjects()
                 self.showDetectedMetadataObjects(metadataObjects)
             }

@@ -24,7 +24,7 @@ public extension UIViewController {
     // MARK: MBProgressHUD
 
     func showHUD() {
-        dispatch_after_delay(0.0) {
+        DispatchQueue.main.async {
             self.showHUD(inView: self.view)
         }
     }
@@ -52,7 +52,7 @@ public extension UIViewController {
     }
 
     func hideHUD() {
-        dispatch_after_delay(0.0) {
+        DispatchQueue.main.async {
             self.hideHUD(inView: self.view)
         }
     }
