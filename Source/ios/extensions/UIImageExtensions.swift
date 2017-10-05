@@ -29,7 +29,7 @@ public extension UIImage {
         }
         return nil
     }
-    
+
     func resize(_ rect: CGRect) -> UIImage! {
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
         draw(in: rect)

@@ -91,9 +91,7 @@ open class KTCameraView: UIView,
     }
 
     fileprivate var mic: AVCaptureDevice! {
-        get {
-            return AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeAudio)
-        }
+        return AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeAudio)
     }
 
     fileprivate var outputFaceMetadata: Bool {
@@ -202,7 +200,7 @@ open class KTCameraView: UIView,
             capturePreviewLayer.frame.size = size
 
             if let connection = capturePreviewLayer.connection {
-                switch (deviceOrientation) {
+                switch deviceOrientation {
                 case .portrait:
                     connection.videoOrientation = .portrait
                 case .landscapeRight:
@@ -300,7 +298,7 @@ open class KTCameraView: UIView,
             captureSession = nil
         }
 
-        if let _ = capturePreviewLayer {
+        if capturePreviewLayer != nil {
             capturePreviewLayer.removeFromSuperlayer()
             capturePreviewLayer = nil
         }
@@ -315,27 +313,22 @@ open class KTCameraView: UIView,
                 } else {
                     // audioFileOutput.stopRecording()
                 }
-                break
             case .photo:
                 captureFrame()
-                break
             case .selfie:
                 captureFrame()
-                break
             case .video:
                 if recording == false {
                     captureVideo()
                 } else {
                     videoFileOutput.stopRecording()
                 }
-                break
             case .videoSampleBuffer:
                 if recording == false {
                     captureVideo()
                 } else {
                     captureSession.removeOutput(videoDataOutput)
                 }
-                break
             }
         }
     }
@@ -392,12 +385,10 @@ open class KTCameraView: UIView,
                 let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
                 let outputFileURL = URL(fileURLWithPath: "\(paths.first!)/\(Date().timeIntervalSince1970).m4v")
                 videoFileOutput.startRecording(toOutputFileURL: outputFileURL, recordingDelegate: self)
-                break
             case .videoSampleBuffer:
                 if captureSession.canAddOutput(videoDataOutput) {
                     captureSession.addOutput(videoDataOutput)
                 }
-                break
             default:
                 break
             }
@@ -461,7 +452,6 @@ open class KTCameraView: UIView,
             }
         }
     }
-
 
     fileprivate func clearDetectedMetadataObjects() {
         if let codeDetectionLayer = codeDetectionLayer {

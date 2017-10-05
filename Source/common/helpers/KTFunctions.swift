@@ -25,23 +25,23 @@ public func classNameForObject(_ object: AnyObject) -> String {
 
 public func decodeJSON(_ data: Data) -> [String: AnyObject] {
     do {
-        return try JSONSerialization.jsonObject(with: data, options: []) as! [String : AnyObject]
+        return try JSONSerialization.jsonObject(with: data, options: []) as! [String: AnyObject]
     } catch {
         log("\(error)")
         fatalError()
     }
 }
 
-public func dispatch_after_delay(_ seconds: Double, block: @escaping ()->()) {
+public func dispatch_after_delay(_ seconds: Double, block: @escaping () -> Void) {
     let delay = DispatchTime.now() + Double(Int64(seconds * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
     DispatchQueue.main.asyncAfter(deadline: delay, execute: block)
 }
 
-public func dispatch_async_main_queue(_ block: @escaping ()->()) {
+public func dispatch_async_main_queue(_ block: @escaping () -> Void) {
     DispatchQueue.main.async(execute: block)
 }
 
-public func dispatch_async_global_queue(_ qos: DispatchQoS.QoSClass = .default, block: @escaping ()->()) {
+public func dispatch_async_global_queue(_ qos: DispatchQoS.QoSClass = .default, block: @escaping () -> Void) {
     DispatchQueue.global(qos: qos).async(execute: block)
 }
 
@@ -126,7 +126,7 @@ public func why(_ message: String, fileName: String = #file, functionName: Strin
 public func stringFromFile(_ fileName: String, bundlePath: String? = nil, bundle: Bundle = Bundle.main) -> String {
     let resourceName = NSString(string: fileName).deletingPathExtension
     let type = NSString(string: fileName).pathExtension
-    let filePath = bundle.path(forResource: resourceName, ofType: type, inDirectory:bundlePath)
+    let filePath = bundle.path(forResource: resourceName, ofType: type, inDirectory: bundlePath)
     assert(filePath != nil, "File not found: \(resourceName).\(type)")
 
     let fileAsString: NSString?
@@ -144,9 +144,10 @@ public func stringFromFile(_ fileName: String, bundlePath: String? = nil, bundle
 
 public func prettyPrintedJson(_ uglyJsonStr: String?) -> String {
     if let uglyJsonString = uglyJsonStr {
-        let uglyJson: AnyObject = try! JSONSerialization.jsonObject(with: uglyJsonString.data(using: String.Encoding.utf8)!, options: []) as AnyObject
-        let prettyPrintedJson = encodeJSON(uglyJson, options: .prettyPrinted)
-        return NSString(data: prettyPrintedJson, encoding: String.Encoding.utf8.rawValue) as! String
+        if let uglyJson: AnyObject = try? JSONSerialization.jsonObject(with: uglyJsonString.data(using: String.Encoding.utf8)!, options: []) as AnyObject {
+            let prettyPrintedJson = encodeJSON(uglyJson, options: .prettyPrinted)
+            return NSString(data: prettyPrintedJson, encoding: String.Encoding.utf8.rawValue) as! String
+        }
     }
 
     return ""

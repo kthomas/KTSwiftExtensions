@@ -23,7 +23,7 @@ public extension MKPolygon {
             result += (previousPoint.x * point.y) - (previousPoint.y * point.x)
             previousPoint = point
         }
-        
+
         return result / 2.0
     }
 
@@ -40,7 +40,7 @@ public extension MKPolygon {
         for interior in interiorPolygons! {
             result -= interior.area
         }
-        
+
         return result
     }
 }

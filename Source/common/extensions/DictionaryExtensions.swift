@@ -21,7 +21,7 @@ public extension Dictionary {
             let encodedName = (key as! String).urlEncodedString()
             let encodedValue = "\(value)".urlEncodedString()
             let encodedParameter = "\(encodedName)=\(encodedValue)"
-            queryString = queryString + (queryString == "" ? "" : "&") + encodedParameter
+            queryString += (queryString == "" ? "" : "&") + encodedParameter
         }
         return queryString
     }

@@ -72,14 +72,14 @@ open class KTApiService: NSObject {
                         var obj: AnyObject?
 
                         if statusCode < 300 {
-                            if let val = value as? [String : AnyObject] {
+                            if let val = value as? [String: AnyObject] {
                                 let map = Map(mappingType: .fromJSON,
                                               JSON: val,
                                               toObject: true,
                                               context: nil)
                                 obj = clazz.init()
                                 (obj as! KTModel).mapping(map: map)
-                            } else if let val = value as? [[String : AnyObject]] {
+                            } else if let val = value as? [[String: AnyObject]] {
                                 var objects = [KTModel]()
                                 for v in val {
                                     let map = Map(mappingType: .fromJSON,
@@ -107,7 +107,7 @@ open class KTApiService: NSObject {
                                 break
                             }
 
-                            if let val = value as? [String : AnyObject] {
+                            if let val = value as? [String: AnyObject] {
                                 let map = Map(mappingType: .fromJSON,
                                               JSON: val,
                                               toObject: true,

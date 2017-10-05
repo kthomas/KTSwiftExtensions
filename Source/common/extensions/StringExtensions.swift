@@ -7,7 +7,7 @@
 //
 
 import Foundation
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+private func < <T: Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
     return l < r
@@ -18,7 +18,7 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   }
 }
 
-fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+private func >= <T: Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
     return l >= r
@@ -27,7 +27,7 @@ fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   }
 }
 
-fileprivate func <= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+private func <= <T: Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
     return l <= r
@@ -35,7 +35,6 @@ fileprivate func <= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
     return !(rhs < lhs)
   }
 }
-
 
 infix operator =~ : AssignmentPrecedence
 public func =~ (input: String, pattern: String) -> Bool {
@@ -78,9 +77,9 @@ public extension String {
         return nil
     }
 
-    func toJSONObject() -> [String : AnyObject]! {
-        if let obj = toJSONAnyObject() as? [String : AnyObject] {
-            return obj as [String : AnyObject]
+    func toJSONObject() -> [String: AnyObject]! {
+        if let obj = toJSONAnyObject() as? [String: AnyObject] {
+            return obj as [String: AnyObject]
         }
         return nil
     }
@@ -101,8 +100,8 @@ public extension String {
     }
 
     func snakeCaseString() -> String {
-        let pattern = try! NSRegularExpression(pattern: "([a-z])([A-Z])", options: [])
-        return pattern.stringByReplacingMatches(in: self, options: [], range: NSMakeRange(0, characters.count), withTemplate: "$1_$2").lowercased()
+        guard let pattern = try? NSRegularExpression(pattern: "([a-z])([A-Z])", options: []) else { fatalError() }
+        return pattern.stringByReplacingMatches(in: self, options: [], range: NSRange(location: 0, length: characters.count), withTemplate: "$1_$2").lowercased()
     }
 
     var containsNonASCIICharacters: Bool {
@@ -134,12 +133,12 @@ public extension String {
 
     func isValidEmail() -> Bool {
         let regex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
-        let test = NSPredicate(format:"SELF MATCHES %@", regex)
+        let test = NSPredicate(format: "SELF MATCHES %@", regex)
         return test.evaluate(with: self)
     }
 
     func stringByStrippingHTML() -> String {
-        var range = NSMakeRange(0, 0)
+        var range = NSRange(location: 0, length: 0)
         var str = NSString(string: self)
         while range.location != NSNotFound {
             range = str.range(of: "<[^>]+>", options: NSString.CompareOptions.regularExpression)

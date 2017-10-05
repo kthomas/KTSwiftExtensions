@@ -99,7 +99,7 @@ open class KTDraggableViewGestureRecognizer: UIGestureRecognizer {
                         self.initialView.frame = self.initialFrame
                         self.initialView.alpha = self.initialAlpha
                     },
-                    completion: { complete in
+                    completion: { _ in
                         if self.superviewChanged {
                             let window = UIApplication.shared.keyWindow!
                             self.initialView.removeFromSuperview()
@@ -153,7 +153,7 @@ open class KTDraggableViewGestureRecognizer: UIGestureRecognizer {
             drag(view, xOffset: xOffset, yOffset: yOffset)
         }
     }
-    
+
     internal func drag(_ view: UIView, xOffset: CGFloat, yOffset: CGFloat) {
         var newFrame = CGRect(origin: view.frame.origin, size: view.frame.size)
         newFrame.origin.x += xOffset

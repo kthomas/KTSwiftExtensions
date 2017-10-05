@@ -31,7 +31,7 @@ open class KTRegex {
     open func match(_ input: String) -> [NSTextCheckingResult] {
         var matches = [NSTextCheckingResult]()
         if let internalExpression = internalExpression {
-            matches = internalExpression.matches(in: input, options: .anchored, range: NSMakeRange(0, input.characters.distance(from: input.startIndex, to: input.endIndex)))
+            matches = internalExpression.matches(in: input, options: .anchored, range: NSRange(location: 0, length: input.characters.distance(from: input.startIndex, to: input.endIndex)))
         }
         return matches
     }

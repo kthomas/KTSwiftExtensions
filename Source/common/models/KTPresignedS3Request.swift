@@ -10,9 +10,9 @@ import ObjectMapper
 
 open class KTPresignedS3Request: KTModel {
 
-    open var fields: [String : String]!
-    open var metadata = [String : String]()
-    open var signedHeaders = [String : String]()
+    open var fields: [String: String]!
+    open var metadata = [String: String]()
+    open var signedHeaders = [String: String]()
     open var url: String!
 
     open override func mapping(map: Map) {

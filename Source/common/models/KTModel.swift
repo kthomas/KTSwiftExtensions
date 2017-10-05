@@ -31,7 +31,7 @@ open class KTModel: NSObject, Mappable {
         super.init()
     }
 
-    public required init?(map: Map){
+    public required init?(map: Map) {
         super.init()
     }
 

@@ -13,20 +13,20 @@ open class KTS3Service: NSObject {
 
     open class func presign(_ url: URL,
                             filename: String,
-                            metadata: [String : String],
-                            headers: [String : String],
+                            metadata: [String: String],
+                            headers: [String: String],
                             successHandler: KTApiSuccessHandler?,
                             failureHandler: KTApiFailureHandler?) {
         presign(url, bucket: nil, filename: filename, metadata: metadata, headers: headers, successHandler: successHandler, failureHandler: failureHandler)
     }
 
     open class func presign(_ url: URL,
-                             bucket: String?,
-                             filename: String,
-                             metadata: [String : String],
-                             headers: [String : String],
-                             successHandler: KTApiSuccessHandler?,
-                             failureHandler: KTApiFailureHandler?) {
+                            bucket: String?,
+                            filename: String,
+                            metadata: [String: String],
+                            headers: [String: String],
+                            successHandler: KTApiSuccessHandler?,
+                            failureHandler: KTApiFailureHandler?) {
         var params = ["filename": filename, "metadata": metadata.toJSONString()]
         if let bucket = bucket {
             params["bucket"] = bucket
