@@ -154,19 +154,17 @@ public class KTCameraView: UIView,
     }
 
     fileprivate func configureVideoSession() {
-        if let delegate = delegate {
-            if delegate.cameraViewShouldEstablishVideoSession(self) {
-                videoDataOutput = AVCaptureVideoDataOutput()
-                var settings = [AnyHashable: Any]()
-                settings.updateValue(NSNumber(value: kCVPixelFormatType_32BGRA as UInt32), forKey: String(kCVPixelBufferPixelFormatTypeKey))
-                videoDataOutput.videoSettings = settings
-                videoDataOutput.alwaysDiscardsLateVideoFrames = true
-                videoDataOutput.setSampleBufferDelegate(self, queue: avVideoOutputQueue)
+        if let delegate = delegate, delegate.cameraViewShouldEstablishVideoSession(self) {
+            videoDataOutput = AVCaptureVideoDataOutput()
+            var settings = [AnyHashable: Any]()
+            settings.updateValue(NSNumber(value: kCVPixelFormatType_32BGRA as UInt32), forKey: String(kCVPixelBufferPixelFormatTypeKey))
+            videoDataOutput.videoSettings = settings
+            videoDataOutput.alwaysDiscardsLateVideoFrames = true
+            videoDataOutput.setSampleBufferDelegate(self, queue: avVideoOutputQueue)
 
-                captureSession.addOutput(videoDataOutput)
+            captureSession.addOutput(videoDataOutput)
 
-                videoFileOutput = AVCaptureMovieFileOutput()
-            }
+            videoFileOutput = AVCaptureMovieFileOutput()
         }
     }
 
@@ -183,7 +181,7 @@ public class KTCameraView: UIView,
     }
 
     func setCapturePreviewOrientationWithDeviceOrientation(_ deviceOrientation: UIDeviceOrientation, size: CGSize) {
-        if  let capturePreviewLayer = capturePreviewLayer {
+        if let capturePreviewLayer = capturePreviewLayer {
             capturePreviewLayer.frame.size = size
 
             if let connection = capturePreviewLayer.connection {
@@ -335,22 +333,20 @@ public class KTCameraView: UIView,
         }
 
         avCameraOutputQueue.async {
-            if let cameraOutput = self.stillCameraOutput {
-                if let connection = cameraOutput.connection(withMediaType: AVMediaTypeVideo) {
-                    if let videoOrientation = AVCaptureVideoOrientation(rawValue: UIDevice.current.orientation.rawValue) {
-                        connection.videoOrientation = videoOrientation
-                    }
+            if let cameraOutput = self.stillCameraOutput, let connection = cameraOutput.connection(withMediaType: AVMediaTypeVideo) {
+                if let videoOrientation = AVCaptureVideoOrientation(rawValue: UIDevice.current.orientation.rawValue) {
+                    connection.videoOrientation = videoOrientation
+                }
 
-                    cameraOutput.captureStillImageAsynchronously(from: connection) { imageDataSampleBuffer, error in
-                        if error == nil {
-                            let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer)
+                cameraOutput.captureStillImageAsynchronously(from: connection) { imageDataSampleBuffer, error in
+                    if error == nil {
+                        let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer)
 
-                            if let image = UIImage(data: imageData!) {
-                                self.delegate?.cameraView(self, didCaptureStillImage: image)
-                            }
-                        } else {
-                            logWarn("Error capturing still image \(error)")
+                        if let image = UIImage(data: imageData!) {
+                            self.delegate?.cameraView(self, didCaptureStillImage: image)
                         }
+                    } else {
+                        logWarn("Error capturing still image \(error)")
                     }
                 }
             }
@@ -448,16 +444,14 @@ public class KTCameraView: UIView,
 
     fileprivate func showDetectedMetadataObjects(_ metadataObjects: [Any]!) {
         for object in metadataObjects {
-            if let metadataFaceObject = object as? AVMetadataFaceObject {
-                if let detectedCode = capturePreviewLayer.transformedMetadataObject(for: metadataFaceObject) as? AVMetadataFaceObject {
-                    let shapeLayer = CAShapeLayer()
-                    shapeLayer.strokeColor = UIColor.green.cgColor
-                    shapeLayer.fillColor = UIColor.clear.cgColor
-                    shapeLayer.lineWidth = 1.0
-                    shapeLayer.lineJoin = kCALineJoinRound
-                    shapeLayer.path = UIBezierPath(rect: detectedCode.bounds).cgPath
-                    codeDetectionLayer.addSublayer(shapeLayer)
-                }
+            if let metadataFaceObject = object as? AVMetadataFaceObject, let detectedCode = capturePreviewLayer.transformedMetadataObject(for: metadataFaceObject) as? AVMetadataFaceObject {
+                let shapeLayer = CAShapeLayer()
+                shapeLayer.strokeColor = UIColor.green.cgColor
+                shapeLayer.fillColor = UIColor.clear.cgColor
+                shapeLayer.lineWidth = 1.0
+                shapeLayer.lineJoin = kCALineJoinRound
+                shapeLayer.path = UIBezierPath(rect: detectedCode.bounds).cgPath
+                codeDetectionLayer.addSublayer(shapeLayer)
             }
         }
     }

@@ -36,11 +36,9 @@ public extension Array {
 
     mutating func removeObject<U: Equatable>(_ object: U) {
         for (index, objectToCompare) in enumerated() {
-            if let to = objectToCompare as? U {
-                if object == to {
-                    remove(at: index)
-                    break
-                }
+            if let to = objectToCompare as? U, object == to {
+                remove(at: index)
+                break
             }
         }
     }
