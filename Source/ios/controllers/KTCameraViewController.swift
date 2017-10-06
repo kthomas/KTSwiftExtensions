@@ -47,16 +47,12 @@ public class KTCameraViewController: UIViewController, KTCameraViewDelegate {
     }
 
     var isRunning: Bool {
-        if let backCameraView = backCameraView {
-            if backCameraView.isRunning {
-                return true
-            }
+        if let backCameraView = backCameraView, backCameraView.isRunning {
+            return true
         }
 
-        if let frontCameraView = frontCameraView {
-            if frontCameraView.isRunning {
-                return true
-            }
+        if let frontCameraView = frontCameraView, frontCameraView.isRunning {
+            return true
         }
 
         return false
@@ -182,10 +178,7 @@ public class KTCameraViewController: UIViewController, KTCameraViewDelegate {
 
     open
     func outputModeForCameraView(_ cameraView: KTCameraView) -> CameraOutputMode {
-        if let delegate = delegate {
-            return delegate.outputModeForCameraViewController(self)
-        }
-        return outputMode
+        return delegate?.outputModeForCameraViewController(self) ?? outputMode
     }
 
     public func cameraViewCaptureSessionFailedToInitializeWithError(_ error: NSError) {
@@ -225,16 +218,10 @@ public class KTCameraViewController: UIViewController, KTCameraViewDelegate {
     }
 
     public func cameraViewShouldOutputFaceMetadata(_ cameraView: KTCameraView) -> Bool {
-        if let outputFaceMetadata = delegate?.cameraViewControllerShouldOutputFaceMetadata(self) {
-            return outputFaceMetadata
-        }
-        return false
+        return delegate?.cameraViewControllerShouldOutputFaceMetadata(self) ?? false
     }
 
     public func cameraViewShouldRenderFacialRecognition(_ cameraView: KTCameraView) -> Bool {
-        if let renderFacialRecognition = delegate?.cameraViewControllerShouldRenderFacialRecognition(self) {
-            return renderFacialRecognition
-        }
-        return false
+        return delegate?.cameraViewControllerShouldRenderFacialRecognition(self) ?? false
     }
 }

@@ -68,19 +68,13 @@ public class KTApiService: NSObject {
 
                         if statusCode < 300 {
                             if let val = value as? [String: AnyObject] {
-                                let map = Map(mappingType: .fromJSON,
-                                              JSON: val,
-                                              toObject: true,
-                                              context: nil)
+                                let map = Map(mappingType: .fromJSON, JSON: val, toObject: true, context: nil)
                                 obj = clazz.init()
                                 (obj as! KTModel).mapping(map: map)
                             } else if let val = value as? [[String: AnyObject]] {
                                 var objects = [KTModel]()
                                 for v in val {
-                                    let map = Map(mappingType: .fromJSON,
-                                                  JSON: v,
-                                                  toObject: true,
-                                                  context: nil)
+                                    let map = Map(mappingType: .fromJSON, JSON: v, toObject: true, context: nil)
                                     let objInstance = clazz.init()
                                     objInstance.mapping(map: map)
                                     objects.append(objInstance)
@@ -103,10 +97,7 @@ public class KTApiService: NSObject {
                             }
 
                             if let val = value as? [String: AnyObject] {
-                                let map = Map(mappingType: .fromJSON,
-                                              JSON: val,
-                                              toObject: true,
-                                              context: nil)
+                                let map = Map(mappingType: .fromJSON, JSON: val, toObject: true, context: nil)
                                 obj = KTError()
                                 (obj as! KTModel).mapping(map: map)
 

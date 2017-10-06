@@ -84,10 +84,7 @@ public class KTCameraView: UIView,
     }
 
     var isRunning: Bool {
-        if let captureSession = captureSession {
-            return captureSession.isRunning
-        }
-        return false
+        return captureSession?.isRunning ?? false
     }
 
     fileprivate var mic: AVCaptureDevice! {
@@ -95,10 +92,7 @@ public class KTCameraView: UIView,
     }
 
     fileprivate var outputFaceMetadata: Bool {
-        if let delegate = delegate {
-            return delegate.cameraViewShouldOutputFaceMetadata(self)
-        }
-        return false
+        return delegate?.cameraViewShouldOutputFaceMetadata(self) ?? false
     }
 
     fileprivate var recording = false {
@@ -112,10 +106,7 @@ public class KTCameraView: UIView,
     }
 
     fileprivate var renderFacialRecognition: Bool {
-        if let delegate = delegate {
-            return delegate.cameraViewShouldRenderFacialRecognition(self)
-        }
-        return false
+        return delegate?.cameraViewShouldRenderFacialRecognition(self) ?? false
     }
 
     override public func awakeFromNib() {
@@ -126,19 +117,19 @@ public class KTCameraView: UIView,
     }
 
     fileprivate func configureAudioSession() {
-        if let delegate = delegate {
-            if delegate.cameraViewShouldEstablishAudioSession(self) {
-                do {
-                    let input = try AVCaptureDeviceInput(device: mic)
-                    captureSession.addInput(input)
+        guard let delegate = delegate else { return }
+        
+        if delegate.cameraViewShouldEstablishAudioSession(self) {
+            do {
+                let input = try AVCaptureDeviceInput(device: mic)
+                captureSession.addInput(input)
 
-                    audioDataOutput = AVCaptureAudioDataOutput()
-                    if captureSession.canAddOutput(audioDataOutput) {
-                        captureSession.addOutput(audioDataOutput)
-                    }
-                } catch let error as NSError {
-                    logWarn(error.localizedDescription)
+                audioDataOutput = AVCaptureAudioDataOutput()
+                if captureSession.canAddOutput(audioDataOutput) {
+                    captureSession.addOutput(audioDataOutput)
                 }
+            } catch let error as NSError {
+                logWarn(error.localizedDescription)
             }
         }
     }

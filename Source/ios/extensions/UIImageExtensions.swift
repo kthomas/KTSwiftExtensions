@@ -22,10 +22,8 @@ public extension UIImage {
     }
 
     func crop(_ rect: CGRect) -> UIImage! {
-        if let cgImage = cgImage {
-            if let image = cgImage.cropping(to: rect) {
-                return UIImage(cgImage: image)
-            }
+        if let image = cgImage?.cropping(to: rect) {
+            return UIImage(cgImage: image)
         }
         return nil
     }

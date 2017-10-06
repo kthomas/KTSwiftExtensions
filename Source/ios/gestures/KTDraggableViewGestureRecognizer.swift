@@ -26,10 +26,8 @@ public class KTDraggableViewGestureRecognizer: UIGestureRecognizer {
     var touchesBeganTimestamp: Date!
 
     fileprivate var superviewChanged: Bool {
-        if let initialView = initialView {
-            if let initialSuperview = initialSuperview {
-                return initialView.superview != initialSuperview
-            }
+        if let initialView = initialView, let initialSuperview = initialSuperview {
+            return initialView.superview != initialSuperview
         }
         return false
     }
@@ -88,12 +86,11 @@ public class KTDraggableViewGestureRecognizer: UIGestureRecognizer {
             if shouldResetView {
                 var duration = 0.15
                 var delay = 0.1
-                if let shouldAnimate = draggableViewGestureRecognizerDelegate?.draggableViewGestureRecognizer?(self, shouldAnimateResetView: initialView) {
-                    if !shouldAnimate {
-                        duration = 0.0
-                        delay = 0.0
-                    }
+                if let shouldAnimate = draggableViewGestureRecognizerDelegate?.draggableViewGestureRecognizer?(self, shouldAnimateResetView: initialView), !shouldAnimate {
+                    duration = 0.0
+                    delay = 0.0
                 }
+                
                 UIView.animate(withDuration: duration, delay: delay, options: .curveEaseOut,
                     animations: {
                         self.initialView.frame = self.initialFrame
