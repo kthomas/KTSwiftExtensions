@@ -14,6 +14,14 @@ public extension UIImage {
         self.init(named: imageName)
     }
 
+    var width: CGFloat {
+        return size.width
+    }
+
+    var height: CGFloat {
+        return size.height
+    }
+
     class func imageFromDataURL(_ dataURL: URL) -> UIImage? {
         if let data = try? Data(contentsOf: dataURL) {
             return UIImage(data: data)

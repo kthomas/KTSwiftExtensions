@@ -10,6 +10,14 @@ import UIKit
 
 public extension UIView {
 
+    var width: CGFloat {
+        return bounds.width
+    }
+
+    var height: CGFloat {
+        return bounds.height
+    }
+
     func addBorder(_ width: CGFloat, color: UIColor) {
         layer.borderColor = color.cgColor
         layer.borderWidth = width
