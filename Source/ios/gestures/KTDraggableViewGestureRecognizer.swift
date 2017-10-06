@@ -17,7 +17,7 @@ public protocol KTDraggableViewGestureRecognizerDelegate {
 
 public class KTDraggableViewGestureRecognizer: UIGestureRecognizer {
 
-    public var draggableViewGestureRecognizerDelegate: KTDraggableViewGestureRecognizerDelegate!
+    public weak var draggableViewGestureRecognizerDelegate: KTDraggableViewGestureRecognizerDelegate?
 
     public var initialView: UIView!
     public var initialFrame: CGRect!

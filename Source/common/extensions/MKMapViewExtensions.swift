@@ -75,14 +75,7 @@ public extension MKMapView {
         setRegion(region, animated: animated)
     }
 
-    func setCenterCoordinate(
-        _ centerCoordinate: CLLocationCoordinate2D,
-        fromEyeCoordinate: CLLocationCoordinate2D,
-        eyeAltitude: CLLocationDistance = 0,
-        pitch: CGFloat = 0,
-        heading: CLLocationDirection = 0,
-        animated: Bool = true)
-    {
+    func setCenterCoordinate(_ centerCoordinate: CLLocationCoordinate2D, fromEyeCoordinate: CLLocationCoordinate2D, eyeAltitude: CLLocationDistance = 0, pitch: CGFloat = 0, heading: CLLocationDirection = 0, animated: Bool = true) {
         let invalidCenterCoordinate = centerCoordinate.latitude == -180.0 && centerCoordinate.longitude == -180.0
         if invalidCenterCoordinate {
             return

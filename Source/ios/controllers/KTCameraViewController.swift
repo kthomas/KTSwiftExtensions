@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-public protocol KTCameraViewControllerDelegate {
+public protocol KTCameraViewControllerDelegate: class {
     func outputModeForCameraViewController(_ viewController: KTCameraViewController) -> CameraOutputMode
     func cameraViewControllerCanceled(_ viewController: KTCameraViewController)
 
@@ -28,7 +28,7 @@ public protocol KTCameraViewControllerDelegate {
 
 public class KTCameraViewController: UIViewController, KTCameraViewDelegate {
 
-    var delegate: KTCameraViewControllerDelegate!
+    weak var delegate: KTCameraViewControllerDelegate?
     var mode: ActiveDeviceCapturePosition = .back
     var outputMode: CameraOutputMode = .photo
 

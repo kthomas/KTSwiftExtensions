@@ -24,7 +24,7 @@ public extension UIColor {
         )
     }
 
-    class func resizedColorWithPatternImage(_ patternImage: UIImage!, rect: CGRect) -> UIColor! {
+    class func resizedColorWithPatternImage(_ patternImage: UIImage, rect: CGRect) -> UIColor! {
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
         patternImage.draw(in: rect)
         let resizedImage = UIGraphicsGetImageFromCurrentImageContext()

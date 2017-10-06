@@ -14,15 +14,4 @@ public extension NSDictionary {
         let jsonData = encodeJSON(self)
         return NSString(bytes: (jsonData as NSData).bytes, length: jsonData.count, encoding: String.Encoding.utf8.rawValue) as! String
     }
-
-    func toQueryString() -> String {
-        var queryString = ""
-        for (key, value) in self {
-            let encodedName = (key as! String).urlEncodedString()
-            let encodedValue = "\(value)".urlEncodedString()
-            let encodedParameter = "\(encodedName)=\(encodedValue)"
-            queryString += (queryString == "" ? "" : "&") + encodedParameter
-        }
-        return queryString
-    }
 }

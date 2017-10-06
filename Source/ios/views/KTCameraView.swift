@@ -21,7 +21,7 @@ public enum CameraOutputMode {
     case selfie
 }
 
-public protocol KTCameraViewDelegate {
+public protocol KTCameraViewDelegate: class {
     func outputModeForCameraView(_ cameraView: KTCameraView) -> CameraOutputMode
     func cameraView(_ cameraView: KTCameraView, didCaptureStillImage image: UIImage)
     func cameraView(_ cameraView: KTCameraView, didStartVideoCaptureAtURL fileURL: URL)
@@ -42,7 +42,7 @@ public class KTCameraView: UIView,
     AVCaptureFileOutputRecordingDelegate,
     AVCaptureMetadataOutputObjectsDelegate {
 
-    var delegate: KTCameraViewDelegate!
+    weak var delegate: KTCameraViewDelegate?
 
     fileprivate let avAudioOutputQueue = DispatchQueue(label: "api.avAudioOutputQueue", attributes: [])
     fileprivate let avCameraOutputQueue = DispatchQueue(label: "api.avCameraOutputQueue", attributes: [])
@@ -66,19 +66,15 @@ public class KTCameraView: UIView,
     fileprivate var stillCameraOutput: AVCaptureStillImageOutput!
 
     fileprivate var backCamera: AVCaptureDevice! {
-        for device in AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo) {
-            if (device as AnyObject).position == .back {
-                return device as! AVCaptureDevice
-            }
+        for device in AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo) where (device as AnyObject).position == .back {
+            return device as! AVCaptureDevice
         }
         return nil
     }
 
     fileprivate var frontCamera: AVCaptureDevice! {
-        for device in AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo) {
-            if (device as AnyObject).position == .front {
-                return device as? AVCaptureDevice
-            }
+        for device in AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo) where (device as AnyObject).position == .front {
+            return device as? AVCaptureDevice
         }
         return nil
     }
@@ -388,13 +384,13 @@ public class KTCameraView: UIView,
 
     // MARK: AVCaptureFileOutputRecordingDelegate
 
-    public func capture(_ captureOutput: AVCaptureFileOutput!, didStartRecordingToOutputFileAt fileURL: URL!, fromConnections connections: [Any]!) {
+    public func capture(_ captureOutput: AVCaptureFileOutput, didStartRecordingToOutputFileAt fileURL: URL, fromConnections connections: [Any]) {
         recording = true
 
         delegate?.cameraView(self, didStartVideoCaptureAtURL: fileURL)
     }
 
-    public func capture(_ captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: URL!, fromConnections connections: [Any]!, error: Error!) {
+    public func capture(_ captureOutput: AVCaptureFileOutput, didFinishRecordingToOutputFileAt outputFileURL: URL, fromConnections connections: [Any], error: Error?) {
         recording = false
 
         delegate?.cameraView(self, didFinishVideoCaptureAtURL: outputFileURL)
@@ -403,11 +399,11 @@ public class KTCameraView: UIView,
 
     // MARK: AVCaptureVideoDataOutputSampleBufferDelegate
 
-    public func captureOutput(_ captureOutput: AVCaptureOutput!, didDrop sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
+    public func captureOutput(_ captureOutput: AVCaptureOutput, didDrop sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         //println("dropped samples \(sampleBuffer)")
     }
 
-    public func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
+    public func captureOutput(_ captureOutput: AVCaptureOutput, didOutputSampleBuffer sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         // let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)!
         // CVPixelBufferLockBaseAddress(imageBuffer, 0)
         //
@@ -428,7 +424,7 @@ public class KTCameraView: UIView,
 
     // MARK: AVCaptureMetadataOutputObjectsDelegate
 
-    public func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
+    public func captureOutput(_ captureOutput: AVCaptureOutput, didOutputMetadataObjects metadataObjects: [Any], from connection: AVCaptureConnection) {
         for object in metadataObjects {
             if let metadataFaceObject = object as? AVMetadataFaceObject {
                 let detectedFace = capturePreviewLayer.transformedMetadataObject(for: metadataFaceObject)
