@@ -32,7 +32,7 @@ public class KTS3Service: NSObject {
             params["bucket"] = bucket
         }
         let request: DataRequest = Alamofire.request(url, method: .get, parameters: params, headers: headers)
-        KTApiService.sharedService().execute(request, successHandler: successHandler, failureHandler: failureHandler)
+        KTApiService.shared.execute(request, successHandler: successHandler, failureHandler: failureHandler)
     }
 
     public class func upload(_ presignedS3Request: KTPresignedS3Request,
@@ -54,7 +54,7 @@ public class KTS3Service: NSObject {
                 encodingCompletion: { encodingResult in
                     switch encodingResult {
                     case .success(let request, _, _):
-                        KTApiService.sharedService().execute(request as DataRequest, successHandler: successHandler, failureHandler: failureHandler)
+                        KTApiService.shared.execute(request as DataRequest, successHandler: successHandler, failureHandler: failureHandler)
                     case .failure(let encodingError):
                         logWarn("Multipart upload not attempted due to encoding error; \(encodingError)")
                     }
@@ -62,7 +62,7 @@ public class KTS3Service: NSObject {
             )
         } else {
             let request: DataRequest = Alamofire.upload(data, to: presignedS3Request.url, method: .put, headers: presignedS3Request.signedHeaders)
-            KTApiService.sharedService().execute(request, successHandler: successHandler, failureHandler: failureHandler)
+            KTApiService.shared.execute(request, successHandler: successHandler, failureHandler: failureHandler)
         }
     }
 }

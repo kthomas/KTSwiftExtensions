@@ -16,14 +16,9 @@ public typealias KTApiSuccessHandler = (AnyObject?) -> Void
 public typealias KTApiFailureHandler = (HTTPURLResponse?, AnyObject?, NSError?) -> Void
 
 public class KTApiService: NSObject {
-
-    fileprivate static let instance = KTApiService()
+    public static let shared = KTApiService()
 
     fileprivate var dispatchQueue: DispatchQueue!
-
-    public class func sharedService() -> KTApiService {
-        return instance
-    }
 
     public required override init() {
         super.init()
