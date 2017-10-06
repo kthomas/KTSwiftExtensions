@@ -7,34 +7,6 @@
 //
 
 import Foundation
-private func < <T: Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
-
-private func >= <T: Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l >= r
-  default:
-    return !(lhs < rhs)
-  }
-}
-
-private func <= <T: Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l <= r
-  default:
-    return !(rhs < lhs)
-  }
-}
 
 infix operator =~ : AssignmentPrecedence
 public func =~ (input: String, pattern: String) -> Bool {
@@ -127,7 +99,7 @@ public extension String {
     }
 
     func isDigit() -> Bool {
-        let int = Int(self)
+        guard let int = Int(self) else { return false }
         return (length == 1) && (int >= 0) && (int <= 9)
     }
 

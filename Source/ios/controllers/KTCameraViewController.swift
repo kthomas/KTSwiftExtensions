@@ -71,19 +71,19 @@ public class KTCameraViewController: UIViewController, KTCameraViewDelegate {
     }
 
     func setupCameraUI() {
-        if let button = button {
-            view.bringSubview(toFront: button)
+        guard let button = button else { return }
 
-            button.addTarget(self, action: #selector(KTCameraViewController.capture), for: .touchUpInside)
-            let events = UIControlEvents.touchUpInside.union(.touchUpOutside).union(.touchCancel).union(.touchDragExit)
-            button.addTarget(self, action: #selector(KTCameraViewController.renderDefaultButtonAppearance), for: events)
-            button.addTarget(self, action: #selector(KTCameraViewController.renderTappedButtonAppearance), for: .touchDown)
+        view.bringSubview(toFront: button)
 
-            button.addBorder(5.0, color: UIColor.white)
-            button.makeCircular()
+        button.addTarget(self, action: #selector(KTCameraViewController.capture), for: .touchUpInside)
+        let events = UIControlEvents.touchUpInside.union(.touchUpOutside).union(.touchCancel).union(.touchDragExit)
+        button.addTarget(self, action: #selector(KTCameraViewController.renderDefaultButtonAppearance), for: events)
+        button.addTarget(self, action: #selector(KTCameraViewController.renderTappedButtonAppearance), for: .touchDown)
 
-            renderDefaultButtonAppearance()
-        }
+        button.addBorder(5.0, color: UIColor.white)
+        button.makeCircular()
+
+        renderDefaultButtonAppearance()
     }
 
     override public func viewWillAppear(_ animated: Bool) {
@@ -176,8 +176,7 @@ public class KTCameraViewController: UIViewController, KTCameraViewDelegate {
 
     // MARK: KTCameraViewDelegate
 
-    open
-    func outputModeForCameraView(_ cameraView: KTCameraView) -> CameraOutputMode {
+    public func outputModeForCameraView(_ cameraView: KTCameraView) -> CameraOutputMode {
         return delegate?.outputModeForCameraViewController(self) ?? outputMode
     }
 

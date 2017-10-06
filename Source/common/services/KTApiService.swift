@@ -141,9 +141,7 @@ public class KTApiService: NSObject {
                     }
                 } else {
                     logWarn("Error with network request:\n\(request); \(error); retrying...")
-                    self.execute(Alamofire.request(request.request!),
-                                 successHandler: successHandler,
-                                 failureHandler: failureHandler)
+                    self.execute(Alamofire.request(request.request!), successHandler: successHandler, failureHandler: failureHandler)
                 }
             }
         }

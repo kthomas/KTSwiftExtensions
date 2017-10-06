@@ -143,14 +143,12 @@ public func stringFromFile(_ fileName: String, bundlePath: String? = nil, bundle
 }
 
 public func prettyPrintedJson(_ uglyJsonStr: String?) -> String {
-    if let uglyJsonString = uglyJsonStr {
-        if let uglyJson: AnyObject = try? JSONSerialization.jsonObject(with: uglyJsonString.data(using: String.Encoding.utf8)!, options: []) as AnyObject {
-            let prettyPrintedJson = encodeJSON(uglyJson, options: .prettyPrinted)
-            return NSString(data: prettyPrintedJson, encoding: String.Encoding.utf8.rawValue) as! String
-        }
+    if let uglyJsonString = uglyJsonStr, let uglyJson: AnyObject = try? JSONSerialization.jsonObject(with: uglyJsonString.data(using: String.Encoding.utf8)!, options: []) as AnyObject {
+        let prettyPrintedJson = encodeJSON(uglyJson, options: .prettyPrinted)
+        return NSString(data: prettyPrintedJson, encoding: String.Encoding.utf8.rawValue) as! String
+    } else {
+        return ""
     }
-
-    return ""
 }
 
 public func swizzleMethodSelector(_ origSelector: String, withSelector: String, forClass: AnyClass) {

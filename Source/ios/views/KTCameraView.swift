@@ -38,9 +38,9 @@ public protocol KTCameraViewDelegate {
 }
 
 public class KTCameraView: UIView,
-                  AVCaptureVideoDataOutputSampleBufferDelegate,
-                  AVCaptureFileOutputRecordingDelegate,
-                  AVCaptureMetadataOutputObjectsDelegate {
+    AVCaptureVideoDataOutputSampleBufferDelegate,
+    AVCaptureFileOutputRecordingDelegate,
+    AVCaptureMetadataOutputObjectsDelegate {
 
     var delegate: KTCameraViewDelegate!
 
@@ -118,7 +118,7 @@ public class KTCameraView: UIView,
 
     fileprivate func configureAudioSession() {
         guard let delegate = delegate else { return }
-        
+
         if delegate.cameraViewShouldEstablishAudioSession(self) {
             do {
                 let input = try AVCaptureDeviceInput(device: mic)
@@ -408,22 +408,22 @@ public class KTCameraView: UIView,
     }
 
     public func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
-//        let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)!
-//        CVPixelBufferLockBaseAddress(imageBuffer, 0)
-//
-//        let baseAddress = CVPixelBufferGetBaseAddress(imageBuffer)
-//        let bytesPerRow = CVPixelBufferGetBytesPerRow(imageBuffer)
-//        let width = CVPixelBufferGetWidth(imageBuffer)
-//        let height = CVPixelBufferGetHeight(imageBuffer)
-//
-//        let colorSpace = CGColorSpaceCreateDeviceRGB()!
-//        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.PremultipliedFirst.rawValue).rawValue
-//        let context = CGBitmapContextCreate(baseAddress, width, height, 8, bytesPerRow, colorSpace, bitmapInfo)
-//
-//        let quartzImage = CGBitmapContextCreateImage(context)!
-//        CVPixelBufferUnlockBaseAddress(imageBuffer, 0)
-//
-//        let frame = UIImage(CGImage: quartzImage)
+        // let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)!
+        // CVPixelBufferLockBaseAddress(imageBuffer, 0)
+        //
+        // let baseAddress = CVPixelBufferGetBaseAddress(imageBuffer)
+        // let bytesPerRow = CVPixelBufferGetBytesPerRow(imageBuffer)
+        // let width = CVPixelBufferGetWidth(imageBuffer)
+        // let height = CVPixelBufferGetHeight(imageBuffer)
+        //
+        // let colorSpace = CGColorSpaceCreateDeviceRGB()!
+        // let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.PremultipliedFirst.rawValue).rawValue
+        // let context = CGBitmapContextCreate(baseAddress, width, height, 8, bytesPerRow, colorSpace, bitmapInfo)
+        //
+        // let quartzImage = CGBitmapContextCreateImage(context)!
+        // CVPixelBufferUnlockBaseAddress(imageBuffer, 0)
+        //
+        // let frame = UIImage(CGImage: quartzImage)
     }
 
     // MARK: AVCaptureMetadataOutputObjectsDelegate

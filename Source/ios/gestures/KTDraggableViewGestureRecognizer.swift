@@ -90,26 +90,23 @@ public class KTDraggableViewGestureRecognizer: UIGestureRecognizer {
                     duration = 0.0
                     delay = 0.0
                 }
-                
-                UIView.animate(withDuration: duration, delay: delay, options: .curveEaseOut,
-                    animations: {
-                        self.initialView.frame = self.initialFrame
+
+                UIView.animate(withDuration: duration, delay: delay, options: .curveEaseOut, animations: {
+                    self.initialView.frame = self.initialFrame
+                    self.initialView.alpha = self.initialAlpha
+                }, completion: { _ in
+                    if self.superviewChanged {
+                        let window = UIApplication.shared.keyWindow!
+                        self.initialView.removeFromSuperview()
+
+                        self.initialView.frame = window.convert(self.initialView.frame, to: self.initialSuperview)
                         self.initialView.alpha = self.initialAlpha
-                    },
-                    completion: { _ in
-                        if self.superviewChanged {
-                            let window = UIApplication.shared.keyWindow!
-                            self.initialView.removeFromSuperview()
-
-                            self.initialView.frame = window.convert(self.initialView.frame, to: self.initialSuperview)
-                            self.initialView.alpha = self.initialAlpha
-                            self.initialSuperview.addSubview(self.initialView)
-                            self.initialSuperview.bringSubview(toFront: self.initialView)
-                        }
-
-                        self.cleanup()
+                        self.initialSuperview.addSubview(self.initialView)
+                        self.initialSuperview.bringSubview(toFront: self.initialView)
                     }
-                )
+
+                    self.cleanup()
+                })
             } else {
                 cleanup()
             }
