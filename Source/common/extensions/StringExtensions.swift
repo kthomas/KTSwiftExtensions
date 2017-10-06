@@ -31,7 +31,7 @@ public extension String {
         return replaceString(" ", withString: "+").addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
     }
 
-    fileprivate func toJSONAnyObject() -> AnyObject! {
+    fileprivate func toJSONAnyObject() -> AnyObject? {
         do {
             let data = self.data(using: String.Encoding.utf8)
             let jsonObject = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
@@ -42,14 +42,14 @@ public extension String {
         }
     }
 
-    func toJSONArray() -> [AnyObject]! {
+    func toJSONArray() -> [AnyObject]? {
         if let arr = toJSONAnyObject() as? [AnyObject] {
             return arr as [AnyObject]
         }
         return nil
     }
 
-    func toJSONObject() -> [String: AnyObject]! {
+    func toJSONObject() -> [String: AnyObject]? {
         if let obj = toJSONAnyObject() as? [String: AnyObject] {
             return obj as [String: AnyObject]
         }

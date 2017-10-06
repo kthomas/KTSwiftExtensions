@@ -72,7 +72,7 @@ public extension UIView {
         layer.cornerRadius = radius
     }
 
-    func toImage() -> UIImage! {
+    func toImage() -> UIImage {
         var image: UIImage!
         var viewBounds = bounds
         if viewBounds.size == CGSize.zero {

@@ -37,7 +37,7 @@ public class KTCameraViewController: UIViewController, KTCameraViewDelegate {
 
     @IBOutlet public weak var button: UIButton!
 
-    fileprivate var activeCameraView: KTCameraView! {
+    fileprivate var activeCameraView: KTCameraView {
         switch mode {
         case .back:
             return backCameraView
@@ -101,12 +101,12 @@ public class KTCameraViewController: UIViewController, KTCameraViewDelegate {
     }
 
     deinit {
-        activeCameraView?.stopCapture()
+        activeCameraView.stopCapture()
     }
 
     func capture() {
         button?.isEnabled = false
-        activeCameraView?.capture()
+        activeCameraView.capture()
     }
 
     func setupBackCameraView() {
@@ -170,7 +170,7 @@ public class KTCameraViewController: UIViewController, KTCameraViewDelegate {
 
         DispatchQueue.main.async {
             self.button?.frame.origin.y = self.view.frame.height - 8.0 - self.button.frame.height
-            self.activeCameraView?.setCapturePreviewOrientationWithDeviceOrientation(UIDevice.current.orientation, size: size)
+            self.activeCameraView.setCapturePreviewOrientationWithDeviceOrientation(UIDevice.current.orientation, size: size)
         }
     }
 

@@ -65,14 +65,14 @@ public class KTCameraView: UIView,
 
     fileprivate var stillCameraOutput: AVCaptureStillImageOutput!
 
-    fileprivate var backCamera: AVCaptureDevice! {
+    fileprivate var backCamera: AVCaptureDevice? {
         for device in AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo) where (device as AnyObject).position == .back {
-            return device as! AVCaptureDevice
+            return device as? AVCaptureDevice
         }
         return nil
     }
 
-    fileprivate var frontCamera: AVCaptureDevice! {
+    fileprivate var frontCamera: AVCaptureDevice? {
         for device in AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo) where (device as AnyObject).position == .front {
             return device as? AVCaptureDevice
         }
@@ -83,7 +83,7 @@ public class KTCameraView: UIView,
         return captureSession?.isRunning ?? false
     }
 
-    fileprivate var mic: AVCaptureDevice! {
+    fileprivate var mic: AVCaptureDevice {
         return AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeAudio)
     }
 
@@ -210,7 +210,7 @@ public class KTCameraView: UIView,
             let connection = audioDataOutput.connections[0] as! AVCaptureConnection
             let channels = connection.audioChannels
 
-            for channel in channels! {
+            for channel in channels ?? [] {
                 let avg = (channel as AnyObject).averagePowerLevel
                 let peak = (channel as AnyObject).peakHoldLevel
 

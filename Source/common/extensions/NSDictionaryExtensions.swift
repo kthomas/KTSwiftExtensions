@@ -10,7 +10,7 @@ import Foundation
 
 public extension NSDictionary {
 
-    func toJSON() -> String! {
+    func toJSON() -> String {
         let jsonData = encodeJSON(self)
         return NSString(bytes: (jsonData as NSData).bytes, length: jsonData.count, encoding: String.Encoding.utf8.rawValue) as! String
     }

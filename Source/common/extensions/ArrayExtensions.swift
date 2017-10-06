@@ -29,7 +29,7 @@ public extension Array {
         return nil
     }
 
-    func toJSON() -> String! {
+    func toJSON() -> String {
         let jsonData = encodeJSON(self as AnyObject)
         return NSString(bytes: (jsonData as NSData).bytes, length: jsonData.count, encoding: String.Encoding.utf8.rawValue) as! String
     }

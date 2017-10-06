@@ -37,7 +37,7 @@ public extension MKPolygon {
 
         var result = MKPolygon.areaWithPoints(points)
 
-        for interior in interiorPolygons! {
+        for interior in interiorPolygons ?? [] {
             result -= interior.area
         }
 

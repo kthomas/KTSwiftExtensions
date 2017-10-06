@@ -14,21 +14,21 @@ public extension UIImage {
         self.init(named: imageName)
     }
 
-    class func imageFromDataURL(_ dataURL: URL) -> UIImage! {
+    class func imageFromDataURL(_ dataURL: URL) -> UIImage? {
         if let data = try? Data(contentsOf: dataURL) {
             return UIImage(data: data)
         }
         return nil
     }
 
-    func crop(_ rect: CGRect) -> UIImage! {
+    func crop(_ rect: CGRect) -> UIImage? {
         if let image = cgImage?.cropping(to: rect) {
             return UIImage(cgImage: image)
         }
         return nil
     }
 
-    func resize(_ rect: CGRect) -> UIImage! {
+    func resize(_ rect: CGRect) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
         draw(in: rect)
         let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
@@ -36,7 +36,7 @@ public extension UIImage {
         return resizedImage
     }
 
-    func scaledToWidth(_ width: CGFloat) -> UIImage! {
+    func scaledToWidth(_ width: CGFloat) -> UIImage? {
         let originalWidth = self.size.width
         let scale = width / originalWidth
         let height = self.size.height * scale

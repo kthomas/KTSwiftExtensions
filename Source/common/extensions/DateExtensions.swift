@@ -10,7 +10,7 @@ import Foundation
 
 public extension Date {
 
-    static func fromString(_ string: String!) -> Date! {
+    static func fromString(_ string: String) -> Date? {
         let dateFormatter = DateFormatter("yyyy-MM-dd'T'HH:mm:ssZZ")
         return dateFormatter.date(from: string)
     }
