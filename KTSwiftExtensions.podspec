@@ -15,10 +15,10 @@ Pod::Spec.new do |s|
   s.dependency 'JWTDecode', '~> 2.0'
   s.source_files = 'Source/common/**/*.swift'
 
-  s.ios.deployment_target = '9.3'
+  s.ios.deployment_target = '10.3'
   s.ios.source_files = 'Source/ios/**/*.swift'
   s.ios.dependency 'MBProgressHUD', '~> 1.0'
 
-  s.osx.deployment_target = '10.11'
+  s.osx.deployment_target = '10.12'
   s.osx.source_files = 'Source/osx/**/*.swift'
 end
