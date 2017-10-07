@@ -37,7 +37,7 @@ public class KTCameraViewController: UIViewController, KTCameraViewDelegate {
 
     @IBOutlet public weak var button: UIButton!
 
-    fileprivate var activeCameraView: KTCameraView {
+    private var activeCameraView: KTCameraView {
         switch mode {
         case .back:
             return backCameraView

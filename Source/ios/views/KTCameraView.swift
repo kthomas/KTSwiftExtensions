@@ -44,35 +44,35 @@ public class KTCameraView: UIView,
 
     weak var delegate: KTCameraViewDelegate?
 
-    fileprivate let avAudioOutputQueue = DispatchQueue(label: "api.avAudioOutputQueue", attributes: [])
-    fileprivate let avCameraOutputQueue = DispatchQueue(label: "api.avCameraOutputQueue", attributes: [])
-    fileprivate let avMetadataOutputQueue = DispatchQueue(label: "api.avMetadataOutputQueue", attributes: [])
-    fileprivate let avVideoOutputQueue = DispatchQueue(label: "api.avVideoOutputQueue", attributes: [])
+    private let avAudioOutputQueue = DispatchQueue(label: "api.avAudioOutputQueue", attributes: [])
+    private let avCameraOutputQueue = DispatchQueue(label: "api.avCameraOutputQueue", attributes: [])
+    private let avMetadataOutputQueue = DispatchQueue(label: "api.avMetadataOutputQueue", attributes: [])
+    private let avVideoOutputQueue = DispatchQueue(label: "api.avVideoOutputQueue", attributes: [])
 
-    fileprivate var captureInput: AVCaptureInput!
-    fileprivate var captureSession: AVCaptureSession!
+    private var captureInput: AVCaptureInput!
+    private var captureSession: AVCaptureSession!
 
-    fileprivate var capturePreviewLayer: AVCaptureVideoPreviewLayer!
-    fileprivate var codeDetectionLayer: CALayer!
+    private var capturePreviewLayer: AVCaptureVideoPreviewLayer!
+    private var codeDetectionLayer: CALayer!
 
-    fileprivate var capturePreviewOrientation: AVCaptureVideoOrientation!
+    private var capturePreviewOrientation: AVCaptureVideoOrientation!
 
-    fileprivate var audioDataOutput: AVCaptureAudioDataOutput!
-    fileprivate var audioLevelsPollingTimer: Timer!
+    private var audioDataOutput: AVCaptureAudioDataOutput!
+    private var audioLevelsPollingTimer: Timer!
 
-    fileprivate var videoDataOutput: AVCaptureVideoDataOutput!
-    fileprivate var videoFileOutput: AVCaptureMovieFileOutput!
+    private var videoDataOutput: AVCaptureVideoDataOutput!
+    private var videoFileOutput: AVCaptureMovieFileOutput!
 
-    fileprivate var stillCameraOutput: AVCaptureStillImageOutput!
+    private var stillCameraOutput: AVCaptureStillImageOutput!
 
-    fileprivate var backCamera: AVCaptureDevice? {
+    private var backCamera: AVCaptureDevice? {
         for device in AVCaptureDevice.devices(for: .video) where (device as AnyObject).position == .back {
             return device
         }
         return nil
     }
 
-    fileprivate var frontCamera: AVCaptureDevice? {
+    private var frontCamera: AVCaptureDevice? {
         for device in AVCaptureDevice.devices(for: .video) where (device as AnyObject).position == .front {
             return device
         }
@@ -83,15 +83,15 @@ public class KTCameraView: UIView,
         return captureSession?.isRunning ?? false
     }
 
-    fileprivate var mic: AVCaptureDevice {
+    private var mic: AVCaptureDevice {
         return AVCaptureDevice.default(for: .audio)!
     }
 
-    fileprivate var outputFaceMetadata: Bool {
+    private var outputFaceMetadata: Bool {
         return delegate?.cameraViewShouldOutputFaceMetadata(self) ?? false
     }
 
-    fileprivate var recording = false {
+    private var recording = false {
         didSet {
             if recording == true {
                 startAudioLevelsPollingTimer()
@@ -101,7 +101,7 @@ public class KTCameraView: UIView,
         }
     }
 
-    fileprivate var renderFacialRecognition: Bool {
+    private var renderFacialRecognition: Bool {
         return delegate?.cameraViewShouldRenderFacialRecognition(self) ?? false
     }
 
@@ -112,7 +112,7 @@ public class KTCameraView: UIView,
         backgroundColor = UIColor.clear
     }
 
-    fileprivate func configureAudioSession() {
+    private func configureAudioSession() {
         guard let delegate = delegate else { return }
 
         if delegate.cameraViewShouldEstablishAudioSession(self) {
@@ -130,7 +130,7 @@ public class KTCameraView: UIView,
         }
     }
 
-    fileprivate func configureFacialRecognition() {
+    private func configureFacialRecognition() {
         if outputFaceMetadata {
             let metadataOutput = AVCaptureMetadataOutput()
             captureSession.addOutput(metadataOutput)
@@ -146,14 +146,14 @@ public class KTCameraView: UIView,
         }
     }
 
-    fileprivate func configurePhotoSession() {
+    private func configurePhotoSession() {
         stillCameraOutput = AVCaptureStillImageOutput()
         if captureSession.canAddOutput(stillCameraOutput) {
             captureSession.addOutput(stillCameraOutput)
         }
     }
 
-    fileprivate func configureVideoSession() {
+    private func configureVideoSession() {
         if let delegate = delegate, delegate.cameraViewShouldEstablishVideoSession(self) {
             videoDataOutput = AVCaptureVideoDataOutput()
             var settings = [AnyHashable: Any]()
@@ -168,12 +168,12 @@ public class KTCameraView: UIView,
         }
     }
 
-    fileprivate func startAudioLevelsPollingTimer() {
+    private func startAudioLevelsPollingTimer() {
         audioLevelsPollingTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(KTCameraView.pollForAudioLevels), userInfo: nil, repeats: true)
         audioLevelsPollingTimer.fire()
     }
 
-    fileprivate func stopAudioLevelsPollingTimer() {
+    private func stopAudioLevelsPollingTimer() {
         if let timer = audioLevelsPollingTimer {
             timer.invalidate()
             audioLevelsPollingTimer = nil
@@ -318,7 +318,7 @@ public class KTCameraView: UIView,
         }
     }
 
-    fileprivate func captureFrame() {
+    private func captureFrame() {
         delegate?.cameraViewBeganAsyncStillImageCapture(self)
 
         if isSimulator() {
@@ -353,7 +353,7 @@ public class KTCameraView: UIView,
         }
     }
 
-    fileprivate func captureVideo() {
+    private func captureVideo() {
         if isSimulator() {
             return
         }
@@ -436,13 +436,13 @@ public class KTCameraView: UIView,
         }
     }
 
-    fileprivate func clearDetectedMetadataObjects() {
+    private func clearDetectedMetadataObjects() {
         if let codeDetectionLayer = codeDetectionLayer {
             codeDetectionLayer.sublayers = nil
         }
     }
 
-    fileprivate func showDetectedMetadataObjects(_ metadataObjects: [Any]!) {
+    private func showDetectedMetadataObjects(_ metadataObjects: [Any]!) {
         for object in metadataObjects {
             if let metadataFaceObject = object as? AVMetadataFaceObject, let detectedCode = capturePreviewLayer.transformedMetadataObject(for: metadataFaceObject) as? AVMetadataFaceObject {
                 let shapeLayer = CAShapeLayer()

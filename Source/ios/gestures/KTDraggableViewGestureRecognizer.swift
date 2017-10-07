@@ -25,18 +25,18 @@ public class KTDraggableViewGestureRecognizer: UIGestureRecognizer {
     var initialAlpha: CGFloat!
     var touchesBeganTimestamp: Date!
 
-    fileprivate var superviewChanged: Bool {
+    private var superviewChanged: Bool {
         if let initialView = initialView, let initialSuperview = initialSuperview {
             return initialView.superview != initialSuperview
         }
         return false
     }
 
-    fileprivate var gestureInProgress: Bool {
+    private var gestureInProgress: Bool {
         return touchesBeganTimestamp != nil
     }
 
-    fileprivate func cleanup() {
+    private func cleanup() {
         initialView = nil
         initialSuperview = nil
         initialFrame = nil
@@ -130,7 +130,7 @@ public class KTDraggableViewGestureRecognizer: UIGestureRecognizer {
         applyTouches(touches)
     }
 
-    fileprivate func applyTouches(_ touches: Set<UITouch>) {
+    private func applyTouches(_ touches: Set<UITouch>) {
         var xOffset: CGFloat = 0
         var yOffset: CGFloat = 0
 

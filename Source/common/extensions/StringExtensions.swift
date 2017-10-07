@@ -31,7 +31,7 @@ public extension String {
         return replaceString(" ", withString: "+").addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
     }
 
-    fileprivate func toJSONAnyObject() -> AnyObject? {
+    private func toJSONAnyObject() -> AnyObject? {
         do {
             let data = self.data(using: String.Encoding.utf8)
             let jsonObject = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
