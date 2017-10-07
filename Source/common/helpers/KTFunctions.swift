@@ -6,7 +6,7 @@
 //  Copyright © 2016 Kyle Thomas. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public typealias VoidBlock = () -> Void
 
