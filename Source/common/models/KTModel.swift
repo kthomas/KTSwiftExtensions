@@ -16,7 +16,7 @@ public class KTModel: NSObject, Mappable {
 
         var ivarStrings = [String]()
         for i in 0..<count {
-            let key = NSString(cString: ivar_getName(ivars[Int(i)]), encoding: String.Encoding.utf8.rawValue) as! String
+            let key = NSString(cString: ivar_getName(ivars[Int(i)]), encoding: String.Encoding.utf8.rawValue)! as String
             ivarStrings.append(key)
         }
         ivars.deallocate(capacity: Int(count))
@@ -24,7 +24,7 @@ public class KTModel: NSObject, Mappable {
     }
 
     public override var description: String {
-        return "\(toJSONString(prettyPrint: true))"
+        return "\(toJSONString(prettyPrint: true)!)"
     }
 
     public override required init() {

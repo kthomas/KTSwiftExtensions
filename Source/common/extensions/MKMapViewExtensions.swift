@@ -16,7 +16,7 @@ public extension MKMapView {
     // MARK: Map conversion methods
 
     func degToRad(_ deg: Double) -> Double {
-        return deg * M_PI / 180.0
+        return deg * .pi / 180.0
     }
 
     func longitudeToPixelSpaceX(_ longitude: Double) -> Double {
@@ -34,7 +34,7 @@ public extension MKMapView {
     }
 
     func pixelSpaceYToLatitude(_ y: Double) -> Double {
-        return (M_PI / 2.0 - 2.0 * atan(exp((round(y) - mercatorOffset) / mercatorRadius))) * 180.0 / M_PI
+        return (.pi / 2.0 - 2.0 * atan(exp((round(y) - mercatorOffset) / mercatorRadius))) * 180.0 / M_PI
     }
 
     // MARK: Helper methods

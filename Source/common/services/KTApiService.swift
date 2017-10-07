@@ -123,7 +123,7 @@ public class KTApiService: NSObject {
                         }
                     }
                 }
-            } else if let error = error as? NSError {
+            } else if let error = error as NSError? {
                 if error.code == -6006 {
                     request.responseData { dataResponse in
                         let statusCode = dataResponse.response!.statusCode

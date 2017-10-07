@@ -129,9 +129,9 @@ public func stringFromFile(_ fileName: String, bundlePath: String? = nil, bundle
     let filePath = bundle.path(forResource: resourceName, ofType: type, inDirectory: bundlePath)
     assert(filePath != nil, "File not found: \(resourceName).\(type)")
 
-    let fileAsString: NSString?
+    let fileAsString: String?
     do {
-        fileAsString = try NSString(contentsOfFile: filePath!, encoding: String.Encoding.utf8.rawValue)
+        fileAsString = try String(contentsOfFile: filePath!, encoding: String.Encoding.utf8)
     } catch let error as NSError {
         logError(error.localizedDescription)
         fileAsString = nil
@@ -139,13 +139,13 @@ public func stringFromFile(_ fileName: String, bundlePath: String? = nil, bundle
 
     assert(fileAsString != nil)
 
-    return fileAsString as! String
+    return fileAsString ?? ""
 }
 
 public func prettyPrintedJson(_ uglyJsonStr: String?) -> String {
     if let uglyJsonString = uglyJsonStr, let uglyJson: AnyObject = try? JSONSerialization.jsonObject(with: uglyJsonString.data(using: String.Encoding.utf8)!, options: []) as AnyObject {
         let prettyPrintedJson = encodeJSON(uglyJson, options: .prettyPrinted)
-        return NSString(data: prettyPrintedJson, encoding: String.Encoding.utf8.rawValue) as! String
+        return String(data: prettyPrintedJson, encoding: String.Encoding.utf8) ?? ""
     } else {
         return ""
     }

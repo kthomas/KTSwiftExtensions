@@ -31,7 +31,7 @@ public extension Array {
 
     func toJSON() -> String {
         let jsonData = encodeJSON(self as AnyObject)
-        return NSString(bytes: (jsonData as NSData).bytes, length: jsonData.count, encoding: String.Encoding.utf8.rawValue) as! String
+        return NSString(bytes: (jsonData as NSData).bytes, length: jsonData.count, encoding: String.Encoding.utf8.rawValue)! as String
     }
 
     mutating func removeObject<U: Equatable>(_ object: U) {

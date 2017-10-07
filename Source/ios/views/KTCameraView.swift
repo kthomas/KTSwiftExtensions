@@ -346,7 +346,7 @@ public class KTCameraView: UIView,
                             self.delegate?.cameraView(self, didCaptureStillImage: image)
                         }
                     } else {
-                        logWarn("Error capturing still image \(error)")
+                        logWarn("Error capturing still image \(error!)")
                     }
                 }
             }
