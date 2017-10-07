@@ -10,8 +10,8 @@ Pod::Spec.new do |s|
   s.source_files = 'Source/**/*.swift'
 
   s.dependency 'Alamofire', '~> 4.0'
-  s.dependency 'AlamofireObjectMapper', '~> 4.0'
-  s.dependency 'ObjectMapper', '~> 2.0'
+  s.dependency 'AlamofireObjectMapper', '~> 5.0'
+  s.dependency 'ObjectMapper', '~> 3.0'
   s.dependency 'JWTDecode', '~> 2.0'
   s.source_files = 'Source/common/**/*.swift'
 
