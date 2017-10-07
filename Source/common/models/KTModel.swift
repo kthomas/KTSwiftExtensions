@@ -12,11 +12,11 @@ public class KTModel: NSObject, Mappable {
 
     var ivars: [String] {
         var count: UInt32 = 0
-        let ivars: UnsafeMutablePointer<Ivar?> = class_copyIvarList(type(of: self), &count)
+        let ivars: UnsafeMutablePointer<OpaquePointer> = class_copyIvarList(type(of: self), &count)!
 
         var ivarStrings = [String]()
         for i in 0..<count {
-            let key = NSString(cString: ivar_getName(ivars[Int(i)]), encoding: String.Encoding.utf8.rawValue)! as String
+            let key = (NSString(cString: ivar_getName(ivars[Int(i)])!, encoding: String.Encoding.utf8.rawValue)! as String) as String
             ivarStrings.append(key)
         }
         ivars.deallocate(capacity: Int(count))

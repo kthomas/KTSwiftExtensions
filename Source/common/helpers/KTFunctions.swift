@@ -154,7 +154,7 @@ public func prettyPrintedJson(_ uglyJsonStr: String?) -> String {
 public func swizzleMethodSelector(_ origSelector: String, withSelector: String, forClass: AnyClass) {
     let originalMethod = class_getInstanceMethod(forClass, Selector(origSelector))
     let swizzledMethod = class_getInstanceMethod(forClass, Selector(withSelector))
-    method_exchangeImplementations(originalMethod, swizzledMethod)
+    method_exchangeImplementations(originalMethod!, swizzledMethod!)
 }
 
 public func totalDeviceMemoryInGigabytes() -> CGFloat {

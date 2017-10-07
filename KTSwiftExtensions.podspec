@@ -22,5 +22,5 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.12'
   s.osx.source_files = 'Source/osx/**/*.swift'
 
-  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '3.2' }
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
 end

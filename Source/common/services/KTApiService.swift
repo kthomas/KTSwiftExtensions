@@ -39,7 +39,7 @@ public class KTApiService: NSObject {
             path = parts[1]
         }
         if path =~ "^(.*)s$" {
-            path = path.substring(to: path.characters.index(before: path.endIndex))
+            path = String(path.prefix(upTo: path.characters.index(before: path.endIndex)))
         }
 
         let targetName = Bundle.main.infoDictionary?["CFBundleName"] ?? ""

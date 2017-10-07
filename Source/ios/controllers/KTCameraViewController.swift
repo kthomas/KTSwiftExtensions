@@ -104,7 +104,7 @@ public class KTCameraViewController: UIViewController, KTCameraViewDelegate {
         activeCameraView.stopCapture()
     }
 
-    func capture() {
+    @objc func capture() {
         button?.isEnabled = false
         activeCameraView.capture()
     }
@@ -153,15 +153,15 @@ public class KTCameraViewController: UIViewController, KTCameraViewDelegate {
         frontCameraView?.stopCapture()
     }
 
-    func dismiss(_ sender: UIBarButtonItem) {
+    @objc func dismiss(_ sender: UIBarButtonItem) {
         delegate?.cameraViewControllerCanceled(self)
     }
 
-    func renderDefaultButtonAppearance() {
+    @objc func renderDefaultButtonAppearance() {
 
     }
 
-    func renderTappedButtonAppearance() {
+    @objc func renderTappedButtonAppearance() {
 
     }
 

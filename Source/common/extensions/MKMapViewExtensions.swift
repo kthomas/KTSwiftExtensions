@@ -20,7 +20,7 @@ public extension MKMapView {
     }
 
     func longitudeToPixelSpaceX(_ longitude: Double) -> Double {
-        return round(mercatorOffset + mercatorRadius * longitude * M_PI / 180.0)
+        return round(mercatorOffset + mercatorRadius * longitude * .pi / 180.0)
     }
 
     func latitudeToPixelSpaceY(_ latitude: Double) -> Double {
@@ -30,11 +30,11 @@ public extension MKMapView {
     }
 
     func pixelSpaceXToLongitude(_ x: Double) -> Double {
-        return ((round(x) - mercatorOffset) / mercatorRadius) * 180.0 / M_PI
+        return ((round(x) - mercatorOffset) / mercatorRadius) * 180.0 / .pi
     }
 
     func pixelSpaceYToLatitude(_ y: Double) -> Double {
-        return (.pi / 2.0 - 2.0 * atan(exp((round(y) - mercatorOffset) / mercatorRadius))) * 180.0 / M_PI
+        return (.pi / 2.0 - 2.0 * atan(exp((round(y) - mercatorOffset) / mercatorRadius))) * 180.0 / .pi
     }
 
     // MARK: Helper methods
