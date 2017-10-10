@@ -16,7 +16,7 @@ public func =~ (input: String, pattern: String) -> Bool {
 public extension String {
 
     var length: Int {
-        return lengthOfBytes(using: String.Encoding.utf8)
+        return lengthOfBytes(using: .utf8)
     }
 
     func replaceString(_ target: String, withString replacementString: String) -> String {
@@ -31,27 +31,27 @@ public extension String {
         return replaceString(" ", withString: "+").addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
     }
 
-    private func toJSONAnyObject() -> AnyObject? {
+    private func toJSONAny() -> Any? {
         do {
-            let data = self.data(using: String.Encoding.utf8)
+            let data = self.data(using: .utf8)
             let jsonObject = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
-            return jsonObject as AnyObject
+            return jsonObject
         } catch let error as NSError {
             logWarn(error.localizedDescription)
             return nil
         }
     }
 
-    func toJSONArray() -> [AnyObject]? {
-        if let arr = toJSONAnyObject() as? [AnyObject] {
-            return arr as [AnyObject]
+    func toJSONArray() -> [Any]? {
+        if let arr = toJSONAny() as? [Any] {
+            return arr
         }
         return nil
     }
 
-    func toJSONObject() -> [String: AnyObject]? {
-        if let obj = toJSONAnyObject() as? [String: AnyObject] {
-            return obj as [String: AnyObject]
+    func toJSONObject() -> [String: Any]? {
+        if let obj = toJSONAny() as? [String: Any] {
+            return obj as [String: Any]
         }
         return nil
     }

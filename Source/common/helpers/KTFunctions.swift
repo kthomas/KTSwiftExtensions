@@ -23,9 +23,9 @@ public func classNameForObject(_ object: AnyObject) -> String {
     }
 }
 
-public func decodeJSON(_ data: Data) -> [String: AnyObject] {
+public func decodeJSON(_ data: Data) -> [String: Any] {
     do {
-        return try JSONSerialization.jsonObject(with: data, options: []) as! [String: AnyObject]
+        return try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
     } catch {
         log("\(error)")
         fatalError()
@@ -45,7 +45,7 @@ public func dispatch_async_global_queue(_ qos: DispatchQoS.QoSClass = .default, 
     DispatchQueue.global(qos: qos).async(execute: block)
 }
 
-public func encodeJSON(_ input: AnyObject, options: JSONSerialization.WritingOptions = []) -> Data {
+public func encodeJSON(_ input: Any, options: JSONSerialization.WritingOptions = []) -> Data {
     let data: Data?
     do {
         data = try JSONSerialization.data(withJSONObject: input, options: options)
@@ -104,7 +104,6 @@ public func log(_ message: String, _ fileName: String = #file, _ functionName: S
 
 public func logError(_ error: NSError, fileName: String = #file, functionName: String = #function, lineNumber: Int = #line) {
     log("❌ NSError: \(error.localizedDescription)", fileName, functionName, lineNumber)
-    fatalError("Encountered: NSError: \(error)")
 }
 
 public func logError(_ errorMessage: String, fileName: String = #file, functionName: String = #function, lineNumber: Int = #line) {
@@ -131,7 +130,7 @@ public func stringFromFile(_ fileName: String, bundlePath: String? = nil, bundle
 
     let fileAsString: String?
     do {
-        fileAsString = try String(contentsOfFile: filePath!, encoding: String.Encoding.utf8)
+        fileAsString = try String(contentsOfFile: filePath!, encoding: .utf8)
     } catch let error as NSError {
         logError(error.localizedDescription)
         fileAsString = nil
@@ -143,9 +142,9 @@ public func stringFromFile(_ fileName: String, bundlePath: String? = nil, bundle
 }
 
 public func prettyPrintedJson(_ uglyJsonStr: String?) -> String {
-    if let uglyJsonString = uglyJsonStr, let uglyJson: AnyObject = try? JSONSerialization.jsonObject(with: uglyJsonString.data(using: String.Encoding.utf8)!, options: []) as AnyObject {
+    if let uglyJsonString = uglyJsonStr, let uglyJson = try? JSONSerialization.jsonObject(with: uglyJsonString.data(using: .utf8)!, options: []) {
         let prettyPrintedJson = encodeJSON(uglyJson, options: .prettyPrinted)
-        return String(data: prettyPrintedJson, encoding: String.Encoding.utf8) ?? ""
+        return String(data: prettyPrintedJson, encoding: .utf8) ?? ""
     } else {
         return ""
     }

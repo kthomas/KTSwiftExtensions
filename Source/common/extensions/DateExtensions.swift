@@ -17,7 +17,7 @@ public extension Date {
 
     static func monthNameForNumber(_ month: Int) -> String {
         let dateFormatter = DateFormatter()
-        return (dateFormatter.monthSymbols as NSArray).object(at: month - 1) as! String
+        return dateFormatter.monthSymbols[month - 1]
     }
 
     var debugDescription: String {
