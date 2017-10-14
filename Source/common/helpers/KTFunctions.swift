@@ -143,7 +143,15 @@ public func stringFromFile(_ fileName: String, bundlePath: String? = nil, bundle
 
 public func prettyPrintedJson(_ uglyJsonStr: String?) -> String {
     if let uglyJsonString = uglyJsonStr, let uglyJson = try? JSONSerialization.jsonObject(with: uglyJsonString.data(using: .utf8)!, options: []) {
-        let prettyPrintedJson = encodeJSON(uglyJson, options: .prettyPrinted)
+
+        let options: JSONSerialization.WritingOptions
+        if #available(iOS 11.0, *) {
+            options = [.prettyPrinted, .sortedKeys]
+        } else {
+            options = [.prettyPrinted]
+        }
+
+        let prettyPrintedJson = encodeJSON(uglyJson, options: options)
         return String(data: prettyPrintedJson, encoding: .utf8) ?? ""
     } else {
         return ""
