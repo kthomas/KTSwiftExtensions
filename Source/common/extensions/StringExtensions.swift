@@ -43,17 +43,11 @@ public extension String {
     }
 
     func toJSONArray() -> [Any]? {
-        if let arr = toJSONAny() as? [Any] {
-            return arr
-        }
-        return nil
+        return toJSONAny() as? [Any]
     }
 
     func toJSONObject() -> [String: Any]? {
-        if let obj = toJSONAny() as? [String: Any] {
-            return obj as [String: Any]
-        }
-        return nil
+        return toJSONAny() as? [String: Any]
     }
 
     func snakeCaseToCamelCaseString() -> String {
