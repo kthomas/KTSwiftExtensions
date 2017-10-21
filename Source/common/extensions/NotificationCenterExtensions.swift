@@ -21,16 +21,19 @@ public extension NotificationCenter {
     func addObserverForName(_ name: String?, queue: OperationQueue? = nil, usingBlock block: @escaping (Notification!) -> Void) {
         self.addObserver(forName: name.map { NSNotification.Name(rawValue: $0) }, object: nil, queue: queue, using: block)
     }
+}
 
-    class func post(name: Notification.Name, object: Any? = nil) {
+// This is a dummy class just to namespace the convenience methods
+public class KTNotificationCenter {
+    public class func post(name: Notification.Name, object: Any? = nil) {
         NotificationCenter.default.post(name: name, object: object)
     }
 
-    class func addObserver(forName name: NSNotification.Name?, object: Any? = nil, queue: OperationQueue? = nil, using block: @escaping (Notification) -> Void) {
+    public class func addObserver(forName name: NSNotification.Name?, object: Any? = nil, queue: OperationQueue? = nil, using block: @escaping (Notification) -> Void) {
         NotificationCenter.default.addObserver(forName: name, object: object, queue: queue, using: block)
     }
 
-    class func addObserver(observer: Any, selector: Selector, name: NSNotification.Name?, object: Any? = nil) {
+    public class func addObserver(observer: Any, selector: Selector, name: NSNotification.Name?, object: Any? = nil) {
         NotificationCenter.default.addObserver(observer, selector: selector, name: name, object: object)
     }
 }
