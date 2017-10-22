@@ -19,16 +19,12 @@ public extension String {
         return lengthOfBytes(using: .utf8)
     }
 
-    func replaceString(_ target: String, withString replacementString: String) -> String {
-        return replacingOccurrences(of: target, with: replacementString)
-    }
-
     var base64EncodedString: String {
         return Data(bytes: [UInt8] (utf8)).base64EncodedString(options: [])
     }
 
     func urlEncodedString() -> String {
-        return replaceString(" ", withString: "+").addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+        return replacingOccurrences(of: " ", with: "+").addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
     }
 
     private func toJSONAny() -> Any? {

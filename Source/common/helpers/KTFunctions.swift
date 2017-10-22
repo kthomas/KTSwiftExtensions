@@ -17,7 +17,7 @@ public func classNameForObject(_ object: AnyObject) -> String {
 
     if let injectBundle = ENV("XCInjectBundle") {
         let testBundleName = NSString(string: NSString(string: injectBundle).lastPathComponent).deletingPathExtension
-        return objectName.replaceString("\(testBundleName).", withString: "")
+        return objectName.replacingOccurrences(of: "\(testBundleName).", with: "")
     } else {
         return objectName.components(separatedBy: ".").last!
     }
@@ -56,7 +56,7 @@ public func ENV(_ envVarName: String) -> String? {
     if var envVarValue = envVarRawValue(envVarName) {
         if envVarValue.hasPrefix("~") {
             let userHomeDir = envVarRawValue("SIMULATOR_HOST_HOME")!
-            envVarValue = envVarValue.replaceString("~", withString: userHomeDir)
+            envVarValue = envVarValue.replacingOccurrences(of: "~", with: userHomeDir)
         }
         return envVarValue
     } else {
@@ -91,7 +91,7 @@ public func log(_ message: String, _ fileName: String = #file, _ functionName: S
     if CurrentBuildConfig == .debug {
         let timestamp = logTimestampDateFormatter.string(from: Date())
         var fileAndMethod = "[\(timestamp)] [\(NSString(string: NSString(string: fileName).lastPathComponent).deletingPathExtension):\(lineNumber)] "
-        fileAndMethod = fileAndMethod.replaceString("ViewController", withString: "VC")
+        fileAndMethod = fileAndMethod.replacingOccurrences(of: "ViewController", with: "VC")
         fileAndMethod = fileAndMethod.padding(toLength: 38, withPad: "-", startingAt: 0)
         let logStatement = "\(fileAndMethod)--> \(message)"
         print(logStatement)
