@@ -12,7 +12,7 @@ public extension Dictionary {
 
     func toJSONString() -> String {
         let jsonData = encodeJSON(self)
-        return NSString(bytes: (jsonData as NSData).bytes, length: jsonData.count, encoding: String.Encoding.utf8.rawValue)! as String
+        return String(data: jsonData, encoding: .utf8)!
     }
 
     func toQueryString() -> String {

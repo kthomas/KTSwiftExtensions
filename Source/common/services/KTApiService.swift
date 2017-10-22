@@ -101,7 +101,7 @@ public class KTApiService: NSObject {
                                 obj = KTError()
                                 (obj as! KTModel).mapping(map: map)
 
-                                log("\(statusCode) response included error payload:\n\((obj as! KTModel).toJSON())")
+                                log("\(statusCode) response included error payload:\n\((obj as! KTModel).toJSONString())")
                             }
 
                             DispatchQueue.main.async {
