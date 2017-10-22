@@ -37,10 +37,6 @@ public func dispatch_after_delay(_ seconds: Double, block: @escaping () -> Void)
     DispatchQueue.main.asyncAfter(deadline: delay, execute: block)
 }
 
-public func dispatch_async_main_queue(_ block: @escaping () -> Void) {
-    DispatchQueue.main.async(execute: block)
-}
-
 public func dispatch_async_global_queue(_ qos: DispatchQoS.QoSClass = .default, block: @escaping () -> Void) {
     DispatchQueue.global(qos: qos).async(execute: block)
 }
