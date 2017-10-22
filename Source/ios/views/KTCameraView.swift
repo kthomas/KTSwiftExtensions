@@ -229,7 +229,7 @@ public class KTCameraView: UIView,
         }
 
         if AVCaptureDevice.authorizationStatus(for: AVMediaType.video) == .notDetermined {
-            NotificationCenter.default.postNotificationName("ApplicationWillRequestMediaAuthorization")
+            KTNotificationCenter.post(name: .ApplicationWillRequestMediaAuthorization)
         }
 
         do {

@@ -90,7 +90,7 @@ public class KTApiService: NSObject {
 
                             switch statusCode {
                             case 401:
-                                NotificationCenter.default.postNotificationName("ApplicationUserShouldLogout")
+                                KTNotificationCenter.post(name: .ApplicationUserShouldLogout)
 
                             default:
                                 break
@@ -147,3 +147,9 @@ public class KTApiService: NSObject {
         }
     }
 }
+
+extension NSNotification.Name {
+    static let ApplicationUserShouldLogout = NSNotification.Name("ApplicationUserShouldLogout")
+    static let ApplicationWillRequestMediaAuthorization = Notification.Name("ApplicationWillRequestMediaAuthorization")
+}
+
