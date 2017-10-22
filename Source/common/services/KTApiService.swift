@@ -152,4 +152,3 @@ extension NSNotification.Name {
     static let ApplicationUserShouldLogout = NSNotification.Name("ApplicationUserShouldLogout")
     static let ApplicationWillRequestMediaAuthorization = Notification.Name("ApplicationWillRequestMediaAuthorization")
 }
-
