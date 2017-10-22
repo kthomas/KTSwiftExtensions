@@ -11,13 +11,11 @@ import Foundation
 public extension Date {
 
     static func fromString(_ string: String) -> Date? {
-        let dateFormatter = DateFormatter("yyyy-MM-dd'T'HH:mm:ssZZ")
-        return dateFormatter.date(from: string)
+        return DateFormatter("yyyy-MM-dd'T'HH:mm:ssZZ").date(from: string)
     }
 
     static func monthNameForNumber(_ month: Int) -> String {
-        let dateFormatter = DateFormatter()
-        return dateFormatter.monthSymbols[month - 1]
+        return DateFormatter().monthSymbols[month - 1]
     }
 
     var debugDescription: String {
@@ -25,8 +23,7 @@ public extension Date {
     }
 
     var timeString: String? {
-        let dateFormatter = DateFormatter("hh:mm a")
-        return dateFormatter.string(from: self)
+        return DateFormatter("hh:mm a").string(from: self)
     }
 
     var hour: Int {
@@ -50,8 +47,7 @@ public extension Date {
     }
 
     var monthName: String {
-        let dateFormatter = DateFormatter("MMMM")
-        return dateFormatter.string(from: self)
+        return DateFormatter("MMMM").string(from: self)
     }
 
     var atMidnight: Date {
@@ -73,13 +69,11 @@ public extension Date {
     }
 
     var dayOfWeek: String {
-        let dateFormatter = DateFormatter("EEEE")
-        return dateFormatter.string(from: self)
+        return DateFormatter("EEEE").string(from: self)
     }
 
     var yearString: String {
-        let dateFormatter = DateFormatter("yyyy")
-        return dateFormatter.string(from: self)
+        return DateFormatter("yyyy").string(from: self)
     }
 
     func format(_ dateFormat: String) -> String {
