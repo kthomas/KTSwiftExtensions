@@ -77,15 +77,15 @@ public extension String {
     }
 
     func containsOneOrMoreNumbers() -> Bool {
-        return rangeOfCharacter(from: CharacterSet.decimalDigits) != nil
+        return rangeOfCharacter(from: .decimalDigits) != nil
     }
 
     func containsOneOrMoreUppercaseLetters() -> Bool {
-        return rangeOfCharacter(from: CharacterSet.uppercaseLetters) != nil
+        return rangeOfCharacter(from: .uppercaseLetters) != nil
     }
 
     func containsOneOrMoreLowercaseLetters() -> Bool {
-        return rangeOfCharacter(from: CharacterSet.lowercaseLetters) != nil
+        return rangeOfCharacter(from: .lowercaseLetters) != nil
     }
 
     func isDigit() -> Bool {
@@ -103,7 +103,7 @@ public extension String {
         var range = NSRange(location: 0, length: 0)
         var str = NSString(string: self)
         while range.location != NSNotFound {
-            range = str.range(of: "<[^>]+>", options: NSString.CompareOptions.regularExpression)
+            range = str.range(of: "<[^>]+>", options: .regularExpression)
             if range.location != NSNotFound {
                 str = str.replacingCharacters(in: range, with: "") as NSString
             }

@@ -53,14 +53,14 @@ public extension UIView {
     func disableTapToDismissKeyboard() {
         if let gestureRecognizers = gestureRecognizers {
             for gestureRecognizer in gestureRecognizers {
-                (gestureRecognizer as UIGestureRecognizer).removeTarget(self, action: #selector(UIView.endEditing(_:)))
+                (gestureRecognizer as UIGestureRecognizer).removeTarget(self, action: #selector(endEditing))
             }
         }
     }
 
     func enableTapToDismissKeyboard() {
         disableTapToDismissKeyboard()
-        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIView.endEditing(_:))))
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(endEditing)))
     }
 
     func makeCircular() {
@@ -83,7 +83,7 @@ public extension UIView {
     func toImage() -> UIImage {
         var image: UIImage!
         var viewBounds = bounds
-        if viewBounds.size == CGSize.zero {
+        if viewBounds.size == .zero {
             if layer.isKind(of: CAShapeLayer.self) {
                 if let path = (layer as! CAShapeLayer).path {
                     viewBounds = path.boundingBoxOfPath

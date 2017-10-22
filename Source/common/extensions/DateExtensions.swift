@@ -51,7 +51,7 @@ public extension Date {
     }
 
     var atMidnight: Date {
-        let components = NSCalendar.Unit.year.union(NSCalendar.Unit.month).union(NSCalendar.Unit.day)
+        let components = NSCalendar.Unit.year.union(.month).union(.day)
         let componentsWithoutTime = (Calendar.current as NSCalendar).components(components, from: self)
         return Calendar.current.date(from: componentsWithoutTime)!
     }

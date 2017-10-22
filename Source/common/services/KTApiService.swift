@@ -23,7 +23,7 @@ public class KTApiService: NSObject {
     public required override init() {
         super.init()
 
-        dispatchQueue = DispatchQueue(label: "api.dispatchQueue", attributes: DispatchQueue.Attributes.concurrent)
+        dispatchQueue = DispatchQueue(label: "api.dispatchQueue", attributes: .concurrent)
     }
 
     public func objectClassForPath(_ path: String) -> AnyClass? {

@@ -61,7 +61,7 @@ public class KTCameraViewController: UIViewController, KTCameraViewDelegate {
     override public func viewDidLoad() {
         super.viewDidLoad()
 
-        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(KTCameraViewController.dismiss(_:)))
+        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(dismiss))
         view.addGestureRecognizer(swipeGestureRecognizer)
 
         view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
@@ -75,10 +75,10 @@ public class KTCameraViewController: UIViewController, KTCameraViewDelegate {
 
         view.bringSubview(toFront: button)
 
-        button.addTarget(self, action: #selector(KTCameraViewController.capture), for: .touchUpInside)
+        button.addTarget(self, action: #selector(capture), for: .touchUpInside)
         let events = UIControlEvents.touchUpInside.union(.touchUpOutside).union(.touchCancel).union(.touchDragExit)
-        button.addTarget(self, action: #selector(KTCameraViewController.renderDefaultButtonAppearance), for: events)
-        button.addTarget(self, action: #selector(KTCameraViewController.renderTappedButtonAppearance), for: .touchDown)
+        button.addTarget(self, action: #selector(renderDefaultButtonAppearance), for: events)
+        button.addTarget(self, action: #selector(renderTappedButtonAppearance), for: .touchDown)
 
         button.addBorder(5.0, color: UIColor.white)
         button.makeCircular()

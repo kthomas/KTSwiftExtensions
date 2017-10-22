@@ -103,7 +103,7 @@ public class KTCameraView: UIView,
         super.awakeFromNib()
 
         isOpaque = false
-        backgroundColor = UIColor.clear
+        backgroundColor = .clear
     }
 
     private func configureAudioSession() {
@@ -163,7 +163,7 @@ public class KTCameraView: UIView,
     }
 
     private func startAudioLevelsPollingTimer() {
-        audioLevelsPollingTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(KTCameraView.pollForAudioLevels), userInfo: nil, repeats: true)
+        audioLevelsPollingTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(pollForAudioLevels), userInfo: nil, repeats: true)
         audioLevelsPollingTimer.fire()
     }
 
@@ -228,7 +228,7 @@ public class KTCameraView: UIView,
             stopCapture()
         }
 
-        if AVCaptureDevice.authorizationStatus(for: AVMediaType.video) == .notDetermined {
+        if AVCaptureDevice.authorizationStatus(for: .video) == .notDetermined {
             KTNotificationCenter.post(name: .ApplicationWillRequestMediaAuthorization)
         }
 
