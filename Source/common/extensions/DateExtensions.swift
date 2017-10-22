@@ -27,11 +27,11 @@ public extension Date {
     }
 
     var hour: Int {
-        return (Calendar.current as NSCalendar).components(.hour, from: self).hour!
+        return Calendar.current.component(.hour, from: self)
     }
 
     var minutes: Int {
-        return (Calendar.current as NSCalendar).components(.minute, from: self).minute!
+        return Calendar.current.component(.minute, from: self)
     }
 
     var minutesString: String {
@@ -57,7 +57,7 @@ public extension Date {
     }
 
     var month: Int {
-        return (Calendar.current as NSCalendar).components(.month, from: self).month!
+        return Calendar.current.component(.month, from: self)
     }
 
     var dayOfMonth: Int {
@@ -65,7 +65,7 @@ public extension Date {
     }
 
     var year: Int {
-        return (Calendar.current as NSCalendar).components(.year, from: self).year!
+        return Calendar.current.component(.year, from: self)
     }
 
     var dayOfWeek: String {
