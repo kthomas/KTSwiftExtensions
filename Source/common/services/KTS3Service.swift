@@ -28,9 +28,7 @@ public class KTS3Service: NSObject {
                               successHandler: KTApiSuccessHandler?,
                               failureHandler: KTApiFailureHandler?) {
         var params = ["filename": filename, "metadata": metadata.toJSONString()]
-        if let bucket = bucket {
-            params["bucket"] = bucket
-        }
+        params["bucket"] = bucket
         let request: DataRequest = Alamofire.request(url, method: .get, parameters: params, headers: headers)
         KTApiService.shared.execute(request, successHandler: successHandler, failureHandler: failureHandler)
     }

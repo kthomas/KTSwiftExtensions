@@ -48,9 +48,7 @@ public extension UIViewController {
     }
 
     func hideHUD(inView view: UIView!) {
-        if let hud = MBProgressHUD(for: view) {
-            hud.hide(animated: true)
-        }
+        MBProgressHUD(for: view)?.hide(animated: true)
     }
 
     func hideHUDWithText(_ text: String, completion: VoidBlock? = nil) {
