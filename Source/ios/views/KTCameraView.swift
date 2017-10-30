@@ -44,7 +44,6 @@ public class KTCameraView: UIView,
 
     weak var delegate: KTCameraViewDelegate?
 
-    private let avAudioOutputQueue = DispatchQueue(label: "api.avAudioOutputQueue", attributes: [])
     private let avCameraOutputQueue = DispatchQueue(label: "api.avCameraOutputQueue", attributes: [])
     private let avMetadataOutputQueue = DispatchQueue(label: "api.avMetadataOutputQueue", attributes: [])
     private let avVideoOutputQueue = DispatchQueue(label: "api.avVideoOutputQueue", attributes: [])
