@@ -30,11 +30,11 @@ public extension UIView {
         layer.shadowOffset = CGSize(width: 1.0, height: 2.0)
     }
 
-    func addDropShadow(_ size: CGSize, radius: CGFloat, opacity: CGFloat) {
+    func addDropShadow(width: CGFloat = 1, height: CGFloat = 1, radius: CGFloat, opacity: CGFloat) {
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = Float(opacity)
         layer.shadowRadius = radius
-        layer.shadowOffset = size
+        layer.shadowOffset = CGSize(width: width, height: height)
     }
 
     func addGradient(_ startColor: UIColor, endColor: UIColor, horizontal: Bool = false) {
