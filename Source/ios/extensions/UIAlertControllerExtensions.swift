@@ -23,10 +23,10 @@ public extension UIAlertController {
         alertWindow.rootViewController!.present(self, animated: animated)
     }
 
-    open override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+    open override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
 
-        if let windowLevel = UIApplication.shared.windows.last?.windowLevel, windowLevel > 1.0 {
+        if let vc = UIApplication.shared.keyWindow!.rootViewController?.presentedViewController, vc == self {
             let alertWindow = UIApplication.shared.keyWindow!
             alertWindow.rootViewController = nil
             alertWindow.isHidden = true
