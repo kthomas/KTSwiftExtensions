@@ -61,7 +61,7 @@ public extension MKMapView {
         let maxLat = pixelSpaceYToLatitude(topLeftY + scaledMapHeight)
         let latitudeDelta = -1 * (maxLat - minLat)
 
-        return MKCoordinateSpanMake(latitudeDelta, longitudeDelta)
+        return MKCoordinateSpan.init(latitudeDelta: latitudeDelta, longitudeDelta: longitudeDelta)
     }
 
     // MARK: Set center coordinate and zoom
@@ -70,7 +70,7 @@ public extension MKMapView {
         let zoomLevel = min(zoomLevel, 28)
 
         let span = coordinateSpan(centerCoordinate, zoomLevel: Double(zoomLevel))
-        let region = MKCoordinateRegionMake(centerCoordinate, span)
+        let region = MKCoordinateRegion.init(center: centerCoordinate, span: span)
 
         setRegion(region, animated: animated)
     }

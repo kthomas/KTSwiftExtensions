@@ -151,7 +151,7 @@ public class KTCameraView: UIView,
             videoDataOutput = AVCaptureVideoDataOutput()
             var settings = [AnyHashable: Any]()
             settings.updateValue(NSNumber(value: kCVPixelFormatType_32BGRA as UInt32), forKey: String(kCVPixelBufferPixelFormatTypeKey))
-            videoDataOutput.videoSettings = settings as! [String: Any]
+            videoDataOutput.videoSettings = settings as? [String: Any]
             videoDataOutput.alwaysDiscardsLateVideoFrames = true
             videoDataOutput.setSampleBufferDelegate(self, queue: avVideoOutputQueue)
 
@@ -440,7 +440,7 @@ public class KTCameraView: UIView,
                 shapeLayer.strokeColor = UIColor.green.cgColor
                 shapeLayer.fillColor = UIColor.clear.cgColor
                 shapeLayer.lineWidth = 1.0
-                shapeLayer.lineJoin = kCALineJoinRound
+                shapeLayer.lineJoin = CAShapeLayerLineJoin.round
                 shapeLayer.path = UIBezierPath(rect: detectedCode.bounds).cgPath
                 codeDetectionLayer.addSublayer(shapeLayer)
             }
