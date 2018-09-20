@@ -108,7 +108,7 @@ public extension UIView {
         return image
     }
 
-    class func transitionWithView(_ view: UIView, duration: TimeInterval = 0.3, options: UIViewAnimationOptions = .transitionCrossDissolve, animations: @escaping VoidBlock) {
+    class func transitionWithView(_ view: UIView, duration: TimeInterval = 0.3, options: UIView.AnimationOptions = .transitionCrossDissolve, animations: @escaping VoidBlock) {
         transition(with: view, duration: duration, options: options, animations: animations)
     }
 }

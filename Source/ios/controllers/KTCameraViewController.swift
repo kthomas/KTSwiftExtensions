@@ -73,10 +73,10 @@ public class KTCameraViewController: UIViewController, KTCameraViewDelegate {
     func setupCameraUI() {
         guard let button = button else { return }
 
-        view.bringSubview(toFront: button)
+        view.bringSubviewToFront(button)
 
         button.addTarget(self, action: #selector(capture), for: .touchUpInside)
-        let events = UIControlEvents.touchUpInside.union(.touchUpOutside).union(.touchCancel).union(.touchDragExit)
+        let events = UIControl.Event.touchUpInside.union(.touchUpOutside).union(.touchCancel).union(.touchDragExit)
         button.addTarget(self, action: #selector(renderDefaultButtonAppearance), for: events)
         button.addTarget(self, action: #selector(renderTappedButtonAppearance), for: .touchDown)
 
@@ -119,11 +119,11 @@ public class KTCameraViewController: UIViewController, KTCameraViewDelegate {
 
             backCameraView.setCapturePreviewOrientationWithDeviceOrientation(UIDevice.current.orientation, size: view.frame.size)
 
-            view.bringSubview(toFront: backCameraView)
+            view.bringSubviewToFront(backCameraView)
         }
 
         if let button = button {
-            view.bringSubview(toFront: button)
+            view.bringSubviewToFront(button)
         }
     }
 
@@ -137,11 +137,11 @@ public class KTCameraViewController: UIViewController, KTCameraViewDelegate {
 
             frontCameraView.setCapturePreviewOrientationWithDeviceOrientation(UIDevice.current.orientation, size: view.frame.size)
 
-            view.bringSubview(toFront: frontCameraView)
+            view.bringSubviewToFront(frontCameraView)
         }
 
         if let button = button {
-            view.bringSubview(toFront: button)
+            view.bringSubviewToFront(button)
         }
     }
 

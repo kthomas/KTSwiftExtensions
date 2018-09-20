@@ -28,7 +28,7 @@ public class KTApiService: NSObject {
 
     public func objectClassForPath(_ path: String) -> AnyClass? {
         var path = path
-        let parts = path.characters.split(separator: "/").map { String($0) }
+        let parts = path.split(separator: "/").map { String($0) }
         if parts.count > 5 {
             path = [parts[3], parts[5]].joined(separator: "/")
             path = path.components(separatedBy: "/").last!
@@ -39,7 +39,7 @@ public class KTApiService: NSObject {
             path = parts[1]
         }
         if path =~ "^(.*)s$" {
-            path = String(path.prefix(upTo: path.characters.index(before: path.endIndex)))
+            path = String(path.prefix(upTo: path.index(before: path.endIndex)))
         }
 
         let targetName = Bundle.main.infoDictionary?["CFBundleName"] ?? ""
@@ -101,7 +101,7 @@ public class KTApiService: NSObject {
                                 obj = KTError()
                                 (obj as! KTModel).mapping(map: map)
 
-                                log("\(statusCode) response included error payload:\n\((obj as! KTModel).toJSONString())")
+                                log("\(statusCode) response included error payload:\n\(String(describing: (obj as! KTModel).toJSONString()))")
                             }
 
                             DispatchQueue.main.async {
