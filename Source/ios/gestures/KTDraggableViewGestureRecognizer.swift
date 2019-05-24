@@ -102,7 +102,7 @@ public class KTDraggableViewGestureRecognizer: UIGestureRecognizer {
                         self.initialView.frame = window.convert(self.initialView.frame, to: self.initialSuperview)
                         self.initialView.alpha = self.initialAlpha
                         self.initialSuperview.addSubview(self.initialView)
-                        self.initialSuperview.bringSubviewToFront(self.initialView)
+                        self.initialSuperview.bringSubview(toFront: self.initialView)
                     }
 
                     self.cleanup()

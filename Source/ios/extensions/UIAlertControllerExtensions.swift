@@ -27,7 +27,7 @@ extension UIAlertController {
         super.viewWillDisappear(animated)
 
         let window = UIApplication.shared.keyWindow!
-        if window.windowLevel > .normal, let vc = window.rootViewController?.presentedViewController, vc == self {
+        if window.windowLevel > 0.0, let vc = window.rootViewController?.presentedViewController, vc == self {
             let alertWindow = UIApplication.shared.keyWindow!
             alertWindow.rootViewController = nil
             alertWindow.isHidden = true

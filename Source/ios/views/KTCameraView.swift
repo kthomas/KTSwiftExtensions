@@ -440,7 +440,7 @@ public class KTCameraView: UIView,
                 shapeLayer.strokeColor = UIColor.green.cgColor
                 shapeLayer.fillColor = UIColor.clear.cgColor
                 shapeLayer.lineWidth = 1.0
-                shapeLayer.lineJoin = CAShapeLayerLineJoin.round
+                shapeLayer.lineJoin = kCALineJoinRound
                 shapeLayer.path = UIBezierPath(rect: detectedCode.bounds).cgPath
                 codeDetectionLayer.addSublayer(shapeLayer)
             }
