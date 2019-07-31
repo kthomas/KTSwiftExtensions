@@ -1,11 +1,11 @@
 PODS:
   - Alamofire (5.0.0-beta.6)
-  - AlamofireObjectMapper (6.0.0):
-    - Alamofire (~> 5.0.0-beta.2)
+  - AlamofireObjectMapper (6.1.0):
+    - Alamofire (= 5.0.0-beta.6)
     - ObjectMapper (~> 3.4)
   - JWTDecode (2.3.0)
   - MBProgressHUD (1.1.0)
-  - ObjectMapper (3.4.2)
+  - ObjectMapper (3.5.1)
 
 DEPENDENCIES:
   - Alamofire
@@ -24,11 +24,11 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: cd08a4402bd12cacd0c66f23fb12fec8d6b965e4
-  AlamofireObjectMapper: 8cf0e01a1b36b485877033f8f6aa733977488da3
+  AlamofireObjectMapper: cd819bed60ad326e8920a6c524c19744e15bb237
   JWTDecode: fb77675c8049c1a7e9433c7cf448c3ce33ee4ac7
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
-  ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
+  ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
 
-PODFILE CHECKSUM: 50deee76a479fd466db78cb73d4586a75dc879d2
+PODFILE CHECKSUM: 13ffc44f1e36cd5a4144aef3bb56ffa0836c3124
 
 COCOAPODS: 1.7.5
